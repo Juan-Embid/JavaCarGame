@@ -1,5 +1,6 @@
 package es.ucm.tp1.control;
 
+import java.security.UnrecoverableKeyException;
 import java.util.Scanner;
 
 import es.ucm.tp1.logic.Game;
@@ -47,8 +48,30 @@ public class Controller {
 	}
 
 	public void run() {
-		// TODO fill your code
+		// TODO 
+		boolean endLoop = false;
+		while (endLoop != true) {
+		Scanner sc = new Scanner(System.in);
 		printGame();
-	}
-
-}
+		String readLine = sc.nextLine();
+		readLine = readLine.toLowerCase();
+		if (readLine.startsWith("h")) 
+			for (String string : HELP) 
+				System.out.println(string);	
+		else if (readLine.startsWith("i"))
+			System.out.println("hola");
+		else if (readLine.startsWith("n"))
+			System.out.println("hola"); //TODO hacer bien estas cosas
+		else if (readLine.startsWith("q"))
+			System.out.println("hola");
+		else if (readLine.startsWith("a"))
+			System.out.println("hola");
+		else if (readLine.startsWith("e")) endLoop=true;
+		else if (readLine.startsWith("r"))
+			System.out.println("hola");
+		else if (readLine.startsWith("t"))
+			System.out.println("hola");
+		else
+			System.out.println(UNKNOWN_COMMAND_MSG);
+				
+	}}}

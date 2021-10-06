@@ -1,5 +1,5 @@
-//package es.ucm.tp1.logic;
-hola
+package es.ucm.tp1.logic;
+
 import es.ucm.tp1.control.Level;
 
 public class Game {
@@ -24,7 +24,7 @@ public class Game {
 		return "";
 	}
 
-	public String positionToString(int j, int i) {
+	public String positionToString(int x, int y) {
 		return "";
 	}
 }
