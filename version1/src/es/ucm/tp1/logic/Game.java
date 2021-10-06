@@ -1,5 +1,5 @@
-package es.ucm.tp1.logic;
-
+//package es.ucm.tp1.logic;
+hola
 import es.ucm.tp1.control.Level;
 
 public class Game {
