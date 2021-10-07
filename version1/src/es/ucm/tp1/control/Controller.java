@@ -49,24 +49,26 @@ public class Controller {
 
 	public void run() {
 		// TODO 
-		boolean endLoop = false;
-		while (endLoop != true) {
+		boolean endGame = false, refreshDisplay=true;
+		while (endGame != true) {
 		Scanner sc = new Scanner(System.in);
-		printGame();
+		if(refreshDisplay) printGame();
 		String readLine = sc.nextLine();
 		readLine = readLine.toLowerCase();
 		if (readLine.startsWith("h")) 
 			for (String string : HELP) 
 				System.out.println(string);	
-		else if (readLine.startsWith("i"))
-			System.out.println("hola");
+		else if (readLine.startsWith("i")) {}
+			//System.out.println(game.getInfo());
+		// refreshDisplay = false;
 		else if (readLine.startsWith("n"))
-			System.out.println("hola"); //TODO hacer bien estas cosas
-		else if (readLine.startsWith("q"))
-			System.out.println("hola");
+			refreshDisplay=true; //TODO hacer bien estas cosas
+		else if (readLine.startsWith("q")) {}
+			//game.goUp(); // que llama al player.goUp y update()
+		// refreshDisplay = true; 
 		else if (readLine.startsWith("a"))
 			System.out.println("hola");
-		else if (readLine.startsWith("e")) endLoop=true;
+		else if (readLine.startsWith("e")) endGame=true;
 		else if (readLine.startsWith("r"))
 			System.out.println("hola");
 		else if (readLine.startsWith("t"))
@@ -74,4 +76,6 @@ public class Controller {
 		else
 			System.out.println(UNKNOWN_COMMAND_MSG);
 				
-	}}}
+	}System.out.println("[Game Over]");}
+ 	
+}
