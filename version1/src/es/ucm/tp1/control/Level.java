@@ -23,6 +23,14 @@ public enum Level {
 	}
 
 	// TODO fill your code
+	public int getVisibility() {
+		return visibility;}
+	
+	public int getLength() {
+		return length;}
+	
+	public int getWidth() {
+		return width;}
 
 	public static Level valueOfIgnoreCase(String inputString) {
 		for (Level level : Level.values()) {

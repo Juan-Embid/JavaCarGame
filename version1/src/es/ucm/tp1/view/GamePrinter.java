@@ -61,7 +61,14 @@ public class GamePrinter {
 
 	private String getInfo() {
 
-		// TODO add yout code
+		// TODO add your code
+		/*[DEBUG] Executing: el comando que hayamos metido en controller
+		 * Distance: distancia a meta
+		 * Coins: las monedas que hemos cogido
+		 * Cicle: el ciclo del juego en el que nos encontramos
+		 * Total Obstacles: el número total de obstáculos
+		 * Total coins: el número total de coins
+		 * Ellapsed Time: el tiempo que ha pasado desde que empezamos la partida*/
 		return "";
 	}
 
@@ -101,6 +108,11 @@ public class GamePrinter {
 		String s = GAME_OVER_MSG;
 		
 		// TODO your code here
+		/*Si el jugador gana se imprime: [GAME OVER] Player wins! New record!: 4.85 s
+		 *Si el jugador pierde se imprime: [GAME OVER] Player crashed! 
+		 *Si el jugador sale de la partida: [GAME OVER] Player leaves the game
+		 *
+		 *Tenemos variables para los tres mensajes*/
 		
 		return s;
 	}

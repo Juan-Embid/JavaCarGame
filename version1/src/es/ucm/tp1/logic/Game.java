@@ -3,9 +3,11 @@ package es.ucm.tp1.logic;
 import es.ucm.tp1.control.Level;
 
 public class Game {
-
+	private Level level;
+	
 	public Game(long seed, Level level) {
-		// TODO 	
+		// TODO 
+		this.level = level;
 	}
 	
 	public void toggleTest() {
@@ -13,18 +15,14 @@ public class Game {
 	}
 	
 	public int getVisibility() {
-		return 8;
-	}
+		return level.getVisibility();}
 	
 	public int getRoadWidth() {
-		return 3;
-	}
+		return level.getWidth();}
 	
 	public String getGameStatus() {
-		return "";
-	}
-
+		return ""; 	} //HARDCODED
+	
 	public String positionToString(int x, int y) {
-		return "";
-	}
+		return ""; 	} //HARDCODED
 }

@@ -51,31 +51,30 @@ public class Controller {
 		// TODO 
 		boolean endGame = false, refreshDisplay=true;
 		while (endGame != true) {
-		Scanner sc = new Scanner(System.in);
-		if(refreshDisplay) printGame();
-		String readLine = sc.nextLine();
-		readLine = readLine.toLowerCase();
-		if (readLine.startsWith("h")) 
-			for (String string : HELP) 
-				System.out.println(string);	
-		else if (readLine.startsWith("i")) {}
-			//System.out.println(game.getInfo());
-		// refreshDisplay = false;
-		else if (readLine.startsWith("n"))
-			refreshDisplay=true; //TODO hacer bien estas cosas
-		else if (readLine.startsWith("q")) {}
-			//game.goUp(); // que llama al player.goUp y update()
-		// refreshDisplay = true; 
-		else if (readLine.startsWith("a"))
-			System.out.println("hola");
-		else if (readLine.startsWith("e")) endGame=true;
-		else if (readLine.startsWith("r"))
-			System.out.println("hola");
-		else if (readLine.startsWith("t"))
-			System.out.println("hola");
-		else
-			System.out.println(UNKNOWN_COMMAND_MSG);
+			Scanner sc = new Scanner(System.in);
+			if(refreshDisplay) printGame();
+			String readLine = sc.nextLine();
+			readLine = readLine.toLowerCase();
+			if (readLine.startsWith("h")) 
+				for (String string : HELP) 
+					System.out.println(string);	
+			else if (readLine.startsWith("i")) {}
+				//System.out.println(game.getInfo());
+			// refreshDisplay = false;
+			else if (readLine.startsWith("n"))
+				refreshDisplay=true; //TODO hacer bien estas cosas
+			else if (readLine.startsWith("q")) {}
+				//game.goUp(); // que llama al player.goUp y update()
+			// refreshDisplay = true; 
+			else if (readLine.startsWith("a"))
+				System.out.println("hola");
+			else if (readLine.startsWith("e")) endGame=true;
+			else if (readLine.startsWith("r"))
+				System.out.println("hola");
+			else if (readLine.startsWith("t"))
+				System.out.println("hola");
+			else
+				System.out.println(UNKNOWN_COMMAND_MSG);
 				
-	}System.out.println("[Game Over]");}
- 	
+	}System.out.println(printer.endMessage());}  	
 }
