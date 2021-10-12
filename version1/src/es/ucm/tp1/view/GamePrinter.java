@@ -2,6 +2,7 @@ package es.ucm.tp1.view;
 
 import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.utils.*;
+import es.ucm.tp1.logic.Player; //cambiado
 
 
 public class GamePrinter {
@@ -35,8 +36,9 @@ public class GamePrinter {
 	
 	public String newLine; 
 
-	protected Game game;
+	protected Game game;	
 	
+	protected Player player; //cambiado
 
 	public GamePrinter(Game game) {
 		this.game = game;
@@ -92,6 +94,7 @@ public class GamePrinter {
 			for (int x = 0; x < game.getVisibility(); x++) {
 				str.append(StringUtils.centre(game.positionToString(x, y), CELL_SIZE))
 						.append(verticalDelimiter);
+				//PlayerPositionToString(x, y); //ADDED, 
 			}
 			if (y <  game.getRoadWidth() - 1) {
 				str.append(this.indentedLlanesSeparator);
@@ -101,6 +104,12 @@ public class GamePrinter {
 
 		return str.toString();
 	}
+	
+	/*public String PlayerPositionToString(int x, int y) { //mostramos el coche en la carretera
+		if (player.isInPosition(x, y))
+			return player.toString();
+		else
+			return "";}*/
 
 	
 	public String endMessage(){

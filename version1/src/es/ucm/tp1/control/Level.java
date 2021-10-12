@@ -31,6 +31,12 @@ public enum Level {
 	
 	public int getWidth() {
 		return width;}
+	
+	public double getCoinFrequency() {
+			return coinFrequency;}
+	
+	public double getObstacleFrequency() {
+		return obstacleFrequency;}
 
 	public static Level valueOfIgnoreCase(String inputString) {
 		for (Level level : Level.values()) {
