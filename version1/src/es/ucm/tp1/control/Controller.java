@@ -1,8 +1,8 @@
 package es.ucm.tp1.control;
 
-import java.security.UnrecoverableKeyException;
 import java.util.Scanner;
 
+import es.ucm.tp1.logic.CoinList;
 import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.view.GamePrinter;
 
@@ -48,33 +48,37 @@ public class Controller {
 	}
 
 	public void run() {
-		// TODO 
+		// TODO
 		boolean endGame = false, refreshDisplay=true;
 		while (endGame != true) {
-			Scanner sc = new Scanner(System.in);
+			// Draw
 			if(refreshDisplay) printGame();
-			String readLine = sc.nextLine();
+			
+			// User action
+			String readLine = scanner.nextLine();
 			readLine = readLine.toLowerCase();
-			if (readLine.startsWith("h")) 
+			if (readLine.equals("h") || readLine.equals("help")) 
 				for (String string : HELP) 
 					System.out.println(string);	
-			else if (readLine.startsWith("i")) {}
+			else if (readLine.equals("i") || readLine.equals("info")) {}
 				//System.out.println(game.getInfo());
 			// refreshDisplay = false;
-			else if (readLine.startsWith("n"))
+			else if (readLine.equals("n") || readLine.equals("none"))
 				refreshDisplay=true; //TODO hacer bien estas cosas
-			else if (readLine.startsWith("q")) {}
+			else if (readLine.equals("q")) {}
 				//game.goUp(); // que llama al player.goUp y update()
 			// refreshDisplay = true; 
-			else if (readLine.startsWith("a"))
+			else if (readLine.equals("a"))
 				System.out.println("hola");
-			else if (readLine.startsWith("e")) endGame=true;
-			else if (readLine.startsWith("r"))
+			else if (readLine.equals("e")) endGame=true;
+			else if (readLine.equals("r"))
 				System.out.println("hola");
-			else if (readLine.startsWith("t"))
+			else if (readLine.equals("t"))
 				System.out.println("hola");
 			else
 				System.out.println(UNKNOWN_COMMAND_MSG);
-				
+			
+			// Update
+			// Check end
 	}System.out.println(printer.endMessage());}  	
 }

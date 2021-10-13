@@ -1,19 +1,35 @@
 package es.ucm.tp1.logic;
 
 public class Coin {
-private int x, y, cont;
-Player player;
-
-public void reset(){
-	cont = 0; } //Pone a cero las coins que se ha llevado el jugador
-
-public void gameCoinsCount() {
-	cont++;}
-
-public String toString() {
-	return "¢";}
-
-//public void receiveCollision(player) {}
+	public static final String SYMBOL = "¢";
+	
+	public int x, y;
+	private boolean alive;
+	private static int gameCoinsCount;
+	private static Game game;
+	
+	public Coin(int x, int y) {
+		this.x = x;
+		this.y = y;
+		alive = true;
+	}
+	
+	public void reset() {
+		gameCoinsCount = 0; 
+	} //Pone a cero las coins que se ha llevado el jugador
+	
+	public String toString() {
+		return alive ? SYMBOL : "";
+	}
+	
+	public boolean isAlive() {
+		return alive;
+	}
+	
+	public void receiveCollision(Player player) {
+		gameCoinsCount--;
+		alive = false;
+	}
 }
 
 

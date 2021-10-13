@@ -4,19 +4,17 @@ import es.ucm.tp1.control.Level;
 
 public class Game {
 	private Level level;
-	Coin coin;
-	Player player;
-	Obstacle obstacle;
-	CoinList coinList;
-	ObstacleList obstacleList;
+	private Player player;
+	private CoinList coinList;
+	private ObstacleList obstacleList;
 	
 	public Game(long seed, Level level) {
-		// TODO 
+		// TODO
 		this.level = level;
 	}
 	
 	public void toggleTest() {
-		// TODO 
+		// TODO
 	}
 	
 	public int getVisibility() {
