@@ -11,6 +11,16 @@ public class Game {
 	private int cycles = 0;
 	private String lastCommand;
 	
+	public void initializeGameObject() {
+		
+	}
+	
+	public int distanceTofinish() {
+		int distancia=getLength()-cycles;
+		
+		return distancia;
+	}
+	
 	public Game(long seed, Level level) {
 		// TODO
 		this.level = level;
@@ -62,5 +72,8 @@ public class Game {
 		if(obstacle != null) {
 			obstacle.receiveCollision(player);
 		}
+	}
+	public int returnCycle() {
+		return cycles;
 	}
 }

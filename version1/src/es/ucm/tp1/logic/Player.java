@@ -5,7 +5,7 @@ public class Player {
 	public static final int STEP =1;
 	private int x1 = 3, y1  = 1; //HARDCODED
 	private boolean alive = true;
-	
+	private int coinCounter=0;
 	Game game;
 	Coin coin;
 	Obstacle obstacle;

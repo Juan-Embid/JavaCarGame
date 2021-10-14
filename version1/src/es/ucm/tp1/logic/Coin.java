@@ -14,7 +14,7 @@ public class Coin {
 		alive = true;
 	}
 	
-	public void reset() {
+	public static void reset() {
 		gameCoinsCount = 0; 
 	} //Pone a cero las coins que se ha llevado el jugador
 	

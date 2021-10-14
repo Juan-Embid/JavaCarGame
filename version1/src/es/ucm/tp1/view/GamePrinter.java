@@ -73,14 +73,20 @@ public class GamePrinter {
 	private String getInfo() {
 		StringBuilder str = new StringBuilder();
 		str.append("[DEBUG] Executing: " + lastCommand);
-			// 2. Pasarlo a string game.distanceTofinish();
+		System.out.println(lastCommand);
+			game.distanceTofinish();
+			String distancia = String.valueOf(game.distanceTofinish());
+			System.out.println(distancia);
+			String coin=String.valueOf(game.distanceTofinish());
+			int cycles=game.returnCycle();
+			System.out.println(cycles);
 		// TODO add your code
 		/*[DEBUG] Executing: el comando que hayamos metido en controller
 		 * Distance: distancia a meta
 		 * 
 		 * Coins: las monedas que hemos cogido
 		 * Cicle: el ciclo del juego en el que nos encontramos
-		 * Total Obstacles: el número total de obstáculos
+		 -* Total Obstacles: el número total de obstáculos
 		 * Total coins: el número total de coins
 		 * Ellapsed Time: el tiempo que ha pasado desde que empezamos la partida*/
 		return str.toString();
