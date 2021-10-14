@@ -26,7 +26,7 @@ public class Coin {
 		return alive;
 	}
 	
-	public void receiveCollision(Player player) {
+	public void receiveCollision() {
 		gameCoinsCount--;
 		alive = false;
 	}

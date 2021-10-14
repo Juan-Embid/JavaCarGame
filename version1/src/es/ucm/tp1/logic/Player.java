@@ -7,6 +7,8 @@ public class Player {
 	private boolean alive = true;
 	
 	Game game;
+	Coin coin;
+	Obstacle obstacle;
 	
 	public Player(Game game) { //no se que es, pero lo puso el profe en la pizarra
 		this.game = game;
@@ -21,6 +23,17 @@ public class Player {
 			return ">";
 		else
 			return "@";
+	}
+	public void update(int mov) {
+		if(y1+1!=game.getRoadWidth() && mov==1) {
+			y1+=1;
+		}else if(y1-1!=0 && mov ==-1) {
+			y1-=1;
+		} x1+=1;
+		
+	} 
+	public void doCollision() {
+		game.doPlayerCollision(this, x1, y1);
 	}
 }
 

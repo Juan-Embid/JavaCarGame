@@ -24,6 +24,7 @@ public class GamePrinter {
 	private String indentedLlanesSeparator;
 
 	private String margin;
+	private String board[][];
 
 
 	private static final String CRASH_MSG = String.format("Player crashed!%n");
@@ -36,9 +37,11 @@ public class GamePrinter {
 	
 	public String newLine; 
 
-	protected Game game;	
+	private Game game;
 	
-	protected Player player; //cambiado
+	private Player player;
+	
+	private String lastCommand;
 
 	public GamePrinter(Game game) {
 		this.game = game;
@@ -59,19 +62,28 @@ public class GamePrinter {
 		newLine =  System.getProperty("line.separator");
 	}
 	
+	/*private void encodeGame(Game game) {
+		board = new String[num][]
+	}*/
 
-
+	public void setLastCommand(String msg) {
+		lastCommand = msg;
+	}
+	
 	private String getInfo() {
-
+		StringBuilder str = new StringBuilder();
+		str.append("[DEBUG] Executing: " + lastCommand);
+			// 2. Pasarlo a string game.distanceTofinish();
 		// TODO add your code
 		/*[DEBUG] Executing: el comando que hayamos metido en controller
 		 * Distance: distancia a meta
+		 * 
 		 * Coins: las monedas que hemos cogido
 		 * Cicle: el ciclo del juego en el que nos encontramos
 		 * Total Obstacles: el número total de obstáculos
 		 * Total coins: el número total de coins
 		 * Ellapsed Time: el tiempo que ha pasado desde que empezamos la partida*/
-		return "";
+		return str.toString();
 	}
 
 	
@@ -80,7 +92,6 @@ public class GamePrinter {
 		StringBuilder str = new StringBuilder();
 
 		// Game Status
-		
 		str.append(getInfo());
 		
 		// Paint game

@@ -51,30 +51,47 @@ public class Controller {
 		// TODO
 		boolean endGame = false, refreshDisplay=true;
 		while (endGame != true) {
+			
 			// Draw
 			if(refreshDisplay) printGame();
 			
 			// User action
 			String readLine = scanner.nextLine();
 			readLine = readLine.toLowerCase();
-			if (readLine.equals("h") || readLine.equals("help")) 
+			if (readLine.equals("h") || readLine.equals("help")) {
+				printer.setLastCommand("help");
 				for (String string : HELP) 
-					System.out.println(string);	
-			else if (readLine.equals("i") || readLine.equals("info")) {}
+					System.out.println(string);	}
+			else if (readLine.equals("i") || readLine.equals("info")) {
+				printer.setLastCommand("info");
 				//System.out.println(game.getInfo());
-			// refreshDisplay = false;
-			else if (readLine.equals("n") || readLine.equals("none"))
-				refreshDisplay=true; //TODO hacer bien estas cosas
-			else if (readLine.equals("q")) {}
+				//game.cont++;
+				// refreshDisplay = false;
+			}
+			else if (readLine.equals("n") || readLine.equals("none")) {
+				refreshDisplay=true;
+				printer.setLastCommand("none");
+				//game.cont++;//TODO hacer bien estas cosas
+			}
+			else if (readLine.equals("q")) {
+				printer.setLastCommand("goup");
+			}
 				//game.goUp(); // que llama al player.goUp y update()
+				//game.cont++;
 			// refreshDisplay = true; 
-			else if (readLine.equals("a"))
+			else if (readLine.equals("a")) {
+				printer.setLastCommand("godown");
+				System.out.println("hola");}
+			else if (readLine.equals("e")) {endGame=true;
+			printer.setLastCommand("exit");}
+			else if (readLine.equals("r")) {
 				System.out.println("hola");
-			else if (readLine.equals("e")) endGame=true;
-			else if (readLine.equals("r"))
+				printer.setLastCommand("reset");
+			}
+			else if (readLine.equals("t")) {
 				System.out.println("hola");
-			else if (readLine.equals("t"))
-				System.out.println("hola");
+				printer.setLastCommand("test");
+			}
 			else
 				System.out.println(UNKNOWN_COMMAND_MSG);
 			
