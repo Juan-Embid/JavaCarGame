@@ -3,7 +3,7 @@ package es.ucm.tp1.logic;
 public class Player {
 	public static final int INIT_COINS=5; //HARDCODED
 	public static final int STEP =1;
-	private int x1 = 3, y1  = 1; //HARDCODED
+	private int x = 2, y  = 1; //HARDCODED
 	private boolean alive = true;
 	private int coinCounter=0;
 	Game game;
@@ -15,7 +15,7 @@ public class Player {
 		}
 	
 	public boolean isInPosition(int x, int y) {
-		return (x1 == x && y1 == y);
+		return (this.x == x && this.y == y);
 	}
 	
 	public String statusToString() {
@@ -25,16 +25,28 @@ public class Player {
 			return "@";
 	}
 	public void update(int mov) {
-		if(y1+1!=game.getRoadWidth() && mov==1) {
-			y1+=1;
-		}else if(y1-1!=0 && mov ==-1) {
-			y1-=1;
-		} x1+=1;
-		
+		if(mov==1) goup();
+		else if(mov == -1) {
+			godown();
+		} x+=1;
 	} 
-	public void doCollision() {
-		game.doPlayerCollision(this, x1, y1);
+	public void goup() {
+		if(y+1!=game.getRoadWidth()) {
+			y+=1;}
 	}
+		public void godown() {
+			if(y-1!=0) {
+				y-=1;
+			}
+		}
+	public void doCollision() {
+		game.doPlayerCollision(this, x, y);
+	}
+	public String PlayerPositionToString(int x, int y) { //mostramos el coche en la carretera
+		if (isInPosition(x, y))
+			return statusToString();
+		else
+			return "";}
 }
 
 /*hay que referenciar las cosas. 

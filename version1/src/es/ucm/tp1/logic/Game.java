@@ -1,5 +1,7 @@
 package es.ucm.tp1.logic;
 
+import java.util.Random;
+
 import es.ucm.tp1.control.Level;
 
 public class Game {
@@ -12,9 +14,17 @@ public class Game {
 	private String lastCommand;
 	
 	public void initializeGameObject() {
-		
-	}
-	
+		double frecuenciaObstacle = getObstacleFrequency()*100;
+		for(int x=0;x<getLength();x++) {
+			for(int y=0;y<getRoadWidth();y++) {
+				if(!obstacleList.initialize(frecuenciaObstacle,x,y)){
+					//Aquí solo hay que hacer lo de abajo
+					coinList.initialize(frecuenciaObstacle,x,y);
+					//se inicializa un obstaculo por lo que en este ciclo no caben más objetos
+			}
+							
+		}
+	}}
 	public int distanceTofinish() {
 		int distancia=getLength()-cycles;
 		
@@ -51,7 +61,12 @@ public class Game {
 	public String getGameStatus() {
 		return ""; 	} //HARDCODED
 	
-	public String positionToString(int x, int y) {
+	
+public String positionToString(int x, int y) {
+//IMPORTANTE PARA ENSEÑAR GAMEOBJECTS
+	//-----------
+	
+	//(int i=0;)
 		return ""; 	} //HARDCODED
 	
 	public double getCoinFrequency() { //Si no se mete aquí se mete dentro del coinList

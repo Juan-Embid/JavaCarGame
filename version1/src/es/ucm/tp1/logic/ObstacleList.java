@@ -1,5 +1,7 @@
 package es.ucm.tp1.logic;
 
+import java.util.Random;
+
 public class ObstacleList {
 	private Obstacle obstacles[];
 	private int cont; //obstacles totales
@@ -8,6 +10,16 @@ public class ObstacleList {
 		public ObstacleList() {
 			this.cont=0;
 			this.obstacles =new Obstacle[MAX_OBSTACLE];
+		}
+		public boolean initialize(double frecuencia, int x, int y) {
+			Random rand = new Random();
+			int probab = rand.nextInt(100);
+			if(frecuencia<=probab && cont <= MAX_OBSTACLE) {
+				obstacles[cont].x=x;
+				obstacles[cont].y=y;
+				cont++;
+				return true;
+			}else {return false;}
 		}
 		public void addcoin() {
 			cont++;

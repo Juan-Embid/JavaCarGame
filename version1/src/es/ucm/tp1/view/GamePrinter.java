@@ -42,7 +42,7 @@ public class GamePrinter {
 	private Player player;
 	
 	private String lastCommand;
-
+	
 	public GamePrinter(Game game) {
 		this.game = game;
 		
@@ -109,9 +109,9 @@ public class GamePrinter {
 		for (int y = 0; y < game.getRoadWidth(); y++) {
 			str.append(this.margin).append(verticalDelimiter);
 			for (int x = 0; x < game.getVisibility(); x++) {
+				//str.append(PlayerPositionToString(x, y)); //ADDED, 
 				str.append(StringUtils.centre(game.positionToString(x, y), CELL_SIZE))
 						.append(verticalDelimiter);
-				//PlayerPositionToString(x, y); //ADDED, 
 			}
 			if (y <  game.getRoadWidth() - 1) {
 				str.append(this.indentedLlanesSeparator);
@@ -122,11 +122,7 @@ public class GamePrinter {
 		return str.toString();
 	}
 	
-	/*public String PlayerPositionToString(int x, int y) { //mostramos el coche en la carretera
-		if (player.isInPosition(x, y))
-			return player.toString();
-		else
-			return "";}*/
+
 
 	
 	public String endMessage(){
