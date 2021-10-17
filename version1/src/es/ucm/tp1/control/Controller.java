@@ -11,6 +11,8 @@ public class Controller {
 	private static final String PROMPT = "Command > ";
 
 	private static final String UNKNOWN_COMMAND_MSG = "Unknown command";
+	
+	private long initialTime;
 
 	/* @formatter:off */
 	private static final String[] HELP = new String[] {
@@ -41,14 +43,12 @@ public class Controller {
 	public void printGame() {
 		System.out.println(printer);
 	}
-	
-
-	public void printEndMessage() {
-		System.out.println(printer.endMessage());
-	}
 
 	public void run() {
 		boolean endGame = false, refreshDisplay=false;
+		String finalMes = "derrota";
+		initialTime = System.currentTimeMillis();
+		game.initializeGameObject(initialTime);
 		while (endGame != true) {	
 			if(!refreshDisplay) printGame();
 			System.out.print(PROMPT);
@@ -66,24 +66,29 @@ public class Controller {
 				// refreshDisplay = false;
 			}
 			else if (readLine.equals("n") || readLine.equals("none")) {
-				refreshDisplay=true; //que queremos que haga esto
+				if (game.update())
+					endGame = true;
+				//refreshDisplay=true;
 				game.setLastCommand("none");
 				//game.cont++;//TODO hacer bien estas cosas
 			}
 			else if (readLine.equals("q")) {
+				game.goUp();
+				if (game.update())
+					endGame = true;
 				game.setLastCommand("goup");
 			}
-				//game.goUp(); // que llama al player.goUp y update()
-				//game.cont++;
-			// refreshDisplay = true; 
 			else if (readLine.equals("a")) {
 				game.setLastCommand("godown");
-				System.out.println("hola");}
+				game.goDown();
+				if (game.update())
+					endGame = true;
+				}
 			else if (readLine.equals("e") || readLine.equals("exit")) {
 				endGame=true;
+				finalMes = "exit";
 				game.setLastCommand("exit");}
 			else if (readLine.equals("r")) {
-				System.out.println("hola");
 				game.setLastCommand("reset");
 			}
 			else if (readLine.equals("t")) {
@@ -92,8 +97,11 @@ public class Controller {
 			}
 			else
 				System.out.println(UNKNOWN_COMMAND_MSG);
-			
-			// Update
-			// Check end
-	}System.out.println(printer.endMessage());}  	
+			if (game.distanceTofinish() == 0) {
+				endGame = true;
+				finalMes = "victory";
+			}
+	}
+		printGame();
+		System.out.println(printer.endMessage(finalMes, initialTime));}  	
 }

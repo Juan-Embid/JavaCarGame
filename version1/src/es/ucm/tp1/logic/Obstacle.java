@@ -8,15 +8,15 @@ public class Obstacle {
 	private static Game game;
 	
 	public Obstacle(int x, int y) {
-		this.x = x;
-		this.y = y;
+		this.x = -1;
+		this.y = -1;
 	}
 	
 	public void reset() {
 		gameObstaclesCount = 0; 
 	} //Pone a cero las obstacles que se ha llevado el jugador
 	
-	public String toString() {
+	public String toStringObj() {
 		return SYMBOL;
 	}
 	

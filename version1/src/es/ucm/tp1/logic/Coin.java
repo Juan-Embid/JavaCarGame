@@ -8,8 +8,8 @@ public class Coin {
 	private static Game game;
 	
 	public Coin(int x, int y) {
-		this.x = x;
-		this.y = y;
+		this.x = -1;
+		this.y = -1;
 		alive = true;
 	}
 	
@@ -17,8 +17,8 @@ public class Coin {
 		gameCoinsCount = 0; 
 	} //Pone a cero las coins que se ha llevado el jugador
 	
-	public String toString() {
-		return alive ? SYMBOL : "";
+	public static String toStringCoin() {
+		return SYMBOL;
 	}
 	
 	public boolean isAlive() {

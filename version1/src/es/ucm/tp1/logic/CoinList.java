@@ -8,9 +8,10 @@ public class CoinList {
 	private int cont;
 	private static int MAX_COINS= (int) ((int)game.getLength() * game.getCoinFrequency()); //así creo que devuelve el número máximo de coins que tiene que haber por cada ronda
 	
-	public CoinList() {
+	public CoinList(Game game) {
 		cont=0;
-		this.coins=new Coin[MAX_COINS];
+		for (int i = 0; i < MAX_COINS; i++)
+			this.coins[i]=new Coin();
 	}
 	
 	public Boolean initialize(double frecuencia, int x, int y) {

@@ -8,9 +8,10 @@ public class ObstacleList {
 	private int cont;
 	private static int MAX_OBSTACLE=  (int) ((int)game.getLength() * game.getObstacleFrequency()); 
 
-	public ObstacleList() {
+	public ObstacleList(Game game) {
 		cont=0;
-		this.obstacles =new Obstacle[MAX_OBSTACLE];
+		for (int i = 0; i < MAX_OBSTACLE; i++)
+			this.obstacles[i] =new Obstacle();
 	}
 	public boolean initialize(double frecuencia, int x, int y) {
 		Random rand = new Random();

@@ -10,18 +10,20 @@ public class Game {
 	private Player player;
 	private CoinList coinList;
 	private ObstacleList obstacleList;
-	private int contObstacles = 0;
+	private int contObstacles = 0, cycles = 0;
 	private String lastCommand;
 	private Boolean roadCoin = false;
+	private long initTime;
 	
-	public void initializeGameObject() { //falta inicializar el player. Habría que hacer dos funciones y usarlas aquí (tryToAddObstacle y tryToAddCoin
+	public void initializeGameObject(long initTime_) {
+		initTime = initTime_;
 		double frecuenciaObstacle = getObstacleFrequency()*100, frecuenciaCoin = getCoinFrequency()* 100;
-		for(int x=5;x<getLength();x++) {
+		for(int x=4;x<getLength() -1;x++) {
 			for(int y=0;y<getRoadWidth();y++) {
-				if(!(contObstacles == getRoadWidth() - 1) && (obstacleList.initialize(frecuenciaObstacle,x,y)))
+				if(!(contObstacles >= 1) && (obstacleList.initialize(frecuenciaObstacle,x, y)))
 						contObstacles++;
 				else 
-					if(!roadCoin && coinList.initialize(frecuenciaCoin,x,y))
+					if(!roadCoin && coinList.initialize(frecuenciaCoin,x, y))
 						roadCoin = true;
 		}
 			roadCoin = false;
@@ -29,13 +31,20 @@ public class Game {
 	}}
 	
 	public Game(long seed, Level level) {
-		this.level = level;
 		this.seed = seed;
+		this.level = level;
+		obstacleList = new ObstacleList(this);
+		coinList = new CoinList();
+		player = new Player(this);
 	}
 	
 	public void toggleTest() { //desactiva la acción del tiempo
 	}
-	public void update() { //Se actualizan los objetos que están en el tablero. En este caso los obstáculos no se mueven, en futuras versiones sí tendrán comportamiento.
+	public boolean update() {
+		obstacleList.update();
+		coinList.update();
+		cycles++;
+		return player.doPlayerCollision(this);
 	}
 	public void reset() {
 	}
@@ -57,15 +66,27 @@ public class Game {
 	public String getGameStatus() {
 		return ""; 	} //HARDCODED
 	
+	public Coin getCoin(int x, int y) {
+		return coinList.getObjectInPosition(x, y);
+	}
 	
-	public String positionToString(int x, int y) { //MUESTRA POR PANTALLA LOS GAME OBJECTS
-		/*if (!obstacleList.isPositionEmpty(x, y))
-			return "o"; //Obstacle.toString();
+	public Obstacle getObstacle(int x, int y) {
+		return obstacleList.getObjectInPosition(x, y);
+	}
+	
+	public String positionToString(int x, int y) {
+		if (!obstacleList.isPositionEmpty(x, y))
+			return Obstacle.toStringObj();
 		else if (!coinList.isPositionEmpty(x, y))
-			return "c"; //Coin.toString();
-		else return ">";*/
-		return "";
-		//else if detecta coche entonces devuelve char player
+			return Coin.toStringCoin();
+		else if (player.isInPosition(x, y))
+			return player.PlayerPositionToString(x, y);
+		else {
+			if (distanceTofinish() == x) {
+				return "¦";
+			}
+			return "";
+		}
 	}
 	
 	public double getCoinFrequency() { //Si no se mete aquí se mete dentro del coinList
@@ -74,37 +95,27 @@ public class Game {
 	public double getObstacleFrequency() { //Si no se mete aquí se mete dentro del ObstacleList
 		return level.getObstacleFrequency();}
 	
-	public void doPlayerCollision(Player player, int x, int y) {
-		// coins
-		Coin coin = coinList.getObjectInPosition(x, y);
-		if(coin != null) {
-			coin.receiveCollision();
-		}
-		
-		// obstacle
-		Obstacle obstacle = obstacleList.getObjectInPosition(x, y);
-		if(obstacle != null) {
-			obstacle.receiveCollision(player);
-		}
-	}
-	
 	public void setLastCommand(String msg) {
 		lastCommand = msg;
 	}
 	public int distanceTofinish() {
-		return (getLength()-player.cycles);
+		return (getLength()-cycles);
 	}
 	
 	public String getInfo() {
 		StringBuilder str = new StringBuilder();
 		str.append("[DEBUG] Executing: " + lastCommand);
-		System.out.println(lastCommand);
-			distanceTofinish();
-			String distancia = String.valueOf(distanceTofinish());
-			System.out.println(distancia);
-			String coin=String.valueOf(distanceTofinish());
+		String distancia = String.valueOf(distanceTofinish());
+		System.out.println("Distancia: " + distancia);
+		System.out.println("Coins: " + player.coinCounter);
+		System.out.println("Cycle: " + cycles);
+		System.out.println("Total obstacles: " + obstacleList.getObstacles());
+		System.out.println("Total coins: " + coinList.getCoins());
+		System.out.println("Ellapsed time: " + (System.currentTimeMillis() - initTime) / 1000. + " s");
+		if (cycles > 0)
+			System.out.print("");
+
 			//int cycles=player.returnCycle();
-			//System.out.println(player.cycles);
 
 		/*[DEBUG] Executing: el comando que hayamos metido en controller
 		 * Distance: distancia a meta

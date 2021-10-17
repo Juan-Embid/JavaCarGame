@@ -96,10 +96,15 @@ public class GamePrinter {
 
 
 	
-	public String endMessage(){
-		
+	public String endMessage(String mensaje, long initTime){
+		StringBuilder str = new StringBuilder();
 		String s = GAME_OVER_MSG;
-		
+		if (mensaje.equals("exit"))
+			str.append(s + "Player leaves the game");
+		else if (mensaje.equals("victory"))
+			str.append(s + "Player wins! New record!: " + ((System.currentTimeMillis() - initTime) / 1000.) + " s");
+		else 
+			str.append(s + "Player crashed!");
 		// TODO your code here
 		/*Si el jugador gana se imprime: [GAME OVER] Player wins! New record!: 4.85 s
 		 *Si el jugador pierde se imprime: [GAME OVER] Player crashed! 
@@ -107,7 +112,7 @@ public class GamePrinter {
 		 *
 		 *Tenemos variables para los tres mensajes*/
 		
-		return s;
+		return str.toString();
 	}
 }
 
