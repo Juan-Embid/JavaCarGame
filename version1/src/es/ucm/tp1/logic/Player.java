@@ -1,14 +1,12 @@
 package es.ucm.tp1.logic;
 
 public class Player {
-	public static final int INIT_COINS=5; //HARDCODED
+	public static final int INIT_COINS=0; //HARDCODED
 	public static final int STEP =1;
-	private int x = 2, y  = 1; //HARDCODED
+	private int x, y; 
 	private boolean alive = true;
-	private int coinCounter=0;
-	Game game;
-	Coin coin;
-	Obstacle obstacle;
+	public Integer coinCounter=0, cycles = 0;
+	private Game game;
 	
 	public Player(Game game) { //no se que es, pero lo puso el profe en la pizarra
 		this.game = game;
@@ -24,33 +22,40 @@ public class Player {
 		else
 			return "@";
 	}
+	
 	public void update(int mov) {
 		if(mov==1) goup();
-		else if(mov == -1) {
+		else if(mov == -1)
 			godown();
-		} x+=1;
+		x+=STEP;
+		cycles++;
 	} 
+	
+	public int getCycle() {
+		return cycles;
+	}
+	
 	public void goup() {
 		if(y+1!=game.getRoadWidth()) {
-			y+=1;}
+			y+=STEP;}
 	}
 		public void godown() {
-			if(y-1!=0) {
-				y-=1;
+			if(y-1>=0) {
+				y-=STEP;
 			}
 		}
 	public void doCollision() {
 		game.doPlayerCollision(this, x, y);
 	}
+	
+	public void getCoin() {
+		//game.getcoin o como se tenga que hacer
+		//coinCounter
+	}
+	
 	public String PlayerPositionToString(int x, int y) { //mostramos el coche en la carretera
 		if (isInPosition(x, y))
 			return statusToString();
 		else
 			return "";}
 }
-
-/*hay que referenciar las cosas. 
- * Por ejemplo, si quiero saber si se ha salido de la carretera o no, tengo que llamar a game porque esa información ya está referenciada en game.
- *Los atributos siempre son privados
- *Integer es un objeto --> puedes usar métodos sobre él: equals() toString()
- *int no es nada*/

@@ -48,49 +48,47 @@ public class Controller {
 	}
 
 	public void run() {
-		// TODO
-		boolean endGame = false, refreshDisplay=true;
-		while (endGame != true) {
-			
-			// Draw
-			if(refreshDisplay) printGame();
-			
-			// User action
+		boolean endGame = false, refreshDisplay=false;
+		while (endGame != true) {	
+			if(!refreshDisplay) printGame();
+			System.out.print(PROMPT);
 			String readLine = scanner.nextLine();
 			readLine = readLine.toLowerCase();
+			
 			if (readLine.equals("h") || readLine.equals("help")) {
-				printer.setLastCommand("help");
+				game.setLastCommand("help");
 				for (String string : HELP) 
 					System.out.println(string);	}
 			else if (readLine.equals("i") || readLine.equals("info")) {
-				printer.setLastCommand("info");
+				game.setLastCommand("info");
 				//System.out.println(game.getInfo());
 				//game.cont++;
 				// refreshDisplay = false;
 			}
 			else if (readLine.equals("n") || readLine.equals("none")) {
-				refreshDisplay=true;
-				printer.setLastCommand("none");
+				refreshDisplay=true; //que queremos que haga esto
+				game.setLastCommand("none");
 				//game.cont++;//TODO hacer bien estas cosas
 			}
 			else if (readLine.equals("q")) {
-				printer.setLastCommand("goup");
+				game.setLastCommand("goup");
 			}
 				//game.goUp(); // que llama al player.goUp y update()
 				//game.cont++;
 			// refreshDisplay = true; 
 			else if (readLine.equals("a")) {
-				printer.setLastCommand("godown");
+				game.setLastCommand("godown");
 				System.out.println("hola");}
-			else if (readLine.equals("e")) {endGame=true;
-			printer.setLastCommand("exit");}
+			else if (readLine.equals("e") || readLine.equals("exit")) {
+				endGame=true;
+				game.setLastCommand("exit");}
 			else if (readLine.equals("r")) {
 				System.out.println("hola");
-				printer.setLastCommand("reset");
+				game.setLastCommand("reset");
 			}
 			else if (readLine.equals("t")) {
 				System.out.println("hola");
-				printer.setLastCommand("test");
+				game.setLastCommand("test");
 			}
 			else
 				System.out.println(UNKNOWN_COMMAND_MSG);

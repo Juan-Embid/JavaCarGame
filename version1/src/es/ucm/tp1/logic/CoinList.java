@@ -3,23 +3,26 @@ package es.ucm.tp1.logic;
 import java.util.Random;
 
 public class CoinList {
+	private static Game game;
 	private Coin coins[];
 	private int cont;
-	private static int MAX_COINS=30;
-
+	private static int MAX_COINS= (int) ((int)game.getLength() * game.getCoinFrequency()); //así creo que devuelve el número máximo de coins que tiene que haber por cada ronda
+	
 	public CoinList() {
-		this.cont=0;
+		cont=0;
 		this.coins=new Coin[MAX_COINS];
 	}
 	
-	public void initialize(double frecuencia, int x, int y) {
+	public Boolean initialize(double frecuencia, int x, int y) {
 		Random rand = new Random();
 		int probab = rand.nextInt(100);
-		if(frecuencia<=probab && cont <= MAX_COINS) {
+		if(frecuencia<probab && cont <= MAX_COINS) {
 			coins[cont].x=x;
 			coins[cont].y=y;
 			cont++;
+			return true;
 		}
+		else {return false;}
 		}
 	
 	public void addcoin() {
@@ -46,8 +49,8 @@ public class CoinList {
 		}
 		coins = aux;
 	}
-	public boolean isPositionEmpty(int x, int y){
-		return getObjectInPosition(x, y) == null;
+	public Boolean isPositionEmpty(int x, int y){ //he cambiado boolean por Boolean
+		return getObjectInPosition(x, y).equals(null); //NO SE SI HAY QUE PONER .EQUALS() O ==. CREO QUE ES EQUALS PORQUE ES UN OBJETO
 	}
 }
 

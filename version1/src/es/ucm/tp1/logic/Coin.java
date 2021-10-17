@@ -2,7 +2,6 @@ package es.ucm.tp1.logic;
 
 public class Coin {
 	public static final String SYMBOL = "¢";
-	
 	public int x, y;
 	private boolean alive;
 	private static int gameCoinsCount;

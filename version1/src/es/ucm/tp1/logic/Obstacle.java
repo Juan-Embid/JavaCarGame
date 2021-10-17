@@ -3,6 +3,7 @@ package es.ucm.tp1.logic;
 public class Obstacle {
 	public static final String SYMBOL = "░";
 	public int x, y;
+	private boolean alive;
 	private static int gameObstaclesCount;
 	private static Game game;
 	
@@ -17,6 +18,10 @@ public class Obstacle {
 	
 	public String toString() {
 		return SYMBOL;
+	}
+	
+	public boolean isAlive() {
+		return alive;
 	}
 	
 	public void receiveCollision(Player player) {

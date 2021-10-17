@@ -41,8 +41,6 @@ public class GamePrinter {
 	
 	private Player player;
 	
-	private String lastCommand;
-	
 	public GamePrinter(Game game) {
 		this.game = game;
 		
@@ -66,39 +64,13 @@ public class GamePrinter {
 		board = new String[num][]
 	}*/
 
-	public void setLastCommand(String msg) {
-		lastCommand = msg;
-	}
-	
-	private String getInfo() {
-		StringBuilder str = new StringBuilder();
-		str.append("[DEBUG] Executing: " + lastCommand);
-		System.out.println(lastCommand);
-			game.distanceTofinish();
-			String distancia = String.valueOf(game.distanceTofinish());
-			System.out.println(distancia);
-			String coin=String.valueOf(game.distanceTofinish());
-			int cycles=game.returnCycle();
-			System.out.println(cycles);
-		// TODO add your code
-		/*[DEBUG] Executing: el comando que hayamos metido en controller
-		 * Distance: distancia a meta
-		 * 
-		 * Coins: las monedas que hemos cogido
-		 * Cicle: el ciclo del juego en el que nos encontramos
-		 -* Total Obstacles: el número total de obstáculos
-		 * Total coins: el número total de coins
-		 * Ellapsed Time: el tiempo que ha pasado desde que empezamos la partida*/
-		return str.toString();
-	}
-
 	
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
 
 		// Game Status
-		str.append(getInfo());
+		str.append(game.getInfo());
 		
 		// Paint game
 
@@ -109,7 +81,6 @@ public class GamePrinter {
 		for (int y = 0; y < game.getRoadWidth(); y++) {
 			str.append(this.margin).append(verticalDelimiter);
 			for (int x = 0; x < game.getVisibility(); x++) {
-				//str.append(PlayerPositionToString(x, y)); //ADDED, 
 				str.append(StringUtils.centre(game.positionToString(x, y), CELL_SIZE))
 						.append(verticalDelimiter);
 			}
@@ -139,3 +110,14 @@ public class GamePrinter {
 		return s;
 	}
 }
+
+/*Falta el método privado
+private void encodeGame(Game game)
+Este método llena el tablero board con la información
+que le facilita game del símbolo de cada casilla mediante
+board[x][y] = game.positionToString(x, y);
+Los símbolos que se usan en el juego se facilitan en el
+fichero symbols.txt
+Su método toString() genera la parte gráfica de la
+información que se muestra al jugador durante el juego
+Usa la clase de utilidad MyStringUtils*/
