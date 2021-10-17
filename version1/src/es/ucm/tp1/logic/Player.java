@@ -1,14 +1,14 @@
 package es.ucm.tp1.logic;
 
 public class Player {
-	public static final int INIT_COINS=0; //HARDCODED
+	public static final int INIT_COINS=0;
 	public static final int STEP =1;
-	private int x, y; 
+	private int x = 0, y = 1; 
 	private boolean alive = true;
 	public Integer coinCounter=0, cycles = 0;
 	private Game game;
 	
-	public Player(Game game) { //no se que es, pero lo puso el profe en la pizarra
+	public Player(Game game) {
 		this.game = game;
 		}
 	
@@ -24,10 +24,9 @@ public class Player {
 	}
 	
 	public void update(int mov) {
-		if(mov==1) goup();
-		else if(mov == -1)
+		if(mov==-1) goup();
+		else if(mov == 1)
 			godown();
-		x+=STEP;
 		cycles++;
 	} 
 	
@@ -44,13 +43,23 @@ public class Player {
 				y-=STEP;
 			}
 		}
-	public void doCollision() {
-		game.doPlayerCollision(this, x, y);
+	public Boolean doPlayerCollision(Game game) {
+		// coins
+			Coin coin = game.getCoin(this.x, this.y);
+			if(coin != null) {
+				coin.receiveCollision();
+				coinCounter++;
+			}
+			
+			// obstacle
+			Obstacle obstacle = game.getObstacle(this.x, this.y);
+			if(obstacle != null)
+				return true;
+			return false;
 	}
 	
-	public void getCoin() {
-		//game.getcoin o como se tenga que hacer
-		//coinCounter
+	public int getCoin() {
+		return coinCounter;
 	}
 	
 	public String PlayerPositionToString(int x, int y) { //mostramos el coche en la carretera

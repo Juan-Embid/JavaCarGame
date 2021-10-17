@@ -34,11 +34,11 @@ public class Game {
 		this.seed = seed;
 		this.level = level;
 		obstacleList = new ObstacleList(this);
-		coinList = new CoinList();
+		coinList = new CoinList(this);
 		player = new Player(this);
 	}
 	
-	public void toggleTest() { //desactiva la acción del tiempo
+	public void toggleTest() { //TODO desactiva la acción del tiempo
 	}
 	public boolean update() {
 		obstacleList.update();
@@ -64,7 +64,7 @@ public class Game {
 		return level.getLength();}
 	
 	public String getGameStatus() {
-		return ""; 	} //HARDCODED
+		return ""; 	} //TODO HARDCODED
 	
 	public Coin getCoin(int x, int y) {
 		return coinList.getObjectInPosition(x, y);
@@ -77,10 +77,10 @@ public class Game {
 	public String positionToString(int x, int y) {
 		if (!obstacleList.isPositionEmpty(x, y))
 			return Obstacle.toStringObj();
-		else if (!coinList.isPositionEmpty(x, y))
-			return Coin.toStringCoin();
 		else if (player.isInPosition(x, y))
 			return player.PlayerPositionToString(x, y);
+		else if (!coinList.isPositionEmpty(x, y))
+			return Coin.toStringCoin();
 		else {
 			if (distanceTofinish() == x) {
 				return "¦";
@@ -89,10 +89,10 @@ public class Game {
 		}
 	}
 	
-	public double getCoinFrequency() { //Si no se mete aquí se mete dentro del coinList
+	public double getCoinFrequency() {
 		return level.getCoinFrequency();}
 	
-	public double getObstacleFrequency() { //Si no se mete aquí se mete dentro del ObstacleList
+	public double getObstacleFrequency() {
 		return level.getObstacleFrequency();}
 	
 	public void setLastCommand(String msg) {
@@ -114,17 +114,6 @@ public class Game {
 		System.out.println("Ellapsed time: " + (System.currentTimeMillis() - initTime) / 1000. + " s");
 		if (cycles > 0)
 			System.out.print("");
-
-			//int cycles=player.returnCycle();
-
-		/*[DEBUG] Executing: el comando que hayamos metido en controller
-		 * Distance: distancia a meta
-		 * 
-		 * Coins: las monedas que hemos cogido
-		 * Cicle: el ciclo del juego en el que nos encontramos
-		 -* Total Obstacles: el número total de obstáculos
-		 * Total coins: el número total de coins
-		 * Ellapsed Time: el tiempo que ha pasado desde que empezamos la partida*/
 		return str.toString();
 	}
 }

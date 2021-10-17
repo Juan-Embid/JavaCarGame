@@ -4,12 +4,14 @@ import java.util.Random;
 
 public class ObstacleList {
 	private static Game game;
+	private static int MAX_OBSTACLE;
 	private Obstacle obstacles[];
 	private int cont;
-	private static int MAX_OBSTACLE=  (int) ((int)game.getLength() * game.getObstacleFrequency()); 
 
 	public ObstacleList(Game game) {
 		cont=0;
+		MAX_OBSTACLE = (int) ((int)game.getLength() * game.getObstacleFrequency());
+		obstacles = new Obstacle[MAX_OBSTACLE];
 		for (int i = 0; i < MAX_OBSTACLE; i++)
 			this.obstacles[i] =new Obstacle();
 	}
@@ -19,12 +21,17 @@ public class ObstacleList {
 		if(frecuencia<probab && cont < MAX_OBSTACLE) {
 			obstacles[cont].x=x;
 			obstacles[cont].y=y;
-			cont++;
+			addCoin();
 			return true;
 		}else {return false;}
 	}
-	public void addcoin() {
+	public void addCoin() {
 		cont++;
+	}
+	
+	public void update() {
+		for (int i = 0; i < MAX_OBSTACLE; i++)
+			this.obstacles[i].x--;
 	}
 	public Obstacle getObjectInPosition(int x, int y) {
 		Obstacle foundObstacle = null;
@@ -36,8 +43,13 @@ public class ObstacleList {
 		return foundObstacle;
 	}
 	
-	public Boolean isPositionEmpty(int x, int y){ //he cambiado boolean por Boolean
-		return getObjectInPosition(x, y).equals(null); //NO SE SI HAY QUE PONER .EQUALS() O ==. CREO QUE ES EQUALS PORQUE ES UN OBJETO
+	
+	public int getObstacles() {
+		return cont;
+	}
+	
+	public boolean isPositionEmpty(int x, int y){
+		return getObjectInPosition(x, y) == null;
 	}
 }
 

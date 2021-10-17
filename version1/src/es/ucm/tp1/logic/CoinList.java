@@ -3,12 +3,13 @@ package es.ucm.tp1.logic;
 import java.util.Random;
 
 public class CoinList {
-	private static Game game;
+	private static int MAX_COINS;
 	private Coin coins[];
 	private int cont;
-	private static int MAX_COINS= (int) ((int)game.getLength() * game.getCoinFrequency()); //así creo que devuelve el número máximo de coins que tiene que haber por cada ronda
 	
 	public CoinList(Game game) {
+		MAX_COINS = (int) ((int)game.getLength() * game.getCoinFrequency());
+		coins = new Coin[MAX_COINS];
 		cont=0;
 		for (int i = 0; i < MAX_COINS; i++)
 			this.coins[i]=new Coin();
@@ -17,10 +18,10 @@ public class CoinList {
 	public Boolean initialize(double frecuencia, int x, int y) {
 		Random rand = new Random();
 		int probab = rand.nextInt(100);
-		if(frecuencia<probab && cont <= MAX_COINS) {
+		if(frecuencia<probab && cont < MAX_COINS) {
 			coins[cont].x=x;
 			coins[cont].y=y;
-			cont++;
+			addcoin();
 			return true;
 		}
 		else {return false;}
@@ -28,6 +29,11 @@ public class CoinList {
 	
 	public void addcoin() {
 		cont++;
+	}
+	
+	public void update() {
+		for (int i = 0; i < MAX_COINS; i++)
+			this.coins[i].x--;
 	}
 	public Coin getObjectInPosition(int x, int y) {
 		Coin foundCoin = null;
@@ -37,6 +43,10 @@ public class CoinList {
 			}
 		}
 		return foundCoin;
+	}
+	
+	public int getCoins() {
+		return cont;
 	}
 	
 	public void removeDead() {
@@ -50,8 +60,8 @@ public class CoinList {
 		}
 		coins = aux;
 	}
-	public Boolean isPositionEmpty(int x, int y){ //he cambiado boolean por Boolean
-		return getObjectInPosition(x, y).equals(null); //NO SE SI HAY QUE PONER .EQUALS() O ==. CREO QUE ES EQUALS PORQUE ES UN OBJETO
+	public boolean isPositionEmpty(int x, int y){
+		return getObjectInPosition(x, y) == null;
 	}
 }
 

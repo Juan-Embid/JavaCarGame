@@ -2,7 +2,7 @@ package es.ucm.tp1.view;
 
 import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.utils.*;
-import es.ucm.tp1.logic.Player; //cambiado
+import es.ucm.tp1.logic.Player;
 
 
 public class GamePrinter {
@@ -60,11 +60,6 @@ public class GamePrinter {
 		newLine =  System.getProperty("line.separator");
 	}
 	
-	/*private void encodeGame(Game game) {
-		board = new String[num][]
-	}*/
-
-	
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
@@ -105,24 +100,7 @@ public class GamePrinter {
 			str.append(s + "Player wins! New record!: " + ((System.currentTimeMillis() - initTime) / 1000.) + " s");
 		else 
 			str.append(s + "Player crashed!");
-		// TODO your code here
-		/*Si el jugador gana se imprime: [GAME OVER] Player wins! New record!: 4.85 s
-		 *Si el jugador pierde se imprime: [GAME OVER] Player crashed! 
-		 *Si el jugador sale de la partida: [GAME OVER] Player leaves the game
-		 *
-		 *Tenemos variables para los tres mensajes*/
 		
 		return str.toString();
 	}
 }
-
-/*Falta el método privado
-private void encodeGame(Game game)
-Este método llena el tablero board con la información
-que le facilita game del símbolo de cada casilla mediante
-board[x][y] = game.positionToString(x, y);
-Los símbolos que se usan en el juego se facilitan en el
-fichero symbols.txt
-Su método toString() genera la parte gráfica de la
-información que se muestra al jugador durante el juego
-Usa la clase de utilidad MyStringUtils*/

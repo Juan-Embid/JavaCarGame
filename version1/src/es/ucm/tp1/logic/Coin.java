@@ -7,7 +7,7 @@ public class Coin {
 	private static int gameCoinsCount;
 	private static Game game;
 	
-	public Coin(int x, int y) {
+	public Coin() {
 		this.x = -1;
 		this.y = -1;
 		alive = true;

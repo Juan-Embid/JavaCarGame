@@ -7,7 +7,7 @@ public class Obstacle {
 	private static int gameObstaclesCount;
 	private static Game game;
 	
-	public Obstacle(int x, int y) {
+	public Obstacle() {
 		this.x = -1;
 		this.y = -1;
 	}
@@ -16,17 +16,12 @@ public class Obstacle {
 		gameObstaclesCount = 0; 
 	} //Pone a cero las obstacles que se ha llevado el jugador
 	
-	public String toStringObj() {
+	public static String toStringObj() {
 		return SYMBOL;
 	}
 	
 	public boolean isAlive() {
 		return alive;
-	}
-	
-	public void receiveCollision(Player player) {
-		gameObstaclesCount--;
-		//player.Die()
 	}
 }
 
