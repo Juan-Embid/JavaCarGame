@@ -4,7 +4,6 @@ public class Coin {
 	public static final String SYMBOL = "¢";
 	public int x, y;
 	private boolean alive;
-	private static int gameCoinsCount;
 	private static Game game;
 	
 	public Coin() {
@@ -12,10 +11,6 @@ public class Coin {
 		this.y = -1;
 		alive = true;
 	}
-	
-	public static void reset() {
-		gameCoinsCount = 0; 
-	} //Pone a cero las coins que se ha llevado el jugador
 	
 	public static String toStringCoin() {
 		return SYMBOL;
@@ -26,7 +21,6 @@ public class Coin {
 	}
 	
 	public void receiveCollision() {
-		gameCoinsCount--;
 		alive = false;
 	}
 }

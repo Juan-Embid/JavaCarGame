@@ -21,12 +21,16 @@ public class ObstacleList {
 		if(frecuencia<probab && cont < MAX_OBSTACLE) {
 			obstacles[cont].x=x;
 			obstacles[cont].y=y;
-			addCoin();
+			addObstacle();
 			return true;
 		}else {return false;}
 	}
-	public void addCoin() {
+	public void addObstacle() {
 		cont++;
+	}
+	
+	public void reset() {
+		cont = 0;
 	}
 	
 	public void update() {

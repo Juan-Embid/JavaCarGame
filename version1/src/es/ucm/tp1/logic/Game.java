@@ -12,11 +12,12 @@ public class Game {
 	private ObstacleList obstacleList;
 	private int contObstacles = 0, cycles = 0;
 	private String lastCommand;
-	private Boolean roadCoin = false;
+	private Boolean roadCoin = false, activate = false;
 	private long initTime;
 	
 	public void initializeGameObject(long initTime_) {
 		initTime = initTime_;
+		player.initPos();
 		double frecuenciaObstacle = getObstacleFrequency()*100, frecuenciaCoin = getCoinFrequency()* 100;
 		for(int x=4;x<getLength() -1;x++) {
 			for(int y=0;y<getRoadWidth();y++) {
@@ -38,7 +39,8 @@ public class Game {
 		player = new Player(this);
 	}
 	
-	public void toggleTest() { //TODO desactiva la acción del tiempo
+	public void toggleTest() {
+		activate = true;
 	}
 	public boolean update() {
 		obstacleList.update();
@@ -47,6 +49,12 @@ public class Game {
 		return player.doPlayerCollision(this);
 	}
 	public void reset() {
+		initTime = System.currentTimeMillis();
+		obstacleList.reset();
+		coinList.reset();
+		initializeGameObject(initTime);
+		player.reset();
+		cycles = 0;
 	}
 	public void goUp() {
 		player.update(1);
@@ -54,6 +62,11 @@ public class Game {
 	public void goDown() {
 		player.update(-1);
 	}
+	
+	public boolean getActivate() {
+		return activate;
+	}
+	
 	public int getVisibility() {
 		return level.getVisibility();}
 	
@@ -62,9 +75,6 @@ public class Game {
 	
 	public int getLength() {
 		return level.getLength();}
-	
-	public String getGameStatus() {
-		return ""; 	} //TODO HARDCODED
 	
 	public Coin getCoin(int x, int y) {
 		return coinList.getObjectInPosition(x, y);
@@ -111,9 +121,8 @@ public class Game {
 		System.out.println("Cycle: " + cycles);
 		System.out.println("Total obstacles: " + obstacleList.getObstacles());
 		System.out.println("Total coins: " + coinList.getCoins());
-		System.out.println("Ellapsed time: " + (System.currentTimeMillis() - initTime) / 1000. + " s");
-		if (cycles > 0)
-			System.out.print("");
+		if (!activate)
+			System.out.println("Ellapsed time: " + (System.currentTimeMillis() - initTime) / 1000. + " s");
 		return str.toString();
 	}
 }

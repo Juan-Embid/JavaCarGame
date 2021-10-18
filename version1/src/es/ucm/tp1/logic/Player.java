@@ -1,9 +1,11 @@
 package es.ucm.tp1.logic;
 
+import javax.security.auth.x500.X500PrivateCredential;
+
 public class Player {
 	public static final int INIT_COINS=0;
 	public static final int STEP =1;
-	private int x = 0, y = 1; 
+	private int x, y;
 	private boolean alive = true;
 	public Integer coinCounter=0, cycles = 0;
 	private Game game;
@@ -12,6 +14,11 @@ public class Player {
 		this.game = game;
 		}
 	
+	public void initPos() {
+		x = 0;
+		y = game.getRoadWidth()/ 2; 
+	}
+
 	public boolean isInPosition(int x, int y) {
 		return (this.x == x && this.y == y);
 	}
@@ -60,6 +67,12 @@ public class Player {
 	
 	public int getCoin() {
 		return coinCounter;
+	}
+	
+	public void reset() {
+		initPos();
+		coinCounter = 0;
+		cycles = 0;
 	}
 	
 	public String PlayerPositionToString(int x, int y) { //mostramos el coche en la carretera

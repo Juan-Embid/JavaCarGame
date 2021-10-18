@@ -22,7 +22,6 @@ public enum Level {
 		this.coinFrequency = coinFrequency;
 	}
 
-	// TODO fill your code
 	public int getVisibility() {
 		return visibility;}
 	

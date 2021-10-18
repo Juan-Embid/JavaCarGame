@@ -49,6 +49,10 @@ public class CoinList {
 		return cont;
 	}
 	
+	public void reset() {
+		cont = 0;
+	}
+	
 	public void removeDead() {
 		Coin aux[] = new Coin[MAX_COINS];
 		int i = 0;
