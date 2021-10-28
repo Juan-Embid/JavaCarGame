@@ -1,8 +1,13 @@
-package es.ucm.tp1.logic;
+package es.ucm.tp1.supercars.logic;
 
 import java.util.Random;
 
 import es.ucm.tp1.control.Level;
+import es.ucm.tp1.supercars.logic.gameobjects.Coin;
+import es.ucm.tp1.supercars.logic.gameobjects.CoinList;
+import es.ucm.tp1.supercars.logic.gameobjects.Obstacle;
+import es.ucm.tp1.supercars.logic.gameobjects.ObstacleList;
+import es.ucm.tp1.supercars.logic.gameobjects.Player;
 
 public class Game {
 	private Level level;
@@ -34,9 +39,6 @@ public class Game {
 	public Game(long seed, Level level) {
 		this.seed = seed;
 		this.level = level;
-		obstacleList = new ObstacleList(this);
-		coinList = new CoinList(this);
-		player = new Player(this);
 	}
 	
 	public void toggleTest() {

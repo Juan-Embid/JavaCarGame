@@ -2,8 +2,8 @@ package es.ucm.tp1.control;
 
 import java.util.Scanner;
 
-import es.ucm.tp1.logic.CoinList;
-import es.ucm.tp1.logic.Game;
+import es.ucm.tp1.supercars.logic.Game;
+import es.ucm.tp1.supercars.logic.gameobjects.CoinList;
 import es.ucm.tp1.view.GamePrinter;
 
 public class Controller {
@@ -75,7 +75,7 @@ public class Controller {
 				refreshDisplay=false;
 			}
 			else if (readLine.equals("q")) {
-				game.goUp();
+			game.goUp();
 				if (game.update())
 					endGame = true;
 				game.setLastCommand("goup");

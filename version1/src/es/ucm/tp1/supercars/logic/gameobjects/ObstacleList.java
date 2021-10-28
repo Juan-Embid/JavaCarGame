@@ -1,6 +1,8 @@
-package es.ucm.tp1.logic;
+package es.ucm.tp1.supercars.logic.gameobjects;
 
 import java.util.Random;
+
+import es.ucm.tp1.supercars.logic.Game;
 
 public class ObstacleList {
 	private static Game game;

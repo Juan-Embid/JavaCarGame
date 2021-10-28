@@ -1,8 +1,8 @@
 package es.ucm.tp1.view;
 
-import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.utils.*;
-import es.ucm.tp1.logic.Player;
+import es.ucm.tp1.supercars.logic.Game;
+import es.ucm.tp1.supercars.logic.gameobjects.Player;
 
 
 public class GamePrinter {

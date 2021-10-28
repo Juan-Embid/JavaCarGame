@@ -1,17 +1,17 @@
-package es.ucm.tp1.logic;
+package es.ucm.tp1.supercars.logic.gameobjects;
 
-import javax.security.auth.x500.X500PrivateCredential;
+import es.ucm.tp1.supercars.logic.Game;
 
-public class Player {
+public class Player extends GameObject {
 	public static final int INIT_COINS=0;
 	public static final int STEP =1;
-	private int x, y;
+	private static int x, y;
 	private boolean alive = true;
 	public Integer coinCounter=0, cycles = 0;
-	private Game game;
+	private static Game game;
 	
-	public Player(Game game) {
-		this.game = game;
+	public Player() {
+		super(game, x, y);
 		}
 	
 	public void initPos() {
@@ -80,4 +80,34 @@ public class Player {
 			return statusToString();
 		else
 			return "";}
+
+	@Override
+	public boolean doCollision() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean receiveCollision(Player player) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void onEnter() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onDelete() {
+		// TODO Auto-generated method stub
+		
+	}
 }
