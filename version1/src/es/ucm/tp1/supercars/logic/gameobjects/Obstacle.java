@@ -6,7 +6,7 @@ public class Obstacle extends GameObject {
 	public static final String SYMBOL = "░";
 	private boolean alive;
 	private static Game game;
-	private static int x, y;
+	private static int x, y,cont;
 	
 	public Obstacle() {
 		super(game, x, y);
@@ -49,6 +49,12 @@ public class Obstacle extends GameObject {
 	public void onDelete() {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	public static void reset() {
+		// TODO Auto-generated method stub
+		cont=0;
 	}
 }
 

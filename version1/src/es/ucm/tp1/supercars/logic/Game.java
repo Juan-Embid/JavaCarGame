@@ -3,21 +3,17 @@ package es.ucm.tp1.supercars.logic;
 import java.util.Random;
 
 import es.ucm.tp1.control.Level;
-import es.ucm.tp1.supercars.logic.gameobjects.Coin;
-import es.ucm.tp1.supercars.logic.gameobjects.CoinList;
-import es.ucm.tp1.supercars.logic.gameobjects.Obstacle;
-import es.ucm.tp1.supercars.logic.gameobjects.ObstacleList;
+import es.ucm.tp1.supercars.logic.gameobjects.GameObject;
 import es.ucm.tp1.supercars.logic.gameobjects.Player;
 
 public class Game {
 	private Level level;
+	private GameObjectContainer container;
 	private Long seed;
 	private Player player;
-	private CoinList coinList;
-	private ObstacleList obstacleList;
 	private int contObstacles = 0, cycles = 0;
 	private String lastCommand;
-	private Boolean roadCoin = false, activate = false;
+	private Boolean activate = false;
 	private long initTime;
 	
 	public void initializeGameObject(long initTime_) {
@@ -40,7 +36,6 @@ public class Game {
 		this.seed = seed;
 		this.level = level;
 	}
-	
 	public void toggleTest() {
 		activate = true;
 	}
@@ -52,8 +47,7 @@ public class Game {
 	}
 	public void reset() {
 		initTime = System.currentTimeMillis();
-		obstacleList.reset();
-		coinList.reset();
+		generator.reset(level);
 		initializeGameObject(initTime);
 		player.reset();
 		cycles = 0;
@@ -126,5 +120,30 @@ public class Game {
 		if (!activate)
 			System.out.println("Ellapsed time: " + (System.currentTimeMillis() - initTime) / 1000. + " s");
 		return str.toString();
+	}
+
+	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
+		// TODO Auto-generated method stub
+		if(gameobject.getX()!=container.getpositionX() && gameobject.getY()!=container.getpositionY()) {
+			
+		}
+		
+		
+	}
+
+	public int getRandomLane() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public Collider getObjectInPosition(int x, int y) {
+		// TODO Auto-generated method stub
+		//if(x==)
+		return null;
+	}
+
+	public boolean isFinished() {
+		//Controla el final del juego.
+		return false;
 	}
 }

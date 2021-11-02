@@ -1,5 +1,6 @@
 package es.ucm.tp1.supercars.logic.gameobjects;
 
+import es.ucm.tp1.supercars.logic.Collider;
 import es.ucm.tp1.supercars.logic.Game;
 
 public class Player extends GameObject {
@@ -84,6 +85,10 @@ public class Player extends GameObject {
 	@Override
 	public boolean doCollision() {
 		// TODO Auto-generated method stub
+		Collider other = game.getObjectInPosition(x, y);
+		if (other != null) {
+		return other.receiveCollision (this);
+		}
 		return false;
 	}
 
@@ -109,5 +114,17 @@ public class Player extends GameObject {
 	public void onDelete() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean receiveShoot() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean receiveExplosion() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

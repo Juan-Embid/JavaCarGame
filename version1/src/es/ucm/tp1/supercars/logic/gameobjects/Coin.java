@@ -4,7 +4,7 @@ import es.ucm.tp1.supercars.logic.Game;
 
 public class Coin extends GameObject {
 	public static final String SYMBOL = "¢";
-	public static int x, y;
+	public static int x, y, cont;
 	private boolean alive;
 	private static Game game;
 	
@@ -39,7 +39,7 @@ public class Coin extends GameObject {
 	@Override
 	public void onEnter() {
 		// TODO Auto-generated method stub
-		
+		cont++;
 	}
 
 	@Override
@@ -51,7 +51,24 @@ public class Coin extends GameObject {
 	@Override
 	public void onDelete() {
 		// TODO Auto-generated method stub
-		
+		cont--;
+	}
+
+	@Override
+	public boolean receiveShoot() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean receiveExplosion() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public static void reset() {
+		// TODO Auto-generated method stub
+		cont=0;
 	}
 }
 

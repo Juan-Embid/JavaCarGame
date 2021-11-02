@@ -2,6 +2,7 @@ package es.ucm.tp1.control;
 
 import java.util.Scanner;
 
+import es.ucm.tp1.supercars.control.commands.Command;
 import es.ucm.tp1.supercars.logic.Game;
 import es.ucm.tp1.supercars.logic.gameobjects.CoinList;
 import es.ucm.tp1.view.GamePrinter;
@@ -45,12 +46,28 @@ public class Controller {
 	}
 
 	public void run() {
-		boolean endGame = false, refreshDisplay=false;
+		boolean endGame = false, refreshDisplay=true;
 		String finalMes = "derrota";
 		initialTime = System.currentTimeMillis();
 		game.initializeGameObject(initialTime);
-		while (endGame != true) {	
-			if(!refreshDisplay) printGame();
+		while (!game.isFinished()) {	
+			if (refreshDisplay ) {
+				printGame();
+				}
+				refreshDisplay = false;
+				System.out.println(PROMPT);
+				String s = scanner.nextLine();
+				String[] parameters = s.toLowerCase().trim().split(" ");
+				System.out.println("[DEBUG] Executing: " + s);
+				Command command = Command.getCommand(parameters);
+				if (command != null) {
+				refreshDisplay = command.execute(game);
+				} else {
+				System.out.println("[ERROR]: "+ UNKNOWN_COMMAND_MSG);
+				}
+				}
+			
+			/*if(!refreshDisplay) printGame();
 			System.out.print(PROMPT);
 			String readLine = scanner.nextLine();
 			readLine = readLine.toLowerCase();
@@ -107,7 +124,7 @@ public class Controller {
 				endGame = true;
 				finalMes = "victory";
 			}
-	}
+	}*/
 		printGame();
 		System.out.println(printer.endMessage(finalMes, initialTime));}  	
 }
