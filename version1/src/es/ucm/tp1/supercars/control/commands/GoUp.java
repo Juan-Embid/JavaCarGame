@@ -6,12 +6,10 @@ public class GoUp extends Command {
 
 	public GoUp(String name, String shortcut, String details, String help) {
 		super(name, shortcut, details, help);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public boolean execute(Game game) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

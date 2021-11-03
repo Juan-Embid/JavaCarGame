@@ -26,37 +26,30 @@ public class Coin extends GameObject {
 
 	@Override
 	public boolean doCollision() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean receiveCollision(Player player) {
-		// TODO Auto-generated method stub
 		player.AddCoin();
 		return false;
 	}
 
 	@Override
 	public void onEnter() {
-		// TODO Auto-generated method stub
 		cont++;
 	}
 
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
+	public void update() {		
 	}
 
 	@Override
 	public void onDelete() {
-		// TODO Auto-generated method stub
 		cont--;
 	}
 
 	public static void reset() {
-		// TODO Auto-generated method stub
 		cont=0;
 	}
 }

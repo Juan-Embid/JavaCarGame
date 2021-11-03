@@ -90,7 +90,6 @@ public class Player extends GameObject {
 
 	@Override
 	public boolean doCollision() {
-		// TODO Auto-generated method stub
 		Collider other = game.getObjectInPosition(x, y);
 		if (other != null) {
 		return other.receiveCollision (this);
@@ -100,35 +99,29 @@ public class Player extends GameObject {
 
 	@Override
 	public boolean receiveCollision(Player player) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void onEnter() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onDelete() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void AddCoin() {
-		// TODO Auto-generated method stub
 		coinCounter++;
 	}
 
 	public void SetAlive() {
-		// TODO Auto-generated method stub
 		alive=false;
 	}
 }

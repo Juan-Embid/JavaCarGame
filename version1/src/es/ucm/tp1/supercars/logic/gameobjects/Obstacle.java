@@ -23,53 +23,42 @@ public class Obstacle extends GameObject {
 
 	@Override
 	public boolean doCollision() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean receiveCollision(Player player) {
-		// TODO Auto-generated method stub
 		player.SetAlive();
 		return false;
 	}
 
 	@Override
-	public void onEnter() {
-		// TODO Auto-generated method stub
-		
+	public void onEnter() {		
 	}
 
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
+	public void update() {		
 	}
 
 	@Override
-	public void onDelete() {
-		// TODO Auto-generated method stub
-		
+	public void onDelete() {		
 	}
 
 
 	public static void reset() {
-		// TODO Auto-generated method stub
 		cont=0;
 	}
 
 
-	@Override
+	/*@Override
 	public boolean receiveShoot() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 
 	@Override
 	public boolean receiveExplosion() {
-		// TODO Auto-generated method stub
 		return false;
-	}
+	}*/
 }
 

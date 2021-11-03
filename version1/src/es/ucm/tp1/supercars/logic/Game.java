@@ -41,7 +41,7 @@ public class Game {
 		activate = true;
 	}
 	public boolean update() {
-		obstacleList.update();
+		obstacleList.update(); //cada objeto tiene su propio update
 		coinList.update();
 		cycles++;
 		return player.doPlayerCollision(this);
@@ -73,23 +73,23 @@ public class Game {
 	public int getLength() {
 		return level.getLength();}
 	
-	public Coin getCoin(int x, int y) {
+	/*public Coin getCoin(int x, int y) {
 		return coinList.getObjectInPosition(x, y);
 	}
 	
 	public Obstacle getObstacle(int x, int y) {
 		return obstacleList.getObjectInPosition(x, y);
-	}
+	}*/
 	
-	public String positionToString(int x, int y) {
-		if (!obstacleList.isPositionEmpty(x, y))
+	public String positionToString(int x, int y) { //mostrabamos los objetos por pantalla
+		if (!obstacleList.isPositionEmpty(x, y)) //como no tenemos obstacleList, tenemos que llamar al container
 			return Obstacle.toStringObj();
-		else if (player.isInPosition(x, y))
+		else if (player.isInPosition(x, y)) //se puede quedar asi
 			return player.PlayerPositionToString(x, y);
-		else if (!coinList.isPositionEmpty(x, y))
+		else if (!coinList.isPositionEmpty(x, y)) //como no tenemos coinList, tenemos que llamar al container
 			return Coin.toStringCoin();
 		else {
-			if (distanceTofinish() == x) {
+			if (distanceTofinish() == x) { //se puede quedar asi
 				return "¦";
 			}
 			return "";
@@ -116,7 +116,7 @@ public class Game {
 		System.out.println("Distancia: " + distancia);
 		System.out.println("Coins: " + player.coinCounter);
 		System.out.println("Cycle: " + cycles);
-		System.out.println("Total obstacles: " + obstacleList.getObstacles());
+		System.out.println("Total obstacles: " + obstacleList.getObstacles()); //la cuenta la tenemos dentro del coin y del obstacle
 		System.out.println("Total coins: " + coinList.getCoins());
 		if (!activate)
 			System.out.println("Ellapsed time: " + (System.currentTimeMillis() - initTime) / 1000. + " s");
@@ -124,7 +124,6 @@ public class Game {
 	}
 
 	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
-		// TODO Auto-generated method stub
 		if(gameobject.getX()!=container.getpositionX() && gameobject.getY()!=container.getpositionY()) {
 			//Random y tener en cuenta la frecuencia
 			container.update(gameobject);
@@ -134,12 +133,10 @@ public class Game {
 	}
 
 	public int getRandomLane() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 0; //genera un número aleaatorio entre 0 y la anchura de la carretera
 	}
 
 	public Collider getObjectInPosition(int x, int y) {
-		// TODO Auto-generated method stub
 		//if(x==)
 		return null;
 	}

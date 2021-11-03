@@ -22,11 +22,9 @@ public class GameObjectContainer {
 		
 	}
 	public int getpositionX() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	public int getpositionY() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 }
