@@ -16,7 +16,11 @@ public class GameObjectGenerator {
 			game.tryToAddObject(new Coin(game, x, game.getRandomLane()), level.getCoinFrequency());
 		}
 	}
-
+	public static void SetStatus() {
+		
+		
+	}
+	
 	public static void reset(Level level) {
 		// TODO add your code
 		Obstacle.reset();

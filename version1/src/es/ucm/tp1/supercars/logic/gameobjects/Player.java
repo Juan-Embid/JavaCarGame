@@ -11,7 +11,7 @@ public class Player extends GameObject {
 	public Integer coinCounter=0, cycles = 0;
 	private static Game game;
 	
-	public Player() {
+	public Player(Game game, int x, int y) {
 		super(game, x, y);
 		}
 	
@@ -53,6 +53,12 @@ public class Player extends GameObject {
 		}
 	public Boolean doPlayerCollision(Game game) {
 		// coins
+		Collider other = game.getObjectInPosition(x, y);
+		if (other != null) {
+		return other.receiveCollision (this);
+		}
+		return false;
+		/*
 			Coin coin = game.getCoin(this.x, this.y);
 			if(coin != null) {
 				coin.receiveCollision();
@@ -63,7 +69,7 @@ public class Player extends GameObject {
 			Obstacle obstacle = game.getObstacle(this.x, this.y);
 			if(obstacle != null)
 				return true;
-			return false;
+			return false;*/
 	}
 	
 	public int getCoin() {
@@ -116,15 +122,13 @@ public class Player extends GameObject {
 		
 	}
 
-	@Override
-	public boolean receiveShoot() {
+	public void AddCoin() {
 		// TODO Auto-generated method stub
-		return false;
+		coinCounter++;
 	}
 
-	@Override
-	public boolean receiveExplosion() {
+	public void SetAlive() {
 		// TODO Auto-generated method stub
-		return false;
+		alive=false;
 	}
 }

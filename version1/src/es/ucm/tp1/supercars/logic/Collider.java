@@ -8,7 +8,7 @@ public interface Collider {
 
 	boolean receiveCollision(Player player);
 	
-	boolean receiveShoot();
+	/*boolean receiveShoot();
 	
-	boolean receiveExplosion();
+	boolean receiveExplosion();*/
 }

@@ -8,7 +8,7 @@ public class Coin extends GameObject {
 	private boolean alive;
 	private static Game game;
 	
-	public Coin() {
+	public Coin(Game game, int x, int y) {
 		super(game, x,y);
 	}
 	
@@ -33,6 +33,7 @@ public class Coin extends GameObject {
 	@Override
 	public boolean receiveCollision(Player player) {
 		// TODO Auto-generated method stub
+		player.AddCoin();
 		return false;
 	}
 
@@ -52,18 +53,6 @@ public class Coin extends GameObject {
 	public void onDelete() {
 		// TODO Auto-generated method stub
 		cont--;
-	}
-
-	@Override
-	public boolean receiveShoot() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean receiveExplosion() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	public static void reset() {

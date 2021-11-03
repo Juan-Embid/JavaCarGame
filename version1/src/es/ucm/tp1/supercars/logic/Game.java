@@ -13,12 +13,13 @@ public class Game {
 	private Player player;
 	private int contObstacles = 0, cycles = 0;
 	private String lastCommand;
-	private Boolean activate = false;
+	private Boolean activate = false, exit=false;
 	private long initTime;
 	
 	public void initializeGameObject(long initTime_) {
 		initTime = initTime_;
 		player.initPos();
+		
 		double frecuenciaObstacle = getObstacleFrequency()*100, frecuenciaCoin = getCoinFrequency()* 100;
 		for(int x=4;x<getLength() -1;x++) {
 			for(int y=0;y<getRoadWidth();y++) {
@@ -125,7 +126,8 @@ public class Game {
 	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
 		// TODO Auto-generated method stub
 		if(gameobject.getX()!=container.getpositionX() && gameobject.getY()!=container.getpositionY()) {
-			
+			//Random y tener en cuenta la frecuencia
+			container.update(gameobject);
 		}
 		
 		
@@ -144,6 +146,15 @@ public class Game {
 
 	public boolean isFinished() {
 		//Controla el final del juego.
-		return false;
+		if(!player.isAlive() ||distanceTofinish() == 0 || exit) {
+			return false;	
+		}else return true;
+		
+	}
+	public String PrintFinish() {
+		String finalmes="Derrota";
+		if(exit) {finalmes= "exit";}
+		else if(distanceTofinish() == 0) {finalmes= "victory";}
+		return finalmes;
 	}
 }

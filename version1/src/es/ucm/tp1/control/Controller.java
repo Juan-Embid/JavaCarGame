@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import es.ucm.tp1.supercars.control.commands.Command;
 import es.ucm.tp1.supercars.logic.Game;
-import es.ucm.tp1.supercars.logic.gameobjects.CoinList;
 import es.ucm.tp1.view.GamePrinter;
 
 public class Controller {
@@ -46,8 +45,7 @@ public class Controller {
 	}
 
 	public void run() {
-		boolean endGame = false, refreshDisplay=true;
-		String finalMes = "derrota";
+		boolean refreshDisplay=true;
 		initialTime = System.currentTimeMillis();
 		game.initializeGameObject(initialTime);
 		while (!game.isFinished()) {	
@@ -126,5 +124,5 @@ public class Controller {
 			}
 	}*/
 		printGame();
-		System.out.println(printer.endMessage(finalMes, initialTime));}  	
+		System.out.println(printer.endMessage(game.PrintFinish(), initialTime));}  	
 }

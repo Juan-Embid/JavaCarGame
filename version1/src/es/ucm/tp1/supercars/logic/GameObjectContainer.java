@@ -15,14 +15,18 @@ public class GameObjectContainer {
 		
 	}
 	
-	public void update() {
-		
+	public void update(GameObject objeto) {
+		gameobjects.add(objeto);
 	}
 	public void reset() {
 		
 	}
 	public int getpositionX() {
 		// TODO Auto-generated method stub
-		return Array;
+		return 0;
+	}
+	public int getpositionY() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

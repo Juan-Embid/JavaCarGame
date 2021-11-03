@@ -8,7 +8,7 @@ public class Obstacle extends GameObject {
 	private static Game game;
 	private static int x, y,cont;
 	
-	public Obstacle() {
+	public Obstacle(Game game, int x, int y) {
 		super(game, x, y);
 	}
 	
@@ -30,6 +30,7 @@ public class Obstacle extends GameObject {
 	@Override
 	public boolean receiveCollision(Player player) {
 		// TODO Auto-generated method stub
+		player.SetAlive();
 		return false;
 	}
 
@@ -55,6 +56,20 @@ public class Obstacle extends GameObject {
 	public static void reset() {
 		// TODO Auto-generated method stub
 		cont=0;
+	}
+
+
+	@Override
+	public boolean receiveShoot() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean receiveExplosion() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
 
