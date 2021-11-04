@@ -9,6 +9,8 @@ import es.ucm.tp1.supercars.logic.gameobjects.Player;
 public class Game {
 	private Level level;
 	private GameObjectContainer container;
+	private GameObject gameobjects;
+	private GameObjectGenerator generator;
 	private Long seed;
 	private Player player;
 	private int contObstacles = 0, cycles = 0;
@@ -41,7 +43,7 @@ public class Game {
 		activate = true;
 	}
 	public boolean update() {
-		obstacleList.update(); //cada objeto tiene su propio update
+		container.update(); //cada objeto tiene su propio update
 		coinList.update();
 		cycles++;
 		return player.doPlayerCollision(this);
@@ -82,14 +84,12 @@ public class Game {
 	}*/
 	
 	public String positionToString(int x, int y) { //mostrabamos los objetos por pantalla
-		if (!obstacleList.isPositionEmpty(x, y)) //como no tenemos obstacleList, tenemos que llamar al container
-			return Obstacle.toStringObj();
-		else if (player.isInPosition(x, y)) //se puede quedar asi
+		if (player.isInPosition(x, y)) //TODO pasar por whatsapp
 			return player.PlayerPositionToString(x, y);
-		else if (!coinList.isPositionEmpty(x, y)) //como no tenemos coinList, tenemos que llamar al container
-			return Coin.toStringCoin();
+		else if (!gameobjects.isInPosition(x, y))
+			return gameobjects.toString();
 		else {
-			if (distanceTofinish() == x) { //se puede quedar asi
+			if (distanceTofinish() == x) {
 				return "¦";
 			}
 			return "";
@@ -116,8 +116,8 @@ public class Game {
 		System.out.println("Distancia: " + distancia);
 		System.out.println("Coins: " + player.coinCounter);
 		System.out.println("Cycle: " + cycles);
-		System.out.println("Total obstacles: " + obstacleList.getObstacles()); //la cuenta la tenemos dentro del coin y del obstacle
-		System.out.println("Total coins: " + coinList.getCoins());
+		System.out.println("Total obstacles: " + getObstacle().toString() ); //la cuenta la tenemos dentro del coin y del obstacle
+		System.out.println("Total coins: " + getCoin().toString());
 		if (!activate)
 			System.out.println("Ellapsed time: " + (System.currentTimeMillis() - initTime) / 1000. + " s");
 		return str.toString();
@@ -153,5 +153,14 @@ public class Game {
 		if(exit) {finalmes= "exit";}
 		else if(distanceTofinish() == 0) {finalmes= "victory";}
 		return finalmes;
+	}
+	public Integer getCoin() {
+		Integer coins= Integer.valueOf(gameobjects.getterCoin());
+		return coins;
+		
+	}
+	public Integer getObstacle() {
+		Integer obstacles= Integer.valueOf(gameobjects.getterObstacle());
+		return obstacles;
 	}
 }

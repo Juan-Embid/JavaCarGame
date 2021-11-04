@@ -41,16 +41,29 @@ public class Coin extends GameObject {
 	}
 
 	@Override
-	public void update() {		
-	}
-
-	@Override
 	public void onDelete() {
 		cont--;
 	}
 
 	public static void reset() {
 		cont=0;
+	}
+
+	public int ask() {
+		// TODO Auto-generated method stub
+		return cont;
+	}
+
+	@Override
+	public void update(GameObject gameobject) {
+		// TODO Auto-generated method stub
+		x=x--;
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

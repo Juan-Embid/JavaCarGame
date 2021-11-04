@@ -8,7 +8,8 @@ public abstract class GameObject implements Collider {
 	protected int x, y;
 
 	protected Game game;
-
+	Coin coin;
+	Obstacle obstacle;
 	protected String symbol;
 
 	public GameObject(Game game, int x, int y) {
@@ -46,12 +47,26 @@ public abstract class GameObject implements Collider {
 	public boolean isAlive() {
 		return true;
 	}
-
+	public int getterCoin() {
+		return coin.ask();
+	}
+	
+	public int getterObstacle() {
+		return obstacle.ask();
+	}
+	public void less(GameObject object) {
+		//TODO if() Hacer parse para diferenciar el tipo de objeto
+			coin.update();
+			obstacle.update();
+	}
 	public abstract void onEnter();
 
 	public abstract void update();
 
 	public abstract void onDelete();
+
+
+	
 
 
 	// TODO add your code

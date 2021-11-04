@@ -50,6 +50,11 @@ public class Obstacle extends GameObject {
 	}
 
 
+	public int ask() {
+		return cont;
+	}
+
+
 	/*@Override
 	public boolean receiveShoot() {
 		return false;
