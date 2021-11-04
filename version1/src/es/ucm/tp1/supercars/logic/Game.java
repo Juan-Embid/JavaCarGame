@@ -13,27 +13,12 @@ public class Game {
 	private GameObjectGenerator generator;
 	private Long seed;
 	private Player player;
-	private int contObstacles = 0, cycles = 0;
+	private int cycles = 0;
 	private String lastCommand;
 	private Boolean activate = false, exit=false;
 	private long initTime;
 	
-	public void initializeGameObject(long initTime_) {
-		initTime = initTime_;
-		player.initPos();
-		
-		double frecuenciaObstacle = getObstacleFrequency()*100, frecuenciaCoin = getCoinFrequency()* 100;
-		for(int x=4;x<getLength() -1;x++) {
-			for(int y=0;y<getRoadWidth();y++) {
-				if(!(contObstacles >= 1) && (obstacleList.initialize(frecuenciaObstacle,x, y)))
-						contObstacles++;
-				else 
-					if(!roadCoin && coinList.initialize(frecuenciaCoin,x, y))
-						roadCoin = true;
-		}
-			roadCoin = false;
-			 contObstacles = 0;
-	}}
+
 	
 	public Game(long seed, Level level) {
 		this.seed = seed;
@@ -49,11 +34,14 @@ public class Game {
 	}
 	public void reset() {
 		initTime = System.currentTimeMillis();
-		generator.reset(level);
-		initializeGameObject(initTime);
-		player.reset();
-		cycles = 0;
-	}
+		GameObjectGenerator.reset();
+		this.player = new Player(this, 0, this.level.getWidth()/2);
+		cycles = 0;	
+		GameObjectGenerator.reset();
+		this.container = new GameObjectContainer();
+		GameObjectGenerator.generateGameObjects(this, level);
+				 
+		}
 	public void goUp() {
 		player.update(1);
 	}
@@ -125,7 +113,7 @@ public class Game {
 	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
 		if(gameobject.getX()!=container.getpositionX() && gameobject.getY()!=container.getpositionY()) {
 			//Random y tener en cuenta la frecuencia
-			container.update(gameobject);
+			container.update();
 		}
 		
 		
@@ -161,5 +149,10 @@ public class Game {
 	public Integer getObstacle() {
 		Integer obstacles= Integer.valueOf(gameobjects.getterObstacle());
 		return obstacles;
+	}
+
+	public void setExit() {
+		// TODO Auto-generated method stub
+		exit=true;
 	}
 }

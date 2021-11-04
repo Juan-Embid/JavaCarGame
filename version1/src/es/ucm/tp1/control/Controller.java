@@ -47,7 +47,7 @@ public class Controller {
 	public void run() {
 		boolean refreshDisplay=true;
 		initialTime = System.currentTimeMillis();
-		game.initializeGameObject(initialTime);
+		game.reset();
 		while (!game.isFinished()) {	
 			if (refreshDisplay ) {
 				printGame();

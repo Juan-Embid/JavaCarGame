@@ -21,7 +21,7 @@ public class GameObjectGenerator {
 		
 	}
 	
-	public static void reset(Level level) {
+	public static void reset() {
 		// TODO add your code
 		Obstacle.reset();
 		Coin.reset();
