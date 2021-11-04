@@ -55,9 +55,8 @@ public abstract class GameObject implements Collider {
 		return obstacle.ask();
 	}
 	public void less(GameObject object) {
-		//TODO if() Hacer parse para diferenciar el tipo de objeto
-			coin.update();
-			obstacle.update();
+		//TODO Hacer parse para diferenciar el tipo de objeto
+			object.update();
 	}
 	public abstract void onEnter();
 

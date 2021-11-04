@@ -44,7 +44,6 @@ public class Game {
 	}
 	public boolean update() {
 		container.update(); //cada objeto tiene su propio update
-		coinList.update();
 		cycles++;
 		return player.doPlayerCollision(this);
 	}

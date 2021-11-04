@@ -37,7 +37,8 @@ public class Obstacle extends GameObject {
 	}
 
 	@Override
-	public void update() {		
+	public void update() {	
+		x--;
 	}
 
 	@Override
