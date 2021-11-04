@@ -23,8 +23,15 @@ public class GameObjectContainer {
 	public void reset() {
 		
 	}
-	public int getpositionX() {
-		return 0;
+	public GameObject isinPosition(int x, int y) {
+		boolean test = false;
+		GameObject go=null;
+		for (int i = 0;i<gameobjects.size() && !test;i++) {
+			go = gameobjects.get(i);
+			test = go.isInPosition(x, y);
+		}
+		if (!test) return null;
+		return go;
 	}
 	public int getpositionY() {
 		return 0;

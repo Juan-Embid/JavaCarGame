@@ -9,7 +9,6 @@ import es.ucm.tp1.supercars.logic.gameobjects.Player;
 public class Game {
 	private Level level;
 	private GameObjectContainer container;
-	private GameObject gameobjects;
 	private GameObjectGenerator generator;
 	private Long seed;
 	private Player player;
@@ -37,7 +36,6 @@ public class Game {
 		GameObjectGenerator.reset();
 		this.player = new Player(this, 0, this.level.getWidth()/2);
 		cycles = 0;	
-		GameObjectGenerator.reset();
 		this.container = new GameObjectContainer();
 		GameObjectGenerator.generateGameObjects(this, level);
 				 
@@ -73,8 +71,9 @@ public class Game {
 	public String positionToString(int x, int y) { //mostrabamos los objetos por pantalla
 		if (player.isInPosition(x, y)) //TODO pasar por whatsapp
 			return player.PlayerPositionToString(x, y);
-		else if (!gameobjects.isInPosition(x, y))
-			return gameobjects.toString();
+		GameObject obj = container.isinPosition(x, y);
+		if (obj != null)
+			return obj.toString();
 		else {
 			if (distanceTofinish() == x) {
 				return "¦";
@@ -103,16 +102,17 @@ public class Game {
 		System.out.println("Distancia: " + distancia);
 		System.out.println("Coins: " + player.coinCounter);
 		System.out.println("Cycle: " + cycles);
-		System.out.println("Total obstacles: " + getObstacle().toString() ); //la cuenta la tenemos dentro del coin y del obstacle
-		System.out.println("Total coins: " + getCoin().toString());
+		System.out.println("Total obstacles: " + GameObject.getObstacles()); //la cuenta la tenemos dentro del coin y del obstacle
+		System.out.println("Total coins: " + GameObject.getCoins());
 		if (!activate)
 			System.out.println("Ellapsed time: " + (System.currentTimeMillis() - initTime) / 1000. + " s");
 		return str.toString();
 	}
 
 	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
-		if(gameobject.getX()!=container.getpositionX() && gameobject.getY()!=container.getpositionY()) {
+		if(container.isinPosition(gameobject.getX(), gameobject.getY())!=null) {
 			//Random y tener en cuenta la frecuencia
+			container.Add(gameobject);
 			container.update();
 		}
 		
@@ -120,7 +120,9 @@ public class Game {
 	}
 
 	public int getRandomLane() {
-		return 0; //genera un número aleaatorio entre 0 y la anchura de la carretera
+		Random rand = new Random();
+		return rand.nextInt(level.getWidth());
+		 //genera un número aleaatorio entre 0 y la anchura de la carretera
 	}
 
 	public Collider getObjectInPosition(int x, int y) {
@@ -130,9 +132,11 @@ public class Game {
 
 	public boolean isFinished() {
 		//Controla el final del juego.
-		if(!player.isAlive() ||distanceTofinish() == 0 || exit) {
-			return false;	
-		}else return true;
+		boolean exit =false;
+		if(!player.isAlive()) exit = true;
+		else if(distanceTofinish() == 0) exit = true;
+		else if(this.exit) exit= true;
+			return exit;	
 		
 	}
 	public String PrintFinish() {
@@ -140,15 +144,6 @@ public class Game {
 		if(exit) {finalmes= "exit";}
 		else if(distanceTofinish() == 0) {finalmes= "victory";}
 		return finalmes;
-	}
-	public Integer getCoin() {
-		Integer coins= Integer.valueOf(gameobjects.getterCoin());
-		return coins;
-		
-	}
-	public Integer getObstacle() {
-		Integer obstacles= Integer.valueOf(gameobjects.getterObstacle());
-		return obstacles;
 	}
 
 	public void setExit() {

@@ -18,6 +18,13 @@ public abstract class GameObject implements Collider {
 		this.game = game;
 	}
 	
+	public static int getCoins() {
+		return Coin.ask();
+	}
+	
+	public static int getObstacles() {
+		return Obstacle.ask();
+	}
 	
 	protected String getSymbol() {
 		return symbol;

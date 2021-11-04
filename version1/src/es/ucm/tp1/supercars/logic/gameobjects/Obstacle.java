@@ -51,7 +51,7 @@ public class Obstacle extends GameObject {
 	}
 
 
-	public int ask() {
+	public static int ask() {
 		return cont;
 	}
 

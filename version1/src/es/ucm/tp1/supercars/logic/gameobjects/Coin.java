@@ -49,7 +49,7 @@ public class Coin extends GameObject {
 		cont=0;
 	}
 
-	public int ask() {
+	public static int ask() {
 		// TODO Auto-generated method stub
 		return cont;
 	}
