@@ -23,7 +23,7 @@ public abstract class Command {
 		// TODO Add your code
 		//AQUÍ hay que llamar recorrer el array de comandos y parsearlo.
 		for(int i=0; i<AVAILABLE_COMMANDS.length;i++) {
-			//if(AVAILABLE_COMMANDS[i]==parse(commandWords))
+			if(AVAILABLE_COMMANDS[i]==parse(commandWords)) {
 	
 		}
 		//if()
