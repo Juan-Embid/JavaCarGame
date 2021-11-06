@@ -26,7 +26,6 @@ public abstract class Command {
 	public static Command getCommand(String[] commandWords) {
 		Command command = null;
 		//AQUÍ hay que llamar recorrer el array de comandos y parsearlo.
-<<<<<<< HEAD
 		for(int i = 0; i < AVAILABLE_COMMANDS.length; i++) {
 			if(AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[0].parse(commandWords))
 				command = AVAILABLE_COMMANDS[i];
@@ -44,11 +43,6 @@ public abstract class Command {
 				command = AVAILABLE_COMMANDS[i];
 			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[7].parse(commandWords))
 				command = AVAILABLE_COMMANDS[i];
-=======
-		for(int i=0; i<AVAILABLE_COMMANDS.length;i++) {
-			//if(AVAILABLE_COMMANDS[i]==parse(commandWords))
-	
->>>>>>> parent of 37aa7a8... Imprime objetos y coche correctamente
 		}
 		return command;
 	}
