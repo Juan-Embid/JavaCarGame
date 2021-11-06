@@ -12,6 +12,17 @@ public class HelpCommand extends Command {
 	private static final String SHORTCUT = "h";
 
 	private static final String HELP = "show this help";
+	
+	private static final String INFO =
+			"Available commands:" 
+					+ "\n" + "[h]elp: show this help" 
+					+ "\n" + "[i]nfo: prints gameObjet info" 
+					+ "\n" + "[n]one | []: update" 
+					+ "\n" + "[q]: go up"
+					+ "\n" + "[a]: go down" 
+					+ "\n" + "[e]xit: exit game" 
+					+ "\n" + "[r]eset: reset game" 
+					+ "\n" + "[t]est: enables test mode";
 
 	public HelpCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
@@ -19,15 +30,7 @@ public class HelpCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		StringBuilder buffer = new StringBuilder("Available commands:" 
-				+ "\n" + "[h]elp: show this help" 
-				+ "\n" + "[i]nfo: prints gameObjet info" 
-				+ "\n" + "[n]one | []: update" 
-				+ "\n" + "[q]: go up"
-				+ "\n" + "[a]: go down" 
-				+ "\n" + "[e]xit: exit game" 
-				+ "\n" + "[r]eset: reset game" 
-				+ "\n" + "[t]est: enables test mode");
+		StringBuilder buffer = new StringBuilder(INFO);
 		// TODO Add your code
 
 		System.out.println(buffer.toString());

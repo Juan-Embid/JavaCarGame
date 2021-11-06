@@ -33,9 +33,9 @@ public class Player extends GameObject {
 			return "@";
 	}
 	
-	public void update(int mov) {
-		if(mov==1) goup();
-		else if(mov == -1)
+	public void update(int mov, Game width) {
+		if(mov==-1) goup(width);
+		else if(mov == 1)
 			godown();
 		cycles++;
 	} 
@@ -44,8 +44,8 @@ public class Player extends GameObject {
 		return cycles;
 	}
 	
-	public void goup() {
-		if(y+1!=game.getRoadWidth()) {
+	public void goup(Game width) {
+		if(y+1!=width.getRoadWidth()) {
 			y+=STEP;}
 	}
 		public void godown() {

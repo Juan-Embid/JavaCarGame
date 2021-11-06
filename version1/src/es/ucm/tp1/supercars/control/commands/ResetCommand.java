@@ -15,6 +15,8 @@ public class ResetCommand extends Command {
 	}
 	@Override
 	public boolean execute(Game game) {
-		return false;
+		//TODO add seleccionar nivel y la seed
+		game.reset();
+		return true;
 	}
 }

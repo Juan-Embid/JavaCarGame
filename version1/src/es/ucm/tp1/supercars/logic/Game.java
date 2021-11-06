@@ -42,10 +42,10 @@ public class Game {
 				 
 		}
 	public void goUp() {
-		player.update(1);
+		player.update(1, this);
 	}
 	public void goDown() {
-		player.update(-1);
+		player.update(-1, this);
 	}
 	
 	public boolean getActivate() {

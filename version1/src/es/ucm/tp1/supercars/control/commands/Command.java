@@ -25,29 +25,15 @@ public abstract class Command {
 	/* @formatter:on */
 	public static Command getCommand(String[] commandWords) {
 		Command command = null;
-		//AQUÍ hay que llamar recorrer el array de comandos y parsearlo.
+		//TODO hacer dos whiles anidados
 		for(int i = 0; i < AVAILABLE_COMMANDS.length; i++) {
-			if(AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[0].parse(commandWords))
-				command = AVAILABLE_COMMANDS[i];
-			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[1].parse(commandWords))
-				command = AVAILABLE_COMMANDS[i];
-			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[2].parse(commandWords))
-				command = AVAILABLE_COMMANDS[i];
-			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[3].parse(commandWords))
-				command = AVAILABLE_COMMANDS[i];
-			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[4].parse(commandWords))
-				command = AVAILABLE_COMMANDS[i];
-			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[5].parse(commandWords))
-				command = AVAILABLE_COMMANDS[i];
-			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[6].parse(commandWords))
-				command = AVAILABLE_COMMANDS[i];
-			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[7].parse(commandWords))
-				command = AVAILABLE_COMMANDS[i];
+			for (int j = 0; j < AVAILABLE_COMMANDS.length; j++) {
+				if(AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[j].parse(commandWords))
+					command = AVAILABLE_COMMANDS[i];
+			}
 		}
 		return command;
 	}
-
-	//protected abstract Command GoDown(); //TODO esta mierda creo que no hay que ponerla pero me la guardo
 	
 	private final String name;
 

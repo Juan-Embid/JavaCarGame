@@ -37,9 +37,10 @@ public class GameObjectContainer {
 		return 0;
 	}
 	public void update() {
-		// TODO Auto-generated method stub
 		for(int i=0;i<gameobjects.size();i++) {
-			gameobject.less(gameobjects.get(i));
+			//gameobject.less(gameobjects.get(i));
+			GameObject go = gameobjects.get(i);
+			go.less();
 		}
 	}
 }
