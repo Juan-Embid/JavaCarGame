@@ -34,8 +34,8 @@ public class Player extends GameObject {
 	}
 	
 	public void update(int mov) {
-		if(mov==-1) goup();
-		else if(mov == 1)
+		if(mov==1) goup();
+		else if(mov == -1)
 			godown();
 		cycles++;
 	} 

@@ -145,7 +145,6 @@ public class Game {
 	}
 
 	public void setExit() {
-		// TODO Auto-generated method stub
 		exit=true;
 	}
 }
