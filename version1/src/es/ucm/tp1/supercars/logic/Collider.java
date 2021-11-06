@@ -9,9 +9,6 @@ public interface Collider {
 
 	boolean receiveCollision(Player player);
 	
-	//void update(GameObject gameobject); echarle un vistazo porsi aca
-	
-	/*boolean receiveShoot();
-	
-	boolean receiveExplosion();*/
+	//void update(GameObject gameobject); echarle un vistazo porsi acaso
+
 }

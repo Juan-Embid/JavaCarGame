@@ -15,22 +15,40 @@ public abstract class Command {
 		new HelpCommand(),
 		new InfoCommand(),
 		new UpdateCommand(),
+		new ExitCommand(),
+		new GoDown(),
+		new GoUp(),
+		new ResetCommand(),
+		new TestCommand()
 	};
+	
 	/* @formatter:on */
-
 	public static Command getCommand(String[] commandWords) {
 		Command command = null;
-		// TODO Add your code
 		//AQUÍ hay que llamar recorrer el array de comandos y parsearlo.
-		for(int i=0; i<AVAILABLE_COMMANDS.length;i++) {
-			if(AVAILABLE_COMMANDS[i]==parse(commandWords)) {
-	
+		for(int i = 0; i < AVAILABLE_COMMANDS.length; i++) {
+			if(AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[0].parse(commandWords))
+				command = AVAILABLE_COMMANDS[i];
+			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[1].parse(commandWords))
+				command = AVAILABLE_COMMANDS[i];
+			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[2].parse(commandWords))
+				command = AVAILABLE_COMMANDS[i];
+			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[3].parse(commandWords))
+				command = AVAILABLE_COMMANDS[i];
+			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[4].parse(commandWords))
+				command = AVAILABLE_COMMANDS[i];
+			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[5].parse(commandWords))
+				command = AVAILABLE_COMMANDS[i];
+			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[6].parse(commandWords))
+				command = AVAILABLE_COMMANDS[i];
+			else if (AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[7].parse(commandWords))
+				command = AVAILABLE_COMMANDS[i];
 		}
-		//if()
 		return command;
-		//else{System.out.format("[ERROR]: %s%n%n", UNKNOWN_COMMAND_MSG);}
 	}
 
+	//protected abstract Command GoDown(); //TODO esta mierda creo que no hay que ponerla pero me la guardo
+	
 	private final String name;
 
 	private final String shortcut;
@@ -62,8 +80,5 @@ public abstract class Command {
 			}
 		}
 		return null;
-	}
-
-	// TODO Add your code
-	
+	}	
 }
