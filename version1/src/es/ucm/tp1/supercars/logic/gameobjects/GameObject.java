@@ -6,7 +6,7 @@ import es.ucm.tp1.supercars.logic.Game;
 public abstract class GameObject implements Collider {
 
 	protected int x, y;
-
+	
 	protected Game game;
 	Coin coin;
 	Obstacle obstacle;
@@ -27,6 +27,7 @@ public abstract class GameObject implements Collider {
 	}
 	
 	protected String getSymbol() {
+		
 		return symbol;
 	}
 
@@ -54,6 +55,13 @@ public abstract class GameObject implements Collider {
 	public boolean isAlive() {
 		return true;
 	}
+	public boolean ObstacleisAlive() {
+		return obstacle.isAlive();
+	}
+	public boolean CoinisAlive() {
+		return coin.isAlive();
+	}
+	
 	public int getterCoin() {
 		return coin.ask();
 	}
@@ -63,7 +71,9 @@ public abstract class GameObject implements Collider {
 	}
 	public void less(GameObject object) {
 		//TODO Hacer parse para diferenciar el tipo de objeto
-			object.update();
+			if(coin.equals(object)) {
+				coin.update();
+			}else {obstacle.update();}
 	}
 	public abstract void onEnter();
 

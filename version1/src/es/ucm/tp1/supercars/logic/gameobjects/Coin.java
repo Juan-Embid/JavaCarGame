@@ -5,14 +5,14 @@ import es.ucm.tp1.supercars.logic.Game;
 public class Coin extends GameObject {
 	public static final String SYMBOL = "¢";
 	public static int x, y, cont;
-	private boolean alive;
+	private boolean alive=true;
 	private static Game game;
 	
 	public Coin(Game game, int x, int y) {
 		super(game, x,y);
 	}
 	
-	public static String toStringCoin() {
+	public String toString() {
 		return SYMBOL;
 	}
 	
@@ -60,5 +60,4 @@ public class Coin extends GameObject {
 		x--;
 	}
 }
-
 

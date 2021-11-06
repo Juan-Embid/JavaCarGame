@@ -4,7 +4,7 @@ import es.ucm.tp1.supercars.logic.Game;
 
 public class Obstacle extends GameObject {
 	public static final String SYMBOL = "░";
-	private boolean alive;
+	private boolean alive=true;
 	private static Game game;
 	private static int x, y,cont;
 	
@@ -13,14 +13,17 @@ public class Obstacle extends GameObject {
 	}
 	
 	
-	public static String toStringObj() {
+	public String toString() {
 		return SYMBOL;
 	}
 	
 	public boolean isAlive() {
 		return alive;
 	}
-
+	public boolean getCoinAlive() {
+		
+		return coin.isAlive();
+	}
 	@Override
 	public boolean doCollision() {
 		return false;
@@ -67,4 +70,3 @@ public class Obstacle extends GameObject {
 		return false;
 	}*/
 }
-
