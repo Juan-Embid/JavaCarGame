@@ -98,6 +98,10 @@ public class Player extends GameObject {
 		}
 		return false;
 	}
+	
+	public boolean isAlive() {
+		return alive;
+	}
 
 	@Override
 	public boolean receiveCollision(Player player) {
