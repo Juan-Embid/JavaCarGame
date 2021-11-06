@@ -13,13 +13,11 @@ public class Player extends GameObject {
 	
 	public Player(Game game, int x, int y) {
 		super(game, x, y);
-		this.x=x;
-		this.y=y;
 		}
 	
 	public void initPos() {
-			x = 0;
-			y = game.getRoadWidth()/ 2; 
+		x = 0;
+		y = game.getRoadWidth()/ 2; 
 	}
 
 	public boolean isInPosition(int x, int y) {
@@ -79,7 +77,7 @@ public class Player extends GameObject {
 	}
 	
 	public void reset() {
-		//initPos();
+		initPos();
 		coinCounter = 0;
 		cycles = 0;
 	}

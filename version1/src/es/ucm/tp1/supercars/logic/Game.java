@@ -35,7 +35,6 @@ public class Game {
 		initTime = System.currentTimeMillis();
 		GameObjectGenerator.reset();
 		this.player = new Player(this, 0, this.level.getWidth()/2);
-		player.reset();
 		cycles = 0;	
 		this.container = new GameObjectContainer();
 		GameObjectGenerator.generateGameObjects(this, level);
@@ -111,10 +110,13 @@ public class Game {
 	}
 
 	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
-		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null) {
+		if(container.isinPosition(gameobject.getX(), gameobject.getY())!=null) {
 			//Random y tener en cuenta la frecuencia
 			container.Add(gameobject);
+			container.update();
 		}
+		
+		
 	}
 
 	public int getRandomLane() {
