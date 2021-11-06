@@ -124,8 +124,7 @@ public class Game {
 	}
 
 	public Collider getObjectInPosition(int x, int y) {
-		//if(x==)
-		return null;
+		return container.isinPosition(x, y);
 	}
 
 	public boolean isFinished() {
