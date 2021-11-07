@@ -81,7 +81,7 @@ public class Game {
 	public double getObstacleFrequency() {
 		return level.getObstacleFrequency();}
 	
-	public void setLastCommand(String msg) {
+	public void setLastCommand(String msg) { //TODO no usamos esta funcion
 		lastCommand = msg;
 	}
 	public int distanceTofinish() {
@@ -90,15 +90,14 @@ public class Game {
 	
 	public String getInfo() {
 		StringBuilder str = new StringBuilder();
-		//str.append("[DEBUG] Executing: " + lastCommand);
 		String distancia = String.valueOf(distanceTofinish());
 		System.out.println("Distancia: " + distancia);
 		System.out.println("Coins: " + player.coinCounter);
 		System.out.println("Cycle: " + cycles);
 		System.out.println("Total obstacles: " + GameObject.getObstacles());
 		System.out.println("Total coins: " + GameObject.getCoins());
-		if (!activate)
-			System.out.println("Ellapsed time: " + (System.currentTimeMillis() - initTime) / 1000. + " s");
+		if (!activate) //TODO hacer que al principio salga 0.00
+			System.out.println("Ellapsed time: " + (System.currentTimeMillis() - initTime) / 100. + " s");
 		return str.toString();
 	}
 
@@ -108,13 +107,13 @@ public class Game {
 		int ran = random.nextInt(100);   
 		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null && ran <= freq) {
 			container.Add(gameobject);
+			gameobject.onEnter();
 		}
 	}
 
 	public int getRandomLane() {
 		Random rand = new Random();
 		return rand.nextInt(level.getWidth());
-		 //genera un número aleaatorio entre 0 y la anchura de la carretera
 	}
 
 	public Collider getObjectInPosition(int x, int y) {
@@ -122,7 +121,6 @@ public class Game {
 	}
 
 	public boolean isFinished() {
-		//Controla el final del juego.
 		boolean exit =false;
 		if(!player.isAlive()) exit = true;
 		else if(distanceTofinish() == 0) exit = true;

@@ -98,7 +98,7 @@ public class GamePrinter {
 			str.append(s + "Player leaves the game");
 		else if (mensaje.equals("victory")) {
 			if(!game.getActivate())
-				str.append(s + "Player wins! New record!: " + ((System.currentTimeMillis() - initTime) / 1000.) + " s");
+				str.append(s + "Player wins! New record!: " + ((System.currentTimeMillis() - initTime) / 100.) + " s");
 			else
 				str.append(s + "Player wins!");
 		}

@@ -49,14 +49,8 @@ public class Coin extends GameObject {
 		cont=0;
 	}
 
-	public static int ask() {
-		// TODO Auto-generated method stub
-		return cont;
-	}
-
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 		x--;
 	}
 }

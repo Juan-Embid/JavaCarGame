@@ -6,7 +6,7 @@ public class Obstacle extends GameObject {
 	public static final String SYMBOL = "░";
 	private boolean alive=true;
 	private static Game game;
-	private static int x, y,cont;
+	public static int x, y,cont;
 	
 	public Obstacle(Game game, int x, int y) {
 		super(game, x, y);
@@ -36,7 +36,8 @@ public class Obstacle extends GameObject {
 	}
 
 	@Override
-	public void onEnter() {		
+	public void onEnter() {
+		cont++;
 	}
 
 	@Override
@@ -52,21 +53,4 @@ public class Obstacle extends GameObject {
 	public static void reset() {
 		cont=0;
 	}
-
-
-	public static int ask() {
-		return cont;
-	}
-
-
-	/*@Override
-	public boolean receiveShoot() {
-		return false;
-	}
-
-
-	@Override
-	public boolean receiveExplosion() {
-		return false;
-	}*/
 }

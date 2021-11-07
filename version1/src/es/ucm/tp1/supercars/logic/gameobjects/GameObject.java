@@ -19,11 +19,11 @@ public abstract class GameObject implements Collider {
 	}
 	
 	public static int getCoins() {
-		return Coin.ask();
+		return Coin.cont;
 	}
 	
 	public static int getObstacles() {
-		return Obstacle.ask();
+		return Obstacle.cont;
 	}
 	
 	protected String getSymbol() {
@@ -60,14 +60,6 @@ public abstract class GameObject implements Collider {
 	}
 	public boolean CoinisAlive() {
 		return coin.isAlive();
-	}
-	
-	public int getterCoin() {
-		return coin.ask();
-	}
-	
-	public int getterObstacle() {
-		return obstacle.ask();
 	}
 	public void less() {
 		this.x--;
