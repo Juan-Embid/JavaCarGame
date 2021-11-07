@@ -90,7 +90,7 @@ public class Game {
 	
 	public String getInfo() {
 		StringBuilder str = new StringBuilder();
-		str.append("[DEBUG] Executing: " + lastCommand);
+		//str.append("[DEBUG] Executing: " + lastCommand);
 		String distancia = String.valueOf(distanceTofinish());
 		System.out.println("Distancia: " + distancia);
 		System.out.println("Coins: " + player.coinCounter);
