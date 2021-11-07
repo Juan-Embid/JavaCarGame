@@ -46,17 +46,6 @@ public enum Level {
 		return null;
 	}
 	
-	public Level stringToLevel(String nivel) {
-		Level level = null;
-		if (nivel.equals("easy"))
-			level = EASY;
-		else if (nivel.equals("hard"))
-			level = HARD;
-		else if (nivel.equals("test"))
-			level = TEST;
-			
-		return level;
-	}
 
 	public static String all(String separator) {
 		StringBuilder buffer = new StringBuilder();

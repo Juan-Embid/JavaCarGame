@@ -120,7 +120,7 @@ public class Game {
 	}
 	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
 		int freq = (int) (coinFrequency * 100);
-		int ran = random.nextInt();   
+		int ran = random.nextInt(100);   
 		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null && ran <= freq) {
 			container.Add(gameobject);
 			gameobject.onEnter();
@@ -154,6 +154,6 @@ public class Game {
 		exit=true;
 	}
 	public Level stringToLevel(String nivel) {
-		return level.stringToLevel(nivel);
+		return Level.valueOfIgnoreCase(nivel);
 	}
 }
