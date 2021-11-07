@@ -5,7 +5,6 @@ import es.ucm.tp1.supercars.logic.gameobjects.Obstacle;
 import es.ucm.tp1.supercars.logic.gameobjects.Coin;
 
 public class GameObjectGenerator {
-	private static Game game;
 	public static void generateGameObjects(Game game, Level level) {
 
 		for (int x = game.getVisibility() / 2; x < game.getLength(); x++) {

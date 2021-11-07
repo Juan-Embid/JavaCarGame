@@ -12,8 +12,6 @@ public class Controller {
 
 	private static final String UNKNOWN_COMMAND_MSG = "Unknown command";
 	
-	private long initialTime;
-
 	private Game game;
 
 	private Scanner scanner;

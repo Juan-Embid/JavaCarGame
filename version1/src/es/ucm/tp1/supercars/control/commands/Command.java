@@ -1,13 +1,10 @@
 package es.ucm.tp1.supercars.control.commands;
 
-import java.util.Arrays;
-
 import es.ucm.tp1.control.Level;
 import es.ucm.tp1.supercars.logic.Game;
 
 public abstract class Command {
 
-	private static final String UNKNOWN_COMMAND_MSG = "Unknown command";
 
 	protected static final String INCORRECT_NUMBER_OF_ARGS_MSG = "Incorrect number of arguments";
 	

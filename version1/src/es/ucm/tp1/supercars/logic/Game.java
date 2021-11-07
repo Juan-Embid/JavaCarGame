@@ -2,7 +2,6 @@ package es.ucm.tp1.supercars.logic;
 
 import java.text.DecimalFormat;
 import java.util.Random;
-import java.util.Scanner;
 
 import es.ucm.tp1.control.Level;
 import es.ucm.tp1.supercars.logic.gameobjects.GameObject;
@@ -11,14 +10,11 @@ import es.ucm.tp1.supercars.logic.gameobjects.Player;
 public class Game {
 	private Level level;
 	private GameObjectContainer container;
-	private GameObjectGenerator generator;
 	private Long seed;
 	private Player player;
 	private int cycles = 0;
-	private String lastCommand;
 	private Boolean activate = false, exit=false;
 	private long initTime = 0;
-	private Scanner scanner;
 	private Random random;
 		
 	public Game(long seed, Level level) {

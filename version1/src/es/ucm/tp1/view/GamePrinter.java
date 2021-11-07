@@ -9,8 +9,6 @@ public class GamePrinter {
 
 	private static final String SPACE = " ";
 
-	private static final String VERTICAL_DELIMITER = "|";
-
 	private static final String ROAD_BORDER_PATTERN = "═";
 
 	private static final String LANE_DELIMITER_PATTERN = "─";
@@ -24,14 +22,6 @@ public class GamePrinter {
 	private String indentedLlanesSeparator;
 
 	private String margin;
-	private String board[][];
-
-
-	private static final String CRASH_MSG = String.format("Player crashed!%n");
-
-	private static final String WIN_MSG = String.format("Player wins!%n");
-
-	private static final String DO_EXIT_MSG = "Player leaves the game"; 
 	
 	private static final String GAME_OVER_MSG = "[GAME OVER] "; 
 	
@@ -39,7 +29,6 @@ public class GamePrinter {
 
 	private Game game;
 	
-	private Player player;
 	
 	public GamePrinter(Game game) {
 		this.game = game;

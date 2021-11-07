@@ -5,7 +5,6 @@ import es.ucm.tp1.supercars.logic.Game;
 public class Obstacle extends GameObject {
 	public static final String SYMBOL = "░";
 	private boolean alive=true;
-	private static Game game;
 	public static int x, y,cont;
 	
 	public Obstacle(Game game, int x, int y) {
