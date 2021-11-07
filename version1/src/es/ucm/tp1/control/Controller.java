@@ -50,5 +50,5 @@ public class Controller {
 				}
 			}
 		printGame();
-		System.out.println(printer.endMessage(game.PrintFinish()));} //TODO arreglar el tiempo
+		System.out.println(printer.endMessage(game.PrintFinish()));}
 }

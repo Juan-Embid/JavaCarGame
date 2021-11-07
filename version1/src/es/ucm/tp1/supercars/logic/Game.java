@@ -19,12 +19,12 @@ public class Game {
 	private Boolean activate = false, exit=false;
 	private long initTime = 0;
 	private Scanner scanner;
-	
-//TODO funcion para cargar los test
-	
+	private Random random;
+		
 	public Game(long seed, Level level) {
 		this.seed = seed;
 		this.level = level;
+		random = new Random(seed);
 	}
 	public void toggleTest() {
 		activate = true;
@@ -37,6 +37,7 @@ public class Game {
 		return player.doPlayerCollision(this);
 	}
 	public void reset() {
+		random = new Random(seed);
 		GameObjectGenerator.reset();
 		this.player = new Player(this, 0, this.level.getWidth()/2);
 		player.reset();
@@ -123,8 +124,7 @@ public class Game {
 	}
 	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
 		int freq = (int) (coinFrequency * 100);
-		Random random = new Random();   
-		int ran = random.nextInt(100);   
+		int ran = random.nextInt();   
 		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null && ran <= freq) {
 			container.Add(gameobject);
 			gameobject.onEnter();
@@ -132,8 +132,7 @@ public class Game {
 	}
 
 	public int getRandomLane() {
-		Random rand = new Random();
-		return rand.nextInt(level.getWidth());
+		return random.nextInt(level.getWidth());
 	}
 
 	public Collider getObjectInPosition(int x, int y) {
