@@ -31,7 +31,6 @@ public class HelpCommand extends Command {
 	@Override
 	public boolean execute(Game game) {
 		StringBuilder buffer = new StringBuilder(INFO);
-		// TODO Add your code
 
 		System.out.println(buffer.toString());
 

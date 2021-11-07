@@ -25,11 +25,10 @@ public abstract class Command {
 	/* @formatter:on */
 	public static Command getCommand(String[] commandWords) {
 		Command command = null;
-		//TODO hacer dos whiles anidados
 		for(int i = 0; i < AVAILABLE_COMMANDS.length; i++) {
 			for (int j = 0; j < AVAILABLE_COMMANDS.length; j++) {
 				if(AVAILABLE_COMMANDS[i]==AVAILABLE_COMMANDS[j].parse(commandWords))
-					command = AVAILABLE_COMMANDS[i];
+					return command = AVAILABLE_COMMANDS[i];
 			}
 		}
 		return command;

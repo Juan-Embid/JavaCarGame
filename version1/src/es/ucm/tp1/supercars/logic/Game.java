@@ -17,7 +17,7 @@ public class Game {
 	private Boolean activate = false, exit=false;
 	private long initTime;
 	
-
+//TODO funcion para cargar los test
 	
 	public Game(long seed, Level level) {
 		this.seed = seed;
@@ -27,7 +27,7 @@ public class Game {
 		activate = true;
 	}
 	public boolean update() {
-		container.update(); //cada objeto tiene su propio update
+		container.update();
 		cycles++;
 		return player.doPlayerCollision(this);
 	}
@@ -80,10 +80,7 @@ public class Game {
 	
 	public double getObstacleFrequency() {
 		return level.getObstacleFrequency();}
-	
-	public void setLastCommand(String msg) { //TODO no usamos esta funcion
-		lastCommand = msg;
-	}
+
 	public int distanceTofinish() {
 		return (getLength()-cycles);
 	}

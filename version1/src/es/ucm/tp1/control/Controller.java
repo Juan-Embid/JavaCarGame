@@ -50,6 +50,5 @@ public class Controller {
 				System.out.println("[ERROR]: "+ UNKNOWN_COMMAND_MSG);
 				}
 			}
-		printGame();
-		System.out.println(printer.endMessage(game.PrintFinish(), initialTime));}  	
+		System.out.println(printer.endMessage(game.PrintFinish(), initialTime));} //TODO arreglar el tiempo
 }

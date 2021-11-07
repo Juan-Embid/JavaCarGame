@@ -69,11 +69,4 @@ public abstract class GameObject implements Collider {
 	public abstract void update();
 
 	public abstract void onDelete();
-
-
-	
-
-
-	// TODO add your code
-
 }

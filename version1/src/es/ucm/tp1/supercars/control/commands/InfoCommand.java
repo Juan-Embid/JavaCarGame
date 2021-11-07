@@ -27,7 +27,6 @@ public class InfoCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		//TODO dar info de todo el juego
 		System.out.print(INFO);
 		return false;
 	}
