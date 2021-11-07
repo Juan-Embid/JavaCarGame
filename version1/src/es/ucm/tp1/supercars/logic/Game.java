@@ -61,16 +61,8 @@ public class Game {
 	public int getLength() {
 		return level.getLength();}
 	
-	/*public Coin getCoin(int x, int y) {
-		return coinList.getObjectInPosition(x, y);
-	}
-	
-	public Obstacle getObstacle(int x, int y) {
-		return obstacleList.getObjectInPosition(x, y);
-	}*/
-	
-	public String positionToString(int x, int y) { //mostrabamos los objetos por pantalla
-		if (player.isInPosition(x, y)) //TODO pasar por whatsapp
+	public String positionToString(int x, int y) {
+		if (player.isInPosition(x, y))
 			return player.PlayerPositionToString(x, y);
 		GameObject obj = container.isinPosition(x, y);
 		if (obj != null)
@@ -103,7 +95,7 @@ public class Game {
 		System.out.println("Distancia: " + distancia);
 		System.out.println("Coins: " + player.coinCounter);
 		System.out.println("Cycle: " + cycles);
-		System.out.println("Total obstacles: " + GameObject.getObstacles()); //la cuenta la tenemos dentro del coin y del obstacle
+		System.out.println("Total obstacles: " + GameObject.getObstacles());
 		System.out.println("Total coins: " + GameObject.getCoins());
 		if (!activate)
 			System.out.println("Ellapsed time: " + (System.currentTimeMillis() - initTime) / 1000. + " s");
@@ -111,8 +103,10 @@ public class Game {
 	}
 
 	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
-		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null) {
-			//Random y tener en cuenta la frecuencia
+		int freq = (int) (coinFrequency * 100);
+		Random random = new Random();   
+		int ran = random.nextInt(100);   
+		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null && ran <= freq) {
 			container.Add(gameobject);
 		}
 	}

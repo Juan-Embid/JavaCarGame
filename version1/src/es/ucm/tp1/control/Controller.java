@@ -14,20 +14,6 @@ public class Controller {
 	
 	private long initialTime;
 
-	/* @formatter:off */
-	private static final String[] HELP = new String[] {
-		"\n Available commands:",
-		"[h]elp: show this help",
-		"[i]nfo: prints gameobjet info",
-		"[n]one | []: update",
-		"[q]: go up",
-		"[a]: go down",
-		"[e]xit: exit game",
-		"[r]eset: reset game",
-		"[t]est: enables test mode",	
-	};
-	/* @formatter:off */
-
 	private Game game;
 
 	private Scanner scanner;
@@ -63,66 +49,7 @@ public class Controller {
 				} else {
 				System.out.println("[ERROR]: "+ UNKNOWN_COMMAND_MSG);
 				}
-				}
-			
-			/*if(!refreshDisplay) printGame();
-			System.out.print(PROMPT);
-			String readLine = scanner.nextLine();
-			readLine = readLine.toLowerCase();
-			
-			if (readLine.equals("h") || readLine.equals("help")) {
-				game.setLastCommand("help");
-				for (String string : HELP) 
-					System.out.println(string);	
-				refreshDisplay = true;}
-			else if (readLine.equals("i") || readLine.equals("info")) {
-				game.setLastCommand("info");
-				System.out.println("Available objects:\n"
-						+ "[Car] the racing car\n"
-						+ "[Coin] gives 1 coin to the player\n"
-						+ "[Obstacle] hits car");
-				refreshDisplay = true;
 			}
-			else if (readLine.equals("n") || readLine.equals("none") || readLine.equals("")) {
-				if (game.update())
-					endGame = true;
-				game.setLastCommand("none");
-				refreshDisplay=false;
-			}
-			else if (readLine.equals("q")) {
-			game.goUp();
-				if (game.update())
-					endGame = true;
-				game.setLastCommand("goup");
-				refreshDisplay=false;
-			}
-			else if (readLine.equals("a")) {
-				game.goDown();
-				if (game.update())
-					endGame = true;
-				game.setLastCommand("godown");
-				refreshDisplay=false;
-				}
-			else if (readLine.equals("e") || readLine.equals("exit")) {
-				endGame=true;
-				finalMes = "exit";
-				game.setLastCommand("exit");}
-			else if (readLine.equals("r") || readLine.equals("reset")) {
-				game.reset();
-				game.setLastCommand("reset");
-			}
-			else if (readLine.equals("t") || readLine.equals("test")) {
-				game.toggleTest();
-				game.setLastCommand("test");
-			}
-			else {
-				System.out.println(UNKNOWN_COMMAND_MSG);
-				refreshDisplay=true;}
-			if (game.distanceTofinish() == 0) {
-				endGame = true;
-				finalMes = "victory";
-			}
-	}*/
 		printGame();
 		System.out.println(printer.endMessage(game.PrintFinish(), initialTime));}  	
 }
