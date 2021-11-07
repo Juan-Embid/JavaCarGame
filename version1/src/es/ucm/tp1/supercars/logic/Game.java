@@ -1,5 +1,6 @@
 package es.ucm.tp1.supercars.logic;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ public class Game {
 	private int cycles = 0;
 	private String lastCommand;
 	private Boolean activate = false, exit=false;
-	private long initTime;
+	private long initTime = 0;
 	private Scanner scanner;
 	
 //TODO funcion para cargar los test
@@ -30,11 +31,12 @@ public class Game {
 	}
 	public boolean update() {
 		container.update();
+		if (cycles == 0)
+			initTime = System.currentTimeMillis();
 		cycles++;
 		return player.doPlayerCollision(this);
 	}
 	public void reset() {
-		initTime = System.currentTimeMillis();
 		GameObjectGenerator.reset();
 		this.player = new Player(this, 0, this.level.getWidth()/2);
 		player.reset();
@@ -99,6 +101,7 @@ public class Game {
 	}
 	
 	public String getInfo() {
+		DecimalFormat df = new DecimalFormat("#.##");
 		StringBuilder str = new StringBuilder();
 		String distancia = String.valueOf(distanceTofinish());
 		System.out.println("Distancia: " + distancia);
@@ -106,11 +109,18 @@ public class Game {
 		System.out.println("Cycle: " + cycles);
 		System.out.println("Total obstacles: " + GameObject.getObstacles());
 		System.out.println("Total coins: " + GameObject.getCoins());
-		if (!activate) //TODO hacer que al principio salga 0.00
-			System.out.println("Ellapsed time: " + (System.currentTimeMillis() - initTime) / 100. + " s");
+		if (!activate)
+			if (cycles == 0)
+				System.out.println("Ellapsed time: 0.00 s");
+			else
+				System.out.println("Ellapsed time: " + df.format((double) ((System.currentTimeMillis() - initTime) / 1000.)) + " s");
 		return str.toString();
 	}
-
+	
+	public String getTime() {
+		DecimalFormat df = new DecimalFormat("#.##");
+		return df.format((double) ((System.currentTimeMillis() - initTime) / 1000.));
+	}
 	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
 		int freq = (int) (coinFrequency * 100);
 		Random random = new Random();   

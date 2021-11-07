@@ -91,14 +91,14 @@ public class GamePrinter {
 
 
 	
-	public String endMessage(String mensaje, long initTime){
+	public String endMessage(String mensaje){
 		StringBuilder str = new StringBuilder();
 		String s = GAME_OVER_MSG;
 		if (mensaje.equals("exit"))
 			str.append(s + "Player leaves the game");
 		else if (mensaje.equals("victory")) {
 			if(!game.getActivate())
-				str.append(s + "Player wins! New record!: " + ((System.currentTimeMillis() - initTime) / 100.) + " s");
+				str.append(s + "Player wins! New record!: " + game.getTime() + " s");
 			else
 				str.append(s + "Player wins!");
 		}

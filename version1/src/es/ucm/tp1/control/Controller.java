@@ -32,7 +32,6 @@ public class Controller {
 
 	public void run() {
 		boolean refreshDisplay=true;
-		initialTime = System.currentTimeMillis();
 		game.reset();
 		while (!game.isFinished()) {	
 			if (refreshDisplay ) {
@@ -50,5 +49,6 @@ public class Controller {
 				System.out.println("[ERROR]: "+ UNKNOWN_COMMAND_MSG);
 				}
 			}
-		System.out.println(printer.endMessage(game.PrintFinish(), initialTime));} //TODO arreglar el tiempo
+		printGame();
+		System.out.println(printer.endMessage(game.PrintFinish()));} //TODO arreglar el tiempo
 }
