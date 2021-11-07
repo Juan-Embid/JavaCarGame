@@ -14,8 +14,6 @@ public class GameObjectGenerator {
 		}
 	}
 	public static void SetStatus() {
-		
-		
 	}
 	
 	public static void reset() {

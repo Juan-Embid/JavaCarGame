@@ -1,6 +1,7 @@
 package es.ucm.tp1.supercars.logic;
 
 import java.util.Random;
+import java.util.Scanner;
 
 import es.ucm.tp1.control.Level;
 import es.ucm.tp1.supercars.logic.gameobjects.GameObject;
@@ -16,6 +17,7 @@ public class Game {
 	private String lastCommand;
 	private Boolean activate = false, exit=false;
 	private long initTime;
+	private Scanner scanner;
 	
 //TODO funcion para cargar los test
 	
@@ -41,6 +43,17 @@ public class Game {
 		GameObjectGenerator.generateGameObjects(this, level);
 				 
 		}
+	
+	public void setSeed(long semilla) {
+		seed = semilla;
+	}
+	
+	public void setLevel(Level nivel) {
+		if (nivel == null)
+			setExit();
+		level = nivel;
+	}
+	
 	public void goUp() {
 		player.update(1, this);
 	}
@@ -134,5 +147,8 @@ public class Game {
 
 	public void setExit() {
 		exit=true;
+	}
+	public Level stringToLevel(String nivel) {
+		return level.stringToLevel(nivel);
 	}
 }

@@ -14,14 +14,12 @@ public class GameObjectContainer {
 		gameobjects = new ArrayList<>();
 		}
 	public void Delete() {
-		
 	}
 	
 	public void Add(GameObject objeto) {
 		gameobjects.add(objeto);
 	}
 	public void reset() {
-		
 	}
 	public GameObject isinPosition(int x, int y) {
 		boolean test = false;
