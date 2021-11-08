@@ -32,10 +32,14 @@ public class GamePrinter {
 	
 	public GamePrinter(Game game) {
 		this.game = game;
-		
+		setRoad();
 
 		margin = StringUtils.repeat(SPACE, MARGIN_SIZE);
 
+		newLine =  System.getProperty("line.separator");
+	}
+	
+	public void setRoad() {
 		String roadBorder = ROAD_BORDER_PATTERN + StringUtils.repeat(ROAD_BORDER_PATTERN, (CELL_SIZE + 1) *  game.getVisibility());
 		indentedRoadBorder = String.format("%n%s%s%n", margin, roadBorder);
 
@@ -45,14 +49,12 @@ public class GamePrinter {
 		indentedLlanesSeparator = String.format("%n%s%s%n", margin, lanesSeparator);
 		newLine =  System.getProperty("line.separator");
 		
-
-		newLine =  System.getProperty("line.separator");
 	}
 	
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
-
+		setRoad();
 		// Game Status
 		str.append(game.getInfo());
 		
