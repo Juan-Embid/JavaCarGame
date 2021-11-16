@@ -16,9 +16,9 @@ Repositorio de GitHub para las prácticas de TP1.
   
     `java es.ucm.tp1.SuperCars "level" "seed"`
   
-    > Level must be one of: EASY, HARD, TEST
+    3.1 Level must be one of: EASY, HARD, TEST
     
-    - Seed must be an integer from 0 to 1000
+    3.2 Seed must be an integer from 0 to 1000
     
     
   4 To see the commands just type -h or -help
