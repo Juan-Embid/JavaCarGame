@@ -26,7 +26,8 @@ public class Game {
 		activate = true;
 	}
 	public boolean update() {
-		container.update();
+		//container.update();
+		player.update();
 		if (cycles == 0)
 			initTime = System.currentTimeMillis();
 		cycles++;
@@ -77,6 +78,10 @@ public void reset(Long newSeed, Level newLevel) {
 	
 	public int getLength() {
 		return level.getLength();}
+	
+	public int getPlayerX() {
+		return player.getX();
+	}
 	
 	public String positionToString(int x, int y) {
 		if (player.isInPosition(x, y))

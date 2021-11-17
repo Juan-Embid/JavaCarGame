@@ -69,7 +69,7 @@ public class GamePrinter {
 
 		for (int y = 0; y < game.getRoadWidth(); y++) {
 			str.append(this.margin).append(verticalDelimiter);
-			for (int x = 0; x < game.getVisibility(); x++) {
+			for (int x = game.getPlayerX(); x < game.getVisibility()+game.getPlayerX(); x++) {
 				str.append(StringUtils.centre(game.positionToString(x, y), CELL_SIZE))
 						.append(verticalDelimiter);
 			}

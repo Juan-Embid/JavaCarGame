@@ -112,4 +112,7 @@ public class Player extends GameObject {
 	public void SetNotAlive() {
 		alive=false;
 	}
+	public int getX() {
+		return x;
+	}
 }
