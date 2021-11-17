@@ -1,5 +1,6 @@
 package es.ucm.tp1.supercars.control.commands;
 
+
 import es.ucm.tp1.control.Level;
 import es.ucm.tp1.supercars.logic.Game;
 
@@ -63,5 +64,17 @@ public abstract class Command {
 			}
 		}
 		return null;
-	}	
+	}
+
+	 public static String showCommand() {
+		StringBuilder str= new StringBuilder();
+		for(int i=0;i<AVAILABLE_COMMANDS.length;i++) {
+			str.append(AVAILABLE_COMMANDS[i].details)
+			.append(": ")
+			.append(AVAILABLE_COMMANDS[i].help)
+			.append("\n");
+		}
+		return str.toString();
+	};
+	
 }

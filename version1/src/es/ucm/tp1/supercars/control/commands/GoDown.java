@@ -20,4 +20,5 @@ public class GoDown extends Command {
 		game.update();
 		return true;
 	}
+	
 }

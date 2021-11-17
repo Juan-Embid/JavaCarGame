@@ -20,4 +20,5 @@ public class GoUp extends Command {
 		game.update();
 		return true;
 	}
+	
 }

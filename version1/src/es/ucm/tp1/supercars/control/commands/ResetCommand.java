@@ -35,4 +35,5 @@ public class ResetCommand extends Command {
 		game.reset();
 		return true;
 	}
+
 }

@@ -19,5 +19,4 @@ public class ExitCommand extends Command {
 		game.setExit();
 		return false;
 	}
-
 }
