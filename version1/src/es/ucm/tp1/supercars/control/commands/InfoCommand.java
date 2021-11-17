@@ -1,8 +1,6 @@
 package es.ucm.tp1.supercars.control.commands;
 
 import es.ucm.tp1.supercars.logic.Game;
-import es.ucm.tp1.utils.StringUtils;
-import es.ucm.tp1.view.GamePrinter;
 
 public class InfoCommand extends Command {
 

@@ -30,7 +30,7 @@ public class Obstacle extends GameObject {
 
 	@Override
 	public boolean receiveCollision(Player player) {
-		player.SetAlive();
+		player.SetNotAlive();
 		return false;
 	}
 

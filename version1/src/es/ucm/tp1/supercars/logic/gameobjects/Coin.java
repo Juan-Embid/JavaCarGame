@@ -32,6 +32,7 @@ public class Coin extends GameObject {
 	@Override
 	public boolean receiveCollision(Player player) {
 		player.AddCoin();
+		onDelete();
 		return false;
 	}
 

@@ -1,7 +1,6 @@
 package es.ucm.tp1.supercars.control.commands;
 
 
-import es.ucm.tp1.control.Level;
 import es.ucm.tp1.supercars.logic.Game;
 
 public abstract class Command {

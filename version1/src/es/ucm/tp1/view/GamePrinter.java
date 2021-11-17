@@ -1,8 +1,11 @@
 package es.ucm.tp1.view;
 
 import es.ucm.tp1.utils.*;
+
+import java.text.DecimalFormat;
+
 import es.ucm.tp1.supercars.logic.Game;
-import es.ucm.tp1.supercars.logic.gameobjects.Player;
+import es.ucm.tp1.supercars.logic.gameobjects.GameObject;
 
 
 public class GamePrinter {
@@ -56,7 +59,7 @@ public class GamePrinter {
 		StringBuilder str = new StringBuilder();
 		setRoad();
 		// Game Status
-		str.append(game.getInfo());
+		str.append(getInfo());
 		
 		// Paint game
 
@@ -82,20 +85,39 @@ public class GamePrinter {
 
 
 	
-	public String endMessage(String mensaje){
+	public String endMessage(int mensaje){
 		StringBuilder str = new StringBuilder();
 		String s = GAME_OVER_MSG;
-		if (mensaje.equals("exit"))
+		switch (mensaje) {
+		case 1:
 			str.append(s + "Player leaves the game");
-		else if (mensaje.equals("victory")) {
+			break;
+		case 2:
 			if(!game.getActivate())
 				str.append(s + "Player wins! New record!: " + game.getTime() + " s");
 			else
 				str.append(s + "Player wins!");
-		}
-		else 
+			break;
+		default:
 			str.append(s + "Player crashed!");
-		
+			break;
+		}	
+		return str.toString();
+	}
+	public String getInfo() {
+		DecimalFormat df = new DecimalFormat("#.##");
+		StringBuilder str = new StringBuilder();
+		String distancia = String.valueOf(game.distanceTofinish());
+		System.out.println("Distancia: " + distancia);
+		System.out.println("Coins: " + game.getCoinCounter());
+		System.out.println("Cycle: " + game.getCycles());
+		System.out.println("Total obstacles: " + GameObject.getObstacles());
+		System.out.println("Total coins: " + GameObject.getCoins());
+		if (!game.getActivate())
+			if (game.getCycles() == 0)
+				System.out.println("Ellapsed time: 0.00 s");
+			else
+				System.out.println("Ellapsed time: " + df.format((double) ((System.currentTimeMillis() - game.GetInitTime()) / 1000.)) + " s");
 		return str.toString();
 	}
 }

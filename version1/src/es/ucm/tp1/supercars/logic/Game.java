@@ -42,6 +42,11 @@ public class Game {
 		GameObjectGenerator.generateGameObjects(this, level);
 				 
 		}
+public void reset(Long newSeed, Level newLevel) {
+	seed =newSeed;
+	level=newLevel;
+	reset();
+	}
 	
 	public void setSeed(long semilla) {
 		seed = semilla;
@@ -75,7 +80,7 @@ public class Game {
 	
 	public String positionToString(int x, int y) {
 		if (player.isInPosition(x, y))
-			return player.PlayerPositionToString(x, y);
+			return player.statusToString();
 		GameObject obj = container.isinPosition(x, y);
 		if (obj != null)
 			return obj.toString();
@@ -97,22 +102,7 @@ public class Game {
 		return (getLength()-cycles);
 	}
 	
-	public String getInfo() {
-		DecimalFormat df = new DecimalFormat("#.##");
-		StringBuilder str = new StringBuilder();
-		String distancia = String.valueOf(distanceTofinish());
-		System.out.println("Distancia: " + distancia);
-		System.out.println("Coins: " + player.coinCounter);
-		System.out.println("Cycle: " + cycles);
-		System.out.println("Total obstacles: " + GameObject.getObstacles());
-		System.out.println("Total coins: " + GameObject.getCoins());
-		if (!activate)
-			if (cycles == 0)
-				System.out.println("Ellapsed time: 0.00 s");
-			else
-				System.out.println("Ellapsed time: " + df.format((double) ((System.currentTimeMillis() - initTime) / 1000.)) + " s");
-		return str.toString();
-	}
+	
 	
 	public String getTime() {
 		DecimalFormat df = new DecimalFormat("#.##");
@@ -123,7 +113,7 @@ public class Game {
 		int ran = random.nextInt(100);   
 		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null && ran <= freq) {
 			container.Add(gameobject);
-			gameobject.onEnter();
+			container.onEnter(gameobject);
 		}
 	}
 
@@ -143,10 +133,10 @@ public class Game {
 			return exit;	
 		
 	}
-	public String PrintFinish() {
-		String finalmes="Derrota";
-		if(exit) {finalmes= "exit";}
-		else if(distanceTofinish() == 0) {finalmes= "victory";}
+	public int PrintFinish() {
+		int finalmes=0;
+		if(exit) {finalmes= 1;}
+		else if(distanceTofinish() == 0) {finalmes=2;}
 		return finalmes;
 	}
 
@@ -156,4 +146,20 @@ public class Game {
 	public Level stringToLevel(String nivel) {
 		return Level.valueOfIgnoreCase(nivel);
 	}
+	public int getCoinCounter() {
+		
+		return player.getCoin();
+	}
+	public int getCycles() {
+		
+		return cycles;
+	}
+	public long GetInitTime() {
+		return initTime;
+	}
+	public void restart() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

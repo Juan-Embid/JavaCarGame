@@ -41,4 +41,7 @@ public class GameObjectContainer {
 			go.less();
 		}
 	}
+	public void onEnter(GameObject gameobject1) {
+		gameobject1.onEnter();
+	}
 }

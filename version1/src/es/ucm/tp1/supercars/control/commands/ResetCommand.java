@@ -1,5 +1,6 @@
 package es.ucm.tp1.supercars.control.commands;
 
+import es.ucm.tp1.control.Level;
 import es.ucm.tp1.supercars.logic.Game;
 import java.util.Scanner;
 
@@ -12,28 +13,35 @@ public class ResetCommand extends Command {
 
 	private static final String HELP = "reset";
 	
+	private Level newLevel;
+	private Long newSeed;
 	
 	public ResetCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
 	@Override
+	//TODO PARSE
 	public boolean execute(Game game) {
-		String lvl;
-		System.out.print("Selecciona la seed: ");
-		Scanner sc = new Scanner(System.in);
-		String semilla = sc.nextLine();
-		long sem = Long.parseLong(semilla);
-		game.setSeed(sem);
-		
-		System.out.print("\n" + "Selecciona la nivel: ");
-		String nivel = sc.nextLine();
-		lvl = nivel.toLowerCase();
-		game.setLevel(game.stringToLevel(lvl));
-		if (lvl.equals("test"))
-			game.toggleTest();
-		
-		game.reset();
+		if (newSeed == null && newLevel == null) //dentro del reset
+			game.reset();
+		else
+			game.reset(newSeed, newLevel);
 		return true;
 	}
-
+	
+	@Override
+	protected Command parse(String[] commandWords) {
+	if(commandWords.length == 3) {
+	      if(matchCommandName(commandWords[0])) {
+	        newLevel = Level.valueOfIgnoreCase(commandWords[1]);
+	        newSeed = Long.parseLong(commandWords[2]);
+	        
+	        return this;
+	      }
+	      else
+	        return null;
+	    }
+	    else
+	      return super.parse(commandWords);
+	}
 }
