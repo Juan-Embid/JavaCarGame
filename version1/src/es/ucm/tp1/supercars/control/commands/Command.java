@@ -17,7 +17,10 @@ public abstract class Command {
 		new GoDown(),
 		new GoUp(),
 		new ResetCommand(),
-		new TestCommand()
+		new TestCommand(),
+		new ClearCommand(),
+		new CheatCommand(),
+		new WaveCommand()
 	};
 	
 	/* @formatter:on */

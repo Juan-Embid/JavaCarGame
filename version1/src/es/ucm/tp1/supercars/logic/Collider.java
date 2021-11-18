@@ -8,6 +8,7 @@ public interface Collider {
 
 	boolean receiveCollision(Player player);
 	
+	boolean receiveShoot();
 	//void update(GameObject gameobject); echarle un vistazo porsi acaso
 
 }

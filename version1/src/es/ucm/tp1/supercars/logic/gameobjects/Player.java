@@ -115,4 +115,10 @@ public class Player extends GameObject {
 	public int getX() {
 		return x;
 	}
+
+	@Override
+	public boolean receiveShoot() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

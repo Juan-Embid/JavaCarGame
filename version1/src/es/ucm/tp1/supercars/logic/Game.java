@@ -166,5 +166,9 @@ public void reset(Long newSeed, Level newLevel) {
 		// TODO Auto-generated method stub
 		
 	}
+	public void forceAddObject(GameObject o) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

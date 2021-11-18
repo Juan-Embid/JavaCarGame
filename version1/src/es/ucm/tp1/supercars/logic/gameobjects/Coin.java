@@ -53,6 +53,13 @@ public class Coin extends GameObject {
 	@Override
 	public void update() {
 		x--;
+		
+	}
+
+	@Override
+	public boolean receiveShoot() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
 

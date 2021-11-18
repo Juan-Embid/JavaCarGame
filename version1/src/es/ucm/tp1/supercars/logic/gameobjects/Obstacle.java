@@ -52,4 +52,11 @@ public class Obstacle extends GameObject {
 	public static void reset() {
 		cont=0;
 	}
+
+
+	@Override
+	public boolean receiveShoot() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
