@@ -2,12 +2,13 @@ package es.ucm.tp1.supercars.logic.gameobjects;
 
 import es.ucm.tp1.supercars.logic.Game;
 
-public class SuperCoin extends GameObject {
+public class Pedestrian extends GameObject{
 
-	public static int SUPERCOIN =1;
-	private static boolean ispresent=false;
+	public static final String SYMBOL = "☺";
 	
-	public SuperCoin(Game game, int x, int y) {
+	public static final int STEP = 1;
+	 
+	public Pedestrian(Game game, int x, int y) {
 		super(game, x, y);
 		// TODO Auto-generated constructor stub
 	}
@@ -31,6 +32,12 @@ public class SuperCoin extends GameObject {
 	}
 
 	@Override
+	public boolean receiveExplosion() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
 	public void onEnter() {
 		// TODO Auto-generated method stub
 		
@@ -46,16 +53,6 @@ public class SuperCoin extends GameObject {
 	public void onDelete() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public boolean receiveExplosion() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public static boolean hasSuperCoin() {
-		return !ispresent;
 	}
 
 }

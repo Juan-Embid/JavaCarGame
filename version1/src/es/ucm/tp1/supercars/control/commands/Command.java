@@ -13,14 +13,17 @@ public abstract class Command {
 		new HelpCommand(),
 		new InfoCommand(),
 		new UpdateCommand(),
-		new ExitCommand(),
-		new GoDown(),
 		new GoUp(),
+		new GoDown(),
+		new ExitCommand(),		
 		new ResetCommand(),
 		new TestCommand(),
+		new ShootCommand(),
+		new GrenadeCommand(),
+		new WaveCommand(),
 		new ClearCommand(),
-		new CheatCommand(),
-		new WaveCommand()
+		new CheatCommand()
+		
 	};
 	
 	/* @formatter:on */

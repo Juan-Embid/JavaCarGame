@@ -6,11 +6,11 @@ public class CheatCommand extends Command {
 
 	private static final String NAME = "cheat";
 
-	private static final String DETAILS = "[c]heat";
+	private static final String DETAILS = "Cheat [1..5]";
 
 	private static final String SHORTCUT = "c";
 
-	private static final String HELP = "enters cheat mode";
+	private static final String HELP = " Removes all elements of last visible column, and adds an Advanced Object";
 
 	
 	public CheatCommand() {

@@ -121,4 +121,10 @@ public class Player extends GameObject {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public boolean receiveExplosion() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

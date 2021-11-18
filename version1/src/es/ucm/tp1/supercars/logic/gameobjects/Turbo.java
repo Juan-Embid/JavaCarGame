@@ -48,4 +48,10 @@ public class Turbo extends GameObject {
 		
 	}
 
+	@Override
+	public boolean receiveExplosion() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

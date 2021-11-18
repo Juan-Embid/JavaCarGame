@@ -2,12 +2,12 @@ package es.ucm.tp1.supercars.logic.gameobjects;
 
 import es.ucm.tp1.supercars.logic.Game;
 
-public class SuperCoin extends GameObject {
-
-	public static int SUPERCOIN =1;
-	private static boolean ispresent=false;
+public class Grenade extends GameObject {
 	
-	public SuperCoin(Game game, int x, int y) {
+	public static final String SYMBOL = "ð";
+	private int countdown = 3;
+	
+	public Grenade(Game game, int x, int y) {
 		super(game, x, y);
 		// TODO Auto-generated constructor stub
 	}
@@ -52,10 +52,6 @@ public class SuperCoin extends GameObject {
 	public boolean receiveExplosion() {
 		// TODO Auto-generated method stub
 		return false;
-	}
-
-	public static boolean hasSuperCoin() {
-		return !ispresent;
 	}
 
 }

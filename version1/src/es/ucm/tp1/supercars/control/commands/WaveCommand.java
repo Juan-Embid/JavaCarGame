@@ -10,7 +10,7 @@ public class WaveCommand extends Command {
 
 	private static final String SHORTCUT = "w";
 
-	private static final String HELP = "moves all objects one step to the right";
+	private static final String HELP = "do wave";
 	
 	public WaveCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);

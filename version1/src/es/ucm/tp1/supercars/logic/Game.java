@@ -3,6 +3,7 @@ package es.ucm.tp1.supercars.logic;
 import java.text.DecimalFormat;
 import java.util.Random;
 
+import actions.InstantAction;
 import es.ucm.tp1.control.Level;
 import es.ucm.tp1.supercars.logic.gameobjects.GameObject;
 import es.ucm.tp1.supercars.logic.gameobjects.Player;
@@ -28,6 +29,7 @@ public class Game {
 	public boolean update() {
 		//container.update();
 		player.update();
+		GameObjectGenerator.generateRuntimeObjects(this);
 		if (cycles == 0)
 			initTime = System.currentTimeMillis();
 		cycles++;
@@ -35,7 +37,7 @@ public class Game {
 	}
 	public void reset() {
 		random = new Random(seed);
-		GameObjectGenerator.reset();
+	//	GameObjectGenerator.reset();
 		this.player = new Player(this, 0, this.level.getWidth()/2);
 		player.reset();
 		cycles = 0;	
@@ -170,5 +172,12 @@ public void reset(Long newSeed, Level newLevel) {
 		// TODO Auto-generated method stub
 		
 	}
-	
+	public Level getLevel() {
+		// TODO Auto-generated method stub
+		return level;
+	}
+	public void execute(InstantAction thunder) {
+		// TODO Auto-generated method stub
+		
+	}
 }

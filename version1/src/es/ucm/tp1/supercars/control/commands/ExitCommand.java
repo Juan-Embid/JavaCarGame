@@ -9,7 +9,7 @@ public class ExitCommand extends Command {
 
 	private static final String SHORTCUT = "e";
 
-	private static final String HELP = "exit";
+	private static final String HELP = "exit game";
 	
 	public ExitCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
