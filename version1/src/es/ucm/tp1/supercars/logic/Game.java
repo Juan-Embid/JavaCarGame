@@ -92,7 +92,7 @@ public void reset(Long newSeed, Level newLevel) {
 		if (obj != null)
 			return obj.toString();
 		else {
-			if (distanceTofinish() + getCycles() == x) {
+			if (level.getLength() == x) {
 				return "¦";
 			}
 			return "";
@@ -176,4 +176,7 @@ public void reset(Long newSeed, Level newLevel) {
 	public void execute(InstantAction thunder) {
 		
 	}
+	/*public void setTurbo(int step) {
+		container.doTurbo(step);
+	}*/
 }

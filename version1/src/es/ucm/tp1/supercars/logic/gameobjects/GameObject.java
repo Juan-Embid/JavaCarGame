@@ -64,6 +64,11 @@ public abstract class GameObject implements Collider {
 	public void less() {
 		this.x--;
 	}
+	
+	public void doTurbo(int step) {
+		this.x-=3;
+	}
+	
 	public abstract void onEnter();
 
 	public abstract void update();

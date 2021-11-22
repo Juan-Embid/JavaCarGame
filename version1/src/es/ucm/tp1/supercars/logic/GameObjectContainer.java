@@ -36,7 +36,6 @@ public class GameObjectContainer {
 	}
 	public void update() {
 		for(int i=0;i<gameobjects.size();i++) {
-			//gameobject.less(gameobjects.get(i));
 			GameObject go = gameobjects.get(i);
 			go.less();
 		}
@@ -44,4 +43,12 @@ public class GameObjectContainer {
 	public void onEnter(GameObject gameobject1) {
 		gameobject1.onEnter();
 	}
+	/*public void doTurbo(int step) {
+		GameObject go=null;
+		for(int i=0;i<gameobjects.size();i++) {
+			go= gameobjects.get(i);
+			go.doTurbo(step);
+		}
+		
+	}*/
 }

@@ -129,4 +129,8 @@ public class Player extends GameObject {
 	public void AddSuperCoin() {
 		coinCounter += 1000;
 	}
+
+	/*public void doTurbo(int step) {	
+		game.setTurbo(step);
+	}*/
 }
