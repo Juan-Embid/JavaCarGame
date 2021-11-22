@@ -56,14 +56,12 @@ public class Obstacle extends GameObject {
 
 	@Override
 	public boolean receiveShoot() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 
 	@Override
 	public boolean receiveExplosion() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }

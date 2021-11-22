@@ -14,7 +14,6 @@ public class WaveCommand extends Command {
 	
 	public WaveCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

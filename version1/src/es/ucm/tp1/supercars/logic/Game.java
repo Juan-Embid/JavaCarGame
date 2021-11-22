@@ -165,19 +165,15 @@ public void reset(Long newSeed, Level newLevel) {
 		return initTime;
 	}
 	public void restart() {
-		// TODO Auto-generated method stub
 		
 	}
 	public void forceAddObject(GameObject o) {
-		// TODO Auto-generated method stub
 		
 	}
 	public Level getLevel() {
-		// TODO Auto-generated method stub
 		return level;
 	}
 	public void execute(InstantAction thunder) {
-		// TODO Auto-generated method stub
 		
 	}
 }

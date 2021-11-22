@@ -9,48 +9,38 @@ public class Turbo extends GameObject {
 	
 	public Turbo(Game game, int x, int y) {
 		super(game, x, y);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public boolean doCollision() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean receiveCollision(Player player) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean receiveShoot() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public void onEnter() {
-		// TODO Auto-generated method stub
-		
+	public void onEnter() {		
 	}
 
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
+	public void update() {		
 	}
 
 	@Override
 	public void onDelete() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public boolean receiveExplosion() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

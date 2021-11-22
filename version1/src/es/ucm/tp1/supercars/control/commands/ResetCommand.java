@@ -20,7 +20,6 @@ public class ResetCommand extends Command {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
 	@Override
-	//TODO PARSE
 	public boolean execute(Game game) {
 		if (newSeed == null && newLevel == null) //dentro del reset
 			game.reset();

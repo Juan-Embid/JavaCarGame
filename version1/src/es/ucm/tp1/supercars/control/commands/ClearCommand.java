@@ -18,7 +18,6 @@ public class ClearCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

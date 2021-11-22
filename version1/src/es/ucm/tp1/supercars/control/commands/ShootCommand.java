@@ -14,12 +14,10 @@ public class ShootCommand extends Command {
 	
 	public ShootCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public boolean execute(Game game) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
