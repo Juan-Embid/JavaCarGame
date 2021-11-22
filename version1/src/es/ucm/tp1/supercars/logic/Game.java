@@ -92,7 +92,7 @@ public void reset(Long newSeed, Level newLevel) {
 		if (obj != null)
 			return obj.toString();
 		else {
-			if (distanceTofinish() == x) {
+			if (distanceTofinish() + getCycles() == x) {
 				return "¦";
 			}
 			return "";

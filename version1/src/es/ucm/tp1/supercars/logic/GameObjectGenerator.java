@@ -9,18 +9,10 @@ import es.ucm.tp1.supercars.logic.gameobjects.Truck;
 import es.ucm.tp1.supercars.logic.gameobjects.Turbo;
 import es.ucm.tp1.supercars.logic.gameobjects.Wall;
 import es.ucm.tp1.supercars.logic.gameobjects.Coin;
-import es.ucm.tp1.supercars.logic.gameobjects.GameObject;
 
 public class GameObjectGenerator {
 	static Game game;
-	private static final GameObject[] AVAILABLE_OBJECTS = {
-			new Wall(game, game.getVisibility()+game.getCycles(), game.getRandomLane()),
-			new Turbo(game, game.getVisibility()+game.getVisibility()+game.getCycles(), game.getRandomLane()),
-			new SuperCoin(game, game.getVisibility()+game.getCycles(), game.getRandomLane()),
-			/*new Truck(),
-			new Pedestrian*/
-		};
-	
+	 	
 	public static void generateRuntimeObjects(Game game) {
 		// Note we use this method to create and inject new objects or actions on runtime.
 		if (game.getLevel().hasAdvancedObjects()) {

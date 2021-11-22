@@ -19,10 +19,7 @@ public class Obstacle extends GameObject {
 	public boolean isAlive() {
 		return alive;
 	}
-	public boolean getCoinAlive() {
-		
-		return coin.isAlive();
-	}
+
 	@Override
 	public boolean doCollision() {
 		return false;
@@ -45,7 +42,8 @@ public class Obstacle extends GameObject {
 	}
 
 	@Override
-	public void onDelete() {		
+	public void onDelete() {
+		cont--;
 	}
 
 
