@@ -54,7 +54,8 @@ public class Obstacle extends GameObject {
 
 	@Override
 	public boolean receiveShoot() {
-		return false;
+		alive = false;
+		return true;
 	}
 
 

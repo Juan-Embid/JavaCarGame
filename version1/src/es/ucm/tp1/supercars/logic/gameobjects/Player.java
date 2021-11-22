@@ -125,4 +125,8 @@ public class Player extends GameObject {
 	public boolean receiveExplosion() {
 		return false;
 	}
+
+	public void AddSuperCoin() {
+		coinCounter += 1000;
+	}
 }
