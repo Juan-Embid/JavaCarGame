@@ -7,6 +7,7 @@ public class Turbo extends GameObject {
 	public static final String SYMBOL = ">>>";
 	private static final int STEP = 3;
 	public int x, y;
+	private boolean alive=false;
 	
 	public Turbo(Game game, int x, int y) {
 		super(game, x, y);
@@ -17,14 +18,12 @@ public class Turbo extends GameObject {
 	}
 	
 	
-	@Override
-	public boolean doCollision() {
-		return false;
-	}
+	
 
 	@Override
 	public boolean receiveCollision(Player player) {
 		player.doTurbo(STEP);
+		alive=false;
 		return false;
 	}
 

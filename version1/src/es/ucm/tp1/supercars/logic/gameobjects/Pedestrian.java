@@ -21,7 +21,6 @@ public class Pedestrian extends Obstacle{
 	public String toString() {
 		return SYMBOL;
 	}
-	//TODO ARREGLAR CARA BAJANDO
 	@Override
 	public void update() {	
 		if(y - STEP >= 0 && subiendo) {

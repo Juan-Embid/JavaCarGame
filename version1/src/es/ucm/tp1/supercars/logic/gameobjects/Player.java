@@ -70,7 +70,7 @@ public class Player extends GameObject {
 		cycles = 0;
 	}
 	
-	@Override//TODO Código repetido o para arreglar
+	//TODO Código repetido o para arreglar
 	public boolean doCollision() {
 		Collider other = game.getObjectInPosition(this.x, this.y);
 		if (other != null) {

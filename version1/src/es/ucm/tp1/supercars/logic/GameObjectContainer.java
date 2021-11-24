@@ -32,16 +32,18 @@ public class GameObjectContainer {
 		return go;
 	}
 	//TODO BORRAR OBJETOS
-public void erase(int x, int y) {
-		GameObject go;
-		boolean removed =false;
-		go= isinPosition(x, y);
-		for (int i = 0;i<gameobjects.size() && !removed;i++) {
-		if(gameobjects.get(i)==go) {
-			gameobjects.remove(i);
-		removed=true;}
+public void erase() {
+	List<GameObject> aux;
+	aux = new ArrayList<>();
+		for(int i=0;i<gameobjects.size();i++) {
+		if(gameobjects.get(i).isAlive()) {
+			aux.add(gameobjects.get(i));
 		}
-	}
+		else gameobjects.get(i).onDelete();
+		}
+		gameobjects = aux;
+		}
+	
 	
 	public int getpositionY() {
 		return 0;

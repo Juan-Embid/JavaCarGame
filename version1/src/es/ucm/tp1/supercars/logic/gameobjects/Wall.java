@@ -15,17 +15,6 @@ public class Wall extends Obstacle {
 	}
 
 	@Override
-	public boolean doCollision() {
-		return false;
-	}
-
-	@Override
-	public boolean receiveCollision(Player player) {
-		player.SetNotAlive();
-		return false;
-	}
-
-	@Override
 	public boolean receiveShoot() {
 		life--;
 		if(life == 0)

@@ -20,15 +20,9 @@ public class Coin extends GameObject {
 	}
 	
 	@Override
-	public boolean doCollision() {
-		return false;
-	}
-
-	@Override
 	public boolean receiveCollision(Player player) {
 		player.AddCoin();
-		onDelete();
-		
+		alive=false;
 		return false;
 	}
 

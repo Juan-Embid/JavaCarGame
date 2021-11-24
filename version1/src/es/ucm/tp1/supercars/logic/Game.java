@@ -29,15 +29,14 @@ public class Game {
 	}
 	public void update() {
 		player.update();
-		player.doPlayerCollision(this);
-		//if(player.doPlayerCollision(this)) TODO ERROR COGE 2 COINS, CREO QUE ES PORQUE COLISIONA DOS VECES CON LA MISMA COIN
-		//	container.erase(player.getX(), player.getY());
 		container.update();
+		player.doPlayerCollision(this);
+		eraseContainer();
 		GameObjectGenerator.generateRuntimeObjects(this);
 		if (cycles == 0)
 			initTime = System.currentTimeMillis();
 		cycles++;
-		player.doPlayerCollision(this);
+		
 	}
 	public void reset() {
 		random = new Random(seed);
@@ -188,6 +187,10 @@ public void reset(Long newSeed, Level newLevel) {
 	
 	public void firstCollision() {
 		player.doPlayerCollision(this);
+	}
+	
+	public void eraseContainer() {
+		container.erase();
 	}
 	/*public void setTurbo(int step) {
 		container.doTurbo(step);

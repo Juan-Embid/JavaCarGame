@@ -21,13 +21,9 @@ public class Obstacle extends GameObject {
 	}
 
 	@Override
-	public boolean doCollision() {
-		return false;
-	}
-
-	@Override
 	public boolean receiveCollision(Player player) {
 		player.SetNotAlive();
+		alive=false;
 		return false;
 	}
 

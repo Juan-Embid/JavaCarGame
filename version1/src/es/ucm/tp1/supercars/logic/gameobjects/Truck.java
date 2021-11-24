@@ -15,11 +15,6 @@ public class Truck extends Obstacle {
 		return SYMBOL;
 	}
 	
-	@Override
-	public boolean doCollision() {
-		
-		return false;
-	}
 
 	@Override
 	public boolean receiveExplosion() {

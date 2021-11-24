@@ -23,7 +23,6 @@ public class SuperCoin extends Coin {
 
 	@Override
 	public boolean receiveCollision(Player player) {
-		onDelete();
 		player.AddSuperCoin();
 		return false;
 	}

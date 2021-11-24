@@ -16,7 +16,8 @@ public class GoUp extends Command {
 	}
 	@Override
 	public boolean execute(Game game) {
-		//game.firstCollision();
+		game.firstCollision();
+		game.eraseContainer();
 		game.goUp();
 		game.update();
 		return true;
