@@ -36,7 +36,6 @@ public class Player extends GameObject {
 		if(mov==-1) goUp(width);
 		else 
 			goDown();
-		cycles++;
 	} 
 	
 	public int getCycle() {
@@ -97,6 +96,7 @@ public class Player extends GameObject {
 	@Override
 	public void update() {
 		x++;
+		cycles++;
 	}
 
 	@Override
@@ -130,7 +130,8 @@ public class Player extends GameObject {
 	}
 
 	public void doTurbo(int step) {
-	
 		this.x+=step;
+		this.cycles+=step;
+		
 	}
 }

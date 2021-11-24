@@ -31,6 +31,18 @@ public class GameObjectContainer {
 		if (!test) return null;
 		return go;
 	}
+	//TODO BORRAR OBJETOS
+public void erase(int x, int y) {
+		GameObject go;
+		boolean removed =false;
+		go= isinPosition(x, y);
+		for (int i = 0;i<gameobjects.size() && !removed;i++) {
+		if(gameobjects.get(i)==go) {
+			gameobjects.remove(i);
+		removed=true;}
+		}
+	}
+	
 	public int getpositionY() {
 		return 0;
 	}
@@ -42,7 +54,6 @@ public class GameObjectContainer {
 			GameObject go = gameobjects.get(i);
 			go.update();
 			
-		}
-		
+		}		
 }
 }

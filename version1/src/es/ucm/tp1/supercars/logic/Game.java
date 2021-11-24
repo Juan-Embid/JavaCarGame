@@ -27,15 +27,17 @@ public class Game {
 	public void toggleTest() {
 		activate = true;
 	}
-	public boolean update() {
+	public void update() {
 		player.update();
 		player.doPlayerCollision(this);
+		//if(player.doPlayerCollision(this)) TODO ERROR COGE 2 COINS, CREO QUE ES PORQUE COLISIONA DOS VECES CON LA MISMA COIN
+		//	container.erase(player.getX(), player.getY());
 		container.update();
 		GameObjectGenerator.generateRuntimeObjects(this);
 		if (cycles == 0)
 			initTime = System.currentTimeMillis();
 		cycles++;
-		return player.doPlayerCollision(this);
+		player.doPlayerCollision(this);
 	}
 	public void reset() {
 		random = new Random(seed);
@@ -108,7 +110,7 @@ public void reset(Long newSeed, Level newLevel) {
 		return level.getObstacleFrequency();}
 
 	public int distanceTofinish() {
-		return (getLength()-cycles);
+		return (getLength()-player.getCycle());
 	}
 	
 	

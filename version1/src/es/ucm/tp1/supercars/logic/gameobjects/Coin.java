@@ -4,7 +4,7 @@ import es.ucm.tp1.supercars.logic.Game;
 
 public class Coin extends GameObject {
 	public static final String SYMBOL = "¢";
-	public static int cont;
+	public static int cont=0;
 	private boolean alive=true;
 	
 	public Coin(Game game, int x, int y) {
@@ -19,10 +19,6 @@ public class Coin extends GameObject {
 		return alive;
 	}
 	
-	public void receiveCollision() {
-		alive = false;
-	}
-
 	@Override
 	public boolean doCollision() {
 		return false;
@@ -32,6 +28,7 @@ public class Coin extends GameObject {
 	public boolean receiveCollision(Player player) {
 		player.AddCoin();
 		onDelete();
+		
 		return false;
 	}
 
