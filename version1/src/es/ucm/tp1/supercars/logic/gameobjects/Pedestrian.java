@@ -7,7 +7,7 @@ public class Pedestrian extends Obstacle{
 	public static final String SYMBOL = "☺";
 	
 	public static final int STEP = 1;
-	boolean subiendo=true;
+	boolean subiendo=false;
 	
 	public Pedestrian(Game game, int x, int y) {
 		super(game, x, y);
@@ -24,18 +24,18 @@ public class Pedestrian extends Obstacle{
 	//TODO ARREGLAR CARA BAJANDO
 	@Override
 	public void update() {	
-		if(subiendo) {
-			if(y + STEP != game.getRoadWidth()) {
-				y += STEP;
-			}
-			else 	subiendo=false;
-		}else {
-			if(y - STEP >0) {
-				y-= STEP;
-				}
-			else subiendo=true;
+		if(y - STEP >= 0 && subiendo) {
+			y -= STEP;
+		if(y==0)
+			subiendo=false;
+		}else if(y + STEP != game.getRoadWidth() && !subiendo) {
+			y += STEP;
+			if(y==game.getRoadWidth()-1)
+				subiendo=true;
 		}
-	}
+		
+		}
+	
 
 	@Override
 	public void onDelete() {

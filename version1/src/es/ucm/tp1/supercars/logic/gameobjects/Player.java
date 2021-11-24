@@ -6,7 +6,6 @@ import es.ucm.tp1.supercars.logic.Game;
 public class Player extends GameObject {
 	public static final int INIT_COINS=0;
 	public static final int STEP =1;
-	private int x, y;
 	private boolean alive = true;
 	private Integer coinCounter=0, cycles = 0;
 	private static Game game;
