@@ -5,7 +5,7 @@ import es.ucm.tp1.supercars.logic.Game;
 public class Obstacle extends GameObject {
 	public static final String SYMBOL = "░";
 	private boolean alive=true;
-	public static int x, y,cont;
+	public static int cont;
 	
 	public Obstacle(Game game, int x, int y) {
 		super(game, x, y);
@@ -38,7 +38,6 @@ public class Obstacle extends GameObject {
 
 	@Override
 	public void update() {	
-		x--;
 	}
 
 	@Override

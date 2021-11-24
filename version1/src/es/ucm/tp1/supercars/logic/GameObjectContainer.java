@@ -34,21 +34,15 @@ public class GameObjectContainer {
 	public int getpositionY() {
 		return 0;
 	}
-	public void update() {
-		for(int i=0;i<gameobjects.size();i++) {
-			GameObject go = gameobjects.get(i);
-			go.less();
-		}
-	}
 	public void onEnter(GameObject gameobject1) {
 		gameobject1.onEnter();
 	}
-	/*public void doTurbo(int step) {
-		GameObject go=null;
+	public void update() {
 		for(int i=0;i<gameobjects.size();i++) {
-			go= gameobjects.get(i);
-			go.doTurbo(step);
+			GameObject go = gameobjects.get(i);
+			go.update();
+			
 		}
 		
-	}*/
+}
 }

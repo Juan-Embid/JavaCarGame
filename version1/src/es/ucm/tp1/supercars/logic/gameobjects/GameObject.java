@@ -10,6 +10,7 @@ public abstract class GameObject implements Collider {
 	protected Game game;
 	Coin coin;
 	Obstacle obstacle;
+	Truck truck;
 	protected String symbol;
 
 	public GameObject(Game game, int x, int y) {
@@ -61,17 +62,11 @@ public abstract class GameObject implements Collider {
 	public boolean CoinisAlive() {
 		return coin.isAlive();
 	}
-	public void less() {
-		this.x--;
-	}
-	
-	public void doTurbo(int step) {
-		this.x-=3;
-	}
 	
 	public abstract void onEnter();
 
 	public abstract void update();
 
 	public abstract void onDelete();
+
 }

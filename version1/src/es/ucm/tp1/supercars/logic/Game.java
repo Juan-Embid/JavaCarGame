@@ -11,6 +11,7 @@ import es.ucm.tp1.supercars.logic.gameobjects.Player;
 public class Game {
 	private Level level;
 	private GameObjectContainer container;
+	private GameObject gameobject;
 	private Long seed;
 	private Player player;
 	private int cycles = 0;
@@ -27,8 +28,9 @@ public class Game {
 		activate = true;
 	}
 	public boolean update() {
-		//container.update();
 		player.update();
+		player.doPlayerCollision(this);
+		container.update();
 		GameObjectGenerator.generateRuntimeObjects(this);
 		if (cycles == 0)
 			initTime = System.currentTimeMillis();
@@ -175,6 +177,10 @@ public void reset(Long newSeed, Level newLevel) {
 	}
 	public void execute(InstantAction thunder) {
 		
+	}
+	
+	public void firstCollision() {
+		player.doPlayerCollision(this);
 	}
 	/*public void setTurbo(int step) {
 		container.doTurbo(step);

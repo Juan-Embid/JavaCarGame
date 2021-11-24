@@ -2,44 +2,39 @@ package es.ucm.tp1.supercars.logic.gameobjects;
 
 import es.ucm.tp1.supercars.logic.Game;
 
-public class Pedestrian extends GameObject{
+public class Pedestrian extends Obstacle{
 
 	public static final String SYMBOL = "☺";
 	
 	public static final int STEP = 1;
-	 
+	boolean subiendo=true;
+	
 	public Pedestrian(Game game, int x, int y) {
 		super(game, x, y);
-	}
-
-	@Override
-	public boolean doCollision() {
-		return false;
-	}
-
-	@Override
-	public boolean receiveCollision(Player player) {
-		return false;
-	}
-
-	@Override
-	public boolean receiveShoot() {
-		return false;
-	}
-
-	@Override
-	public boolean receiveExplosion() {
-		return false;
 	}
 
 	@Override
 	public void onEnter() {
 		
 	}
-
+	
+	public String toString() {
+		return SYMBOL;
+	}
+	//TODO ARREGLAR CARA BAJANDO
 	@Override
-	public void update() {
-		
+	public void update() {	
+		if(subiendo) {
+			if(y + STEP != game.getRoadWidth()) {
+				y += STEP;
+			}
+			else 	subiendo=false;
+		}else {
+			if(y - STEP >0) {
+				y-= STEP;
+				}
+			else subiendo=true;
+		}
 	}
 
 	@Override

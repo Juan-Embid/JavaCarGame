@@ -6,7 +6,7 @@ public class Turbo extends GameObject {
 
 	public static final String SYMBOL = ">>>";
 	private static final int STEP = 3;
-	public static int x, y;
+	public int x, y;
 	
 	public Turbo(Game game, int x, int y) {
 		super(game, x, y);
@@ -39,7 +39,6 @@ public class Turbo extends GameObject {
 
 	@Override
 	public void update() {
-		x--;
 	}
 
 	@Override

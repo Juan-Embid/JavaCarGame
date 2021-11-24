@@ -30,8 +30,8 @@ public class GameObjectGenerator {
 				if (!SuperCoin.hasSuperCoin()) {
 					game.tryToAddObject(new SuperCoin(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
 					}
-				//game.tryToAddObject(new Truck(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
-				//game.tryToAddObject(new Pedestrian(game, x, 0), level.getAdvancedObjectFrequency());
+					game.tryToAddObject(new Truck(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
+					game.tryToAddObject(new Pedestrian(game, x, 0), level.getAdvancedObjectFrequency());
 				}
 			}
 		}

@@ -72,9 +72,9 @@ public class Player extends GameObject {
 		cycles = 0;
 	}
 	
-	@Override
+	@Override//TODO Código repetido o para arreglar
 	public boolean doCollision() {
-		Collider other = game.getObjectInPosition(x, y);
+		Collider other = game.getObjectInPosition(this.x, this.y);
 		if (other != null) {
 		return other.receiveCollision (this);
 		}
@@ -130,7 +130,8 @@ public class Player extends GameObject {
 		coinCounter += 1000;
 	}
 
-	/*public void doTurbo(int step) {	
-		game.setTurbo(step);
-	}*/
+	public void doTurbo(int step) {
+	
+		this.x+=step;
+	}
 }

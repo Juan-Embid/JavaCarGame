@@ -2,26 +2,22 @@ package es.ucm.tp1.supercars.logic.gameobjects;
 
 import es.ucm.tp1.supercars.logic.Game;
 
-public class Truck extends GameObject {
-
+public class Truck extends Obstacle {
+   Game game;
 	public static final String SYMBOL= "←";
+	private boolean alive=true;
 	
 	public Truck(Game game, int x, int y) {
 		super(game, x, y);
 	}
 
+	public String toString() {
+		return SYMBOL;
+	}
+	
 	@Override
 	public boolean doCollision() {
-		return false;
-	}
-
-	@Override
-	public boolean receiveCollision(Player player) {
-		return false;
-	}
-
-	@Override
-	public boolean receiveShoot() {
+		
 		return false;
 	}
 
@@ -37,7 +33,7 @@ public class Truck extends GameObject {
 
 	@Override
 	public void update() {
-		
+		x--;
 	}
 
 	@Override

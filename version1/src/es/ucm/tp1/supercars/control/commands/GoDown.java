@@ -16,6 +16,7 @@ public class GoDown extends Command {
 	}
 	@Override
 	public boolean execute(Game game) {
+		//game.firstCollision();
 		game.goDown();
 		game.update();
 		return true;

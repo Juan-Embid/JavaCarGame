@@ -2,13 +2,13 @@ package es.ucm.tp1.supercars.logic.gameobjects;
 
 import es.ucm.tp1.supercars.logic.Game;
 
-public class Wall extends GameObject {
+public class Wall extends Obstacle {
 	public static final String WEAK="░";
 	public static final String MEDIUM="▒";
 	public static final String HARD="█";
 		
 	private boolean alive=true;
-	public static int x, y, cont, life = 3;
+	public static int life = 3;
 
 	public Wall(Game game, int x, int y) {
 		super(game, x, y);
@@ -49,7 +49,7 @@ public class Wall extends GameObject {
 	
 	@Override
 	public void update() {
-		x--;
+		
 	}
 
 	@Override
