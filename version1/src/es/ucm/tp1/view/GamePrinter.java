@@ -113,6 +113,8 @@ public class GamePrinter {
 		System.out.println("Cycle: " + game.getCycles());
 		System.out.println("Total obstacles: " + GameObject.getObstacles());
 		System.out.println("Total coins: " + GameObject.getCoins());
+		if(GameObject.superCoinIsPresent())
+		System.out.println("Supercoin is present");
 		if (!game.getActivate())
 			if (game.getCycles() == 0)
 				System.out.println("Ellapsed time: 0.00 s");

@@ -12,7 +12,6 @@ import es.ucm.tp1.supercars.logic.gameobjects.Coin;
 
 public class GameObjectGenerator {
 	static Game game;
-	 	
 	public static void generateRuntimeObjects(Game game) {
 		// Note we use this method to create and inject new objects or actions on runtime.
 		if (game.getLevel().hasAdvancedObjects()) {
@@ -27,9 +26,9 @@ public class GameObjectGenerator {
 			if (level.hasAdvancedObjects()) {
 				game.tryToAddObject(new Wall(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
 				game.tryToAddObject(new Turbo(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
-				if (!SuperCoin.hasSuperCoin()) {
+				if (!SuperCoin.alive) {
 					game.tryToAddObject(new SuperCoin(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
-					}
+				}
 					game.tryToAddObject(new Truck(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
 					game.tryToAddObject(new Pedestrian(game, x, 0), level.getAdvancedObjectFrequency());
 				}

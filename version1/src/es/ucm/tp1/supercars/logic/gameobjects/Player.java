@@ -55,8 +55,10 @@ public class Player extends GameObject {
 	}
 	public Boolean doPlayerCollision(Game game) {
 		// coins
+		
 		Collider other = game.getObjectInPosition(x, y);
-		if (other != null) {
+		GameObject go = game.getObjectInPosition(x, y);
+		if (other != null && go.isAlive()) {
 		return other.receiveCollision (this);
 		}
 		return false;
@@ -133,5 +135,15 @@ public class Player extends GameObject {
 		this.x+=step;
 		this.cycles+=step;
 		
+	}
+
+	public void resetCoin() {
+		coinCounter=0;
+		
+	}
+
+	public void lessCoin() {
+		// TODO Auto-generated method stub
+		coinCounter--;
 	}
 }

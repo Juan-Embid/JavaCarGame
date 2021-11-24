@@ -18,7 +18,9 @@ public class Turbo extends GameObject {
 	}
 	
 	
-	
+	public boolean isAlive() {
+		return alive;
+	}
 
 	@Override
 	public boolean receiveCollision(Player player) {
@@ -33,7 +35,8 @@ public class Turbo extends GameObject {
 	}
 
 	@Override
-	public void onEnter() {		
+	public void onEnter() {	
+		alive=true;
 	}
 
 	@Override

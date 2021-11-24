@@ -39,7 +39,8 @@ public void erase() {
 		if(gameobjects.get(i).isAlive()) {
 			aux.add(gameobjects.get(i));
 		}
-		else gameobjects.get(i).onDelete();
+		else {	gameobjects.get(i).onDelete();
+		}
 		}
 		gameobjects = aux;
 		}

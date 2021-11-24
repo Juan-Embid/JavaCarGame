@@ -11,6 +11,7 @@ public abstract class GameObject implements Collider {
 	Coin coin;
 	Obstacle obstacle;
 	Truck truck;
+	static SuperCoin supercoin;
 	protected String symbol;
 
 	public GameObject(Game game, int x, int y) {
@@ -52,7 +53,9 @@ public abstract class GameObject implements Collider {
 	public int getY() {
 		return y;
 	}
-
+	public static boolean superCoinIsPresent() {
+		return SuperCoin.alive;
+	}
 	public boolean isAlive() {
 		return true;
 	}

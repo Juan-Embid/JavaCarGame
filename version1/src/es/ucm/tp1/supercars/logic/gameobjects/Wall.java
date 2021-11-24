@@ -7,7 +7,6 @@ public class Wall extends Obstacle {
 	public static final String MEDIUM="▒";
 	public static final String HARD="█";
 		
-	private boolean alive=true;
 	public static int life = 3;
 
 	public Wall(Game game, int x, int y) {
@@ -54,5 +53,5 @@ public class Wall extends Obstacle {
 	public static void reset() {
 		cont = 0;
 	}
-
+	
 }

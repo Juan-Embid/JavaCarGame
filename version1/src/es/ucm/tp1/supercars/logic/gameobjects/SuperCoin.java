@@ -6,7 +6,7 @@ public class SuperCoin extends Coin {
 
 	public static final String SYMBOL = "$";
 	public static int SUPERCOIN =1000;
-	private static boolean alive = false;
+	public static boolean alive = false;
 	
 	public SuperCoin(Game game, int x, int y) {
 		super(game, x, y);
@@ -17,13 +17,10 @@ public class SuperCoin extends Coin {
 		return SYMBOL;
 	}
 	
-	public boolean isAlive() {
-		return alive; //TODO revisar esta funcion a ver si se usa
-	}
-
 	@Override
 	public boolean receiveCollision(Player player) {
 		player.AddSuperCoin();
+		alive =false;
 		return false;
 	}
 
@@ -34,7 +31,6 @@ public class SuperCoin extends Coin {
 
 	@Override
 	public void onDelete() {
-		alive = false;
 	}
 	
 	
@@ -44,7 +40,7 @@ public class SuperCoin extends Coin {
 
 
 
-	public static boolean hasSuperCoin() {
+	public boolean isAlive() {
 		return alive;
 	}
 

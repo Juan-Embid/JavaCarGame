@@ -5,7 +5,6 @@ import es.ucm.tp1.supercars.logic.Game;
 public class Truck extends Obstacle {
    Game game;
 	public static final String SYMBOL= "←";
-	private boolean alive=true;
 	
 	public Truck(Game game, int x, int y) {
 		super(game, x, y);

@@ -29,14 +29,13 @@ public class Game {
 	}
 	public void update() {
 		player.update();
-		container.update();
 		player.doPlayerCollision(this);
-		eraseContainer();
+		container.update();
 		GameObjectGenerator.generateRuntimeObjects(this);
 		if (cycles == 0)
 			initTime = System.currentTimeMillis();
 		cycles++;
-		
+		eraseContainer();
 	}
 	public void reset() {
 		random = new Random(seed);
@@ -88,6 +87,10 @@ public void reset(Long newSeed, Level newLevel) {
 		return player.getX();
 	}
 	
+	public int getPlayerY() {
+		return player.getY();
+	}
+	
 	public String positionToString(int x, int y) {
 		StringBuilder str = new StringBuilder();
 		
@@ -136,7 +139,7 @@ public void reset(Long newSeed, Level newLevel) {
 		return random.nextInt(level.getWidth());
 	}
 
-	public Collider getObjectInPosition(int x, int y) {
+	public GameObject getObjectInPosition(int x, int y) {
 		return container.isinPosition(x, y);
 	}
 
@@ -195,4 +198,21 @@ public void reset(Long newSeed, Level newLevel) {
 	/*public void setTurbo(int step) {
 		container.doTurbo(step);
 	}*/
-}
+	public boolean shoot() {
+		if(player.getCoin()>0) {
+			player.lessCoin();
+			for (int i = player.getCycle(); i < player.getCycle() + getVisibility(); i++) {
+				GameObject obj = container.isinPosition(i, getPlayerY());
+				if(obj != null) {
+					if(obj.receiveShoot()) {
+						return true;
+					}	
+				}
+		}
+			}
+			return false;
+	}
+	public void loseCoins() {
+		player.resetCoin();
+		
+	}}

@@ -8,6 +8,7 @@ public class Pedestrian extends Obstacle{
 	
 	public static final int STEP = 1;
 	boolean subiendo=false;
+
 	
 	public Pedestrian(Game game, int x, int y) {
 		super(game, x, y);
@@ -35,7 +36,13 @@ public class Pedestrian extends Obstacle{
 		
 		}
 	
-
+	@Override
+	public boolean receiveShoot() {
+		alive = false;
+		game.loseCoins();
+		return true;
+	}
+	
 	@Override
 	public void onDelete() {
 		
