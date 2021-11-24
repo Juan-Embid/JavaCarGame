@@ -90,17 +90,22 @@ public void reset(Long newSeed, Level newLevel) {
 	}
 	
 	public String positionToString(int x, int y) {
+		StringBuilder str = new StringBuilder();
+		
 		if (player.isInPosition(x, y))
-			return player.statusToString();
+			str.append(player.statusToString())
+				.append(" ");
 		GameObject obj = container.isinPosition(x, y);
 		if (obj != null)
-			return obj.toString();
+			str.append(obj.toString())
+				.append(" ");
 		else {
 			if (level.getLength() == x) {
-				return "¦";
+				str.append("¦");
 			}
-			return "";
+			//return "";
 		}
+		return str.toString();
 	}
 	
 	public double getCoinFrequency() {
