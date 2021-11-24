@@ -10,4 +10,6 @@ void execute(Game game);
  
  boolean ThunderKill();
  
+ boolean shootAction();
+ 
 }

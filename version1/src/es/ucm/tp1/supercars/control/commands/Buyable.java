@@ -1,4 +1,4 @@
-package es.ucm.tp1.control;
+package es.ucm.tp1.supercars.control.commands;
 
 import es.ucm.tp1.supercars.logic.Game;
 
@@ -6,7 +6,9 @@ public interface Buyable {
 
 		public int cost();
 		public default boolean buy(Game game){
-		// TODO add your code
+			int cost = cost();
+			if(game.buy(cost))
+				
 			return false;
 		};
 }

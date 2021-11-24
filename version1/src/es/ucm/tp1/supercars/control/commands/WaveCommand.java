@@ -2,7 +2,7 @@ package es.ucm.tp1.supercars.control.commands;
 
 import es.ucm.tp1.supercars.logic.Game;
 
-public class WaveCommand extends Command {
+public class WaveCommand extends Command implements Buyable {
 
 	private static final String NAME = "wave";
 
@@ -20,6 +20,12 @@ public class WaveCommand extends Command {
 	public boolean execute(Game game) {
 		game.update();
 		return false;
+	}
+
+	@Override
+	public int cost() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

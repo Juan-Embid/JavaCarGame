@@ -215,4 +215,13 @@ public void reset(Long newSeed, Level newLevel) {
 	public void loseCoins() {
 		player.resetCoin();
 		
+	}
+	public boolean buy(int cost) {
+		if(player.getCoin()>=cost) {
+			for(int i=0;i<cost;i++) {
+			player.lessCoin();
+			}
+			return true;
+		}
+		return false;
 	}}
