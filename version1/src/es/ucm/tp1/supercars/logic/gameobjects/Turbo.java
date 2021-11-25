@@ -7,7 +7,6 @@ public class Turbo extends GameObject {
 	public static final String SYMBOL = ">>>";
 	private static final int STEP = 3;
 	public int x, y;
-	private boolean alive=false;
 	
 	public Turbo(Game game, int x, int y) {
 		super(game, x, y);

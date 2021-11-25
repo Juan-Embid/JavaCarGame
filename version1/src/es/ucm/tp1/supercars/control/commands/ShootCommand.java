@@ -21,10 +21,12 @@ public class ShootCommand extends Command implements Buyable {
 
 	@Override
 	public boolean execute(Game game) {
-		if(buy(game))
+		if(buy(game)) {
 		game.execute(new ShootAction());
 		game.update();
 		return true;
+		}
+		return false;
 	}
 
 	@Override

@@ -132,8 +132,10 @@ public class Player extends GameObject {
 
 	public void doTurbo(int step) {
 		this.x+=step;
-		this.cycles+=step;
-		
+		cycles+=step;
+		/*if(cycles>game.getLength()) { //TODO esto arregla si saltamos la meta, pero da error y no sé porqué
+		cycles=game.getLength();
+		}*/
 	}
 
 	public void resetCoin() {

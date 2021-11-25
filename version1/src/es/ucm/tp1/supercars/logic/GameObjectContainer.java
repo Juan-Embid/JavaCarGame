@@ -13,7 +13,10 @@ public class GameObjectContainer {
 		public GameObjectContainer() {
 		gameobjects = new ArrayList<>();
 		}
-	public void Delete() {
+	public void removeAllObjects() {
+		for (int i = 0;i<gameobjects.size();i++) {
+			gameobjects.get(i).suicide();
+		}
 	}
 	
 	public void Add(GameObject objeto) {

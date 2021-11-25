@@ -28,6 +28,7 @@ public class Game {
 		activate = true;
 	}
 	public void update() {
+		if(player.isAlive())
 		player.update();
 		player.doPlayerCollision(this);
 		container.update();
@@ -188,17 +189,14 @@ public void reset(Long newSeed, Level newLevel) {
 	action.execute(this);
 	}
 	
-	public void firstCollision() {
-		player.doPlayerCollision(this);
+	public boolean firstCollision() {
+		return player.doPlayerCollision(this);
 	}
 	
 	public void eraseContainer() {
 		container.erase();
 	}
-	/*public void setTurbo(int step) {
-		container.doTurbo(step);
-	}*/
-
+	
 	public void loseCoins() {
 		player.resetCoin();
 		
@@ -215,4 +213,7 @@ public void reset(Long newSeed, Level newLevel) {
 	public int getPlayerCycles() {
 	return player.getCycle();
 		
+	}
+	public void clearCommand() {
+		container.removeAllObjects();
 	}}

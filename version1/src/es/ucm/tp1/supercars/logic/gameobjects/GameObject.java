@@ -10,10 +10,9 @@ public abstract class GameObject implements Collider {
 	protected Game game;
 	Coin coin;
 	Obstacle obstacle;
-	Truck truck;
-	static SuperCoin supercoin;
 	protected String symbol;
-
+	protected boolean alive=true;
+	
 	public GameObject(Game game, int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -35,7 +34,7 @@ public abstract class GameObject implements Collider {
 
 	@Override
 	public String toString() {
-		if (isAlive()) {
+		if (this.isAlive()) {
 			return getSymbol();
 		}
 
@@ -65,7 +64,9 @@ public abstract class GameObject implements Collider {
 	public boolean CoinisAlive() {
 		return coin.isAlive();
 	}
-	
+	public void suicide() {
+		this.alive=false;
+	}
 	public abstract void onEnter();
 
 	public abstract void update();

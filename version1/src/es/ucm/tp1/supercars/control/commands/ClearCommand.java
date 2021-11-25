@@ -18,7 +18,9 @@ public class ClearCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		return false;
+		game.clearCommand();
+		game.eraseContainer();
+		return true;
 	}
 
 }

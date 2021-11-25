@@ -12,6 +12,7 @@ public class WaveCommand extends Command implements Buyable {
 
 	private static final String HELP = "do wave";
 	
+	private static final int COST =5;
 	public WaveCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
@@ -24,8 +25,7 @@ public class WaveCommand extends Command implements Buyable {
 
 	@Override
 	public int cost() {
-		// TODO Auto-generated method stub
-		return 0;
+		return COST;
 	}
 
 }

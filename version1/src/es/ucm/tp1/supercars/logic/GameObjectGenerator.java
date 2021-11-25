@@ -12,6 +12,9 @@ import es.ucm.tp1.supercars.logic.gameobjects.Coin;
 
 public class GameObjectGenerator {
 	static Game game;
+	static SuperCoin supercoin;
+	static Coin coin;
+	static Obstacle obstacle;
 	public static void generateRuntimeObjects(Game game) {
 		// Note we use this method to create and inject new objects or actions on runtime.
 		if (game.getLevel().hasAdvancedObjects()) {
@@ -40,8 +43,8 @@ public class GameObjectGenerator {
 	}
 	
 	public static void reset() {
-		Obstacle.reset();
-		Coin.reset();
+		obstacle.reset();
+		coin.reset();
 	}
 
 }

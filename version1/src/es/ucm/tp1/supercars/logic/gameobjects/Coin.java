@@ -5,7 +5,6 @@ import es.ucm.tp1.supercars.logic.Game;
 public class Coin extends GameObject {
 	public static final String SYMBOL = "¢";
 	public static int cont=0;
-	private boolean alive=true;
 	
 	public Coin(Game game, int x, int y) {
 		super(game, x,y);
@@ -42,7 +41,8 @@ public class Coin extends GameObject {
 
 	@Override
 	public void update() {
-		
+		if(x<game.getPlayerCycles())
+			alive=false;
 	}
 
 	@Override

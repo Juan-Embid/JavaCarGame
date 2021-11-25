@@ -36,11 +36,6 @@ public class Wall extends Obstacle {
 	}
 	
 	@Override
-	public void update() {
-		
-	}
-
-	@Override
 	public void onDelete() {
 		cont--;
 	}

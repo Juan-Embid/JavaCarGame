@@ -15,4 +15,8 @@ public class ShootAction implements InstantAction {
 					if(obj != null) {
 						if(obj.receiveShoot()!=ok) {
 							ok=true;
-						}}}}}
+						}
+					}
+				}
+			}
+	}

@@ -18,7 +18,7 @@ public class UpdateCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		game.firstCollision();
+		if(!game.firstCollision())
 		game.update();
 		return true;
 	}
