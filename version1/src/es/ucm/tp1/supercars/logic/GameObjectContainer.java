@@ -61,5 +61,18 @@ public void erase() {
 			go.update();
 			
 		}		
-}
+	}
+	
+	public Object positionToString(int x, int y) {
+		StringBuilder str = new StringBuilder();
+		GameObject go = null;
+
+		for (int i=0;i<gameobjects.size();i++) {
+			go = gameobjects.get(i);
+			if (go.isInPosition(x, y) == true)
+				str.append(gameobjects.get(i).toString())
+					.append(" ");
+		}
+		return str;
+	}
 }
