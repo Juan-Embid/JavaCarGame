@@ -22,8 +22,6 @@ public class GameObjectContainer {
 	public void Add(GameObject objeto) {
 		gameobjects.add(objeto);
 	}
-	public void reset() {
-	}
 	public GameObject isinPosition(int x, int y) {
 		boolean test = false;
 		GameObject go=null;

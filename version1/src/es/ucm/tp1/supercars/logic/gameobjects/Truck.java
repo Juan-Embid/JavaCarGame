@@ -27,8 +27,6 @@ public class Truck extends Obstacle {
 	@Override
 	public void update() {
 		x--;
-		//if(this.x<game.getPlayerCycles()) TODO Da error por algún motivo que desconozco
-		//	alive=false;
 	}
 
 	@Override

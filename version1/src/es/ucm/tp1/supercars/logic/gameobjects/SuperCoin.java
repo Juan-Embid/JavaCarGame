@@ -6,7 +6,6 @@ public class SuperCoin extends Coin {
 
 	public static final String SYMBOL = "$";
 	public static int SUPERCOIN =1000;
-	public static boolean alive = false;
 	
 	public SuperCoin(Game game, int x, int y) {
 		super(game, x, y);
@@ -21,6 +20,7 @@ public class SuperCoin extends Coin {
 	public boolean receiveCollision(Player player) {
 		player.AddSuperCoin();
 		alive =false;
+		cont=0;
 		return false;
 	}
 
@@ -34,8 +34,9 @@ public class SuperCoin extends Coin {
 	}
 	
 	
-	public static void reset() {
+	public void reset() {
 		alive = false;
+		cont=0;
 	}
 
 

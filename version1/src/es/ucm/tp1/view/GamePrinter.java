@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 
 import es.ucm.tp1.supercars.logic.Game;
 import es.ucm.tp1.supercars.logic.gameobjects.GameObject;
+import es.ucm.tp1.supercars.logic.gameobjects.SuperCoin;
 
 
 public class GamePrinter {
@@ -113,7 +114,7 @@ public class GamePrinter {
 		System.out.println("Cycle: " + game.getCycles());
 		System.out.println("Total obstacles: " + GameObject.getObstacles());
 		System.out.println("Total coins: " + GameObject.getCoins());
-		if(GameObject.superCoinIsPresent())
+		if(SuperCoin.cont!=0)
 		System.out.println("Supercoin is present");
 		if (!game.getActivate())
 			if (game.getCycles() == 0)

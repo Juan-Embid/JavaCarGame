@@ -35,7 +35,7 @@ public class Coin extends GameObject {
 		cont--;
 	}
 
-	public static void reset() {
+	public void reset() {
 		cont=0;
 	}
 

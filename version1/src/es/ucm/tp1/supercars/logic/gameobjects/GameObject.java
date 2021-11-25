@@ -52,9 +52,6 @@ public abstract class GameObject implements Collider {
 	public int getY() {
 		return y;
 	}
-	public static boolean superCoinIsPresent() {
-		return SuperCoin.alive;
-	}
 	public boolean isAlive() {
 		return true;
 	}
