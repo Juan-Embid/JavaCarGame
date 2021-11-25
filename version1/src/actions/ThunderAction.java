@@ -9,20 +9,4 @@ public class ThunderAction implements InstantAction{
 		
 	}
 
-	@Override
-	public boolean explosionAction() {
-		return false;
-	}
-
-	@Override
-	public boolean ThunderKill() {
-		return false;
-	}
-
-	@Override
-	public boolean shootAction() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }

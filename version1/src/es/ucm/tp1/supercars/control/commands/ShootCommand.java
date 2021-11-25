@@ -1,5 +1,6 @@
 package es.ucm.tp1.supercars.control.commands;
 
+import actions.ShootAction;
 import es.ucm.tp1.supercars.logic.Game;
 
 public class ShootCommand extends Command implements Buyable {
@@ -20,15 +21,14 @@ public class ShootCommand extends Command implements Buyable {
 
 	@Override
 	public boolean execute(Game game) {
-		buy(game);
-		game.shoot();
+		if(buy(game))
+		game.execute(new ShootAction());
 		game.update();
 		return true;
 	}
 
 	@Override
 	public int cost() {
-		
 		return COST;
 	}
 

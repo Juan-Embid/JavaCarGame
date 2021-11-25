@@ -26,7 +26,9 @@ public class GameObjectContainer {
 		GameObject go=null;
 		for (int i = 0;i<gameobjects.size() && !test;i++) {
 			go = gameobjects.get(i);
+			if(gameobjects.get(i).isAlive()) {
 			test = go.isInPosition(x, y);
+			}
 		}
 		if (!test) return null;
 		return go;

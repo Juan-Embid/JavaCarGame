@@ -184,8 +184,8 @@ public void reset(Long newSeed, Level newLevel) {
 	public Level getLevel() {
 		return level;
 	}
-	public void execute(InstantAction thunder) {
-		
+	public void execute(InstantAction action) {
+	action.execute(this);
 	}
 	
 	public void firstCollision() {
@@ -198,20 +198,7 @@ public void reset(Long newSeed, Level newLevel) {
 	/*public void setTurbo(int step) {
 		container.doTurbo(step);
 	}*/
-	public boolean shoot() {
-		if(player.getCoin()>0) {
-			player.lessCoin();
-			for (int i = player.getCycle(); i < player.getCycle() + getVisibility(); i++) {
-				GameObject obj = container.isinPosition(i, getPlayerY());
-				if(obj != null) {
-					if(obj.receiveShoot()) {
-						return true;
-					}	
-				}
-		}
-			}
-			return false;
-	}
+
 	public void loseCoins() {
 		player.resetCoin();
 		
@@ -224,4 +211,8 @@ public void reset(Long newSeed, Level newLevel) {
 			return true;
 		}
 		return false;
+	}
+	public int getPlayerCycles() {
+	return player.getCycle();
+		
 	}}

@@ -57,8 +57,7 @@ public class Player extends GameObject {
 		// coins
 		
 		Collider other = game.getObjectInPosition(x, y);
-		GameObject go = game.getObjectInPosition(x, y);
-		if (other != null && go.isAlive()) {
+		if (other != null) {
 		return other.receiveCollision (this);
 		}
 		return false;
