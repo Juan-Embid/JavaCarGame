@@ -95,22 +95,18 @@ public void reset(Long newSeed, Level newLevel) {
 	public String positionToString(int x, int y) {
 		StringBuilder str = new StringBuilder();
 		
-		if (player.isInPosition(x, y))
+		if (player.isInPosition(x, y)) {
 			str.append(player.statusToString())
-				.append(" ");
-		GameObject obj = container.isinPosition(x, y);
-		if (obj != null)
-			str.append(obj.toString())
-				.append(" ");
-		else {
-			if (level.getLength() == x) {
+			.append(" ")
+	 		.append(container.positionToString(x, y)); }
+	else 
+		if(!player.isInPosition(x, y))
+			str.append(container.positionToString(x, y));
+		if (level.getLength() == x)
 				str.append("¦");
-			}
-			//return "";
-		}
-		return str.toString();
-	}
-	
+	return str.toString();
+}
+
 	public double getCoinFrequency() {
 		return level.getCoinFrequency();}
 	
