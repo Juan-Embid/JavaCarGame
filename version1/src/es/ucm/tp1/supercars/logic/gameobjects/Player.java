@@ -147,4 +147,8 @@ public class Player extends GameObject {
 		// TODO Auto-generated method stub
 		coinCounter--;
 	}
+
+	public void less() {
+		x--;
+	}
 }

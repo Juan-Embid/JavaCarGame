@@ -75,4 +75,8 @@ public abstract class GameObject implements Collider {
 
 	public abstract void onDelete();
 
+	public void wave() {
+		x++;
+	}
+
 }

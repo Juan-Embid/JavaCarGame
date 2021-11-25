@@ -212,4 +212,8 @@ public void reset(Long newSeed, Level newLevel) {
 	}
 	public void clearCommand() {
 		container.removeAllObjects();
+	}
+	public void playerUnUpdate() {
+		player.less();
+		
 	}}
