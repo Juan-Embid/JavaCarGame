@@ -10,7 +10,7 @@ public interface Buyable {
 		public int cost();
 		public default boolean buy(Game game){
 			int cost = cost();
-			if(!game.buy(cost)) {
+			if(!game.buy(cost) && cost==1) {
 				System.out.println("Not enough coins\r\n" + 
 						"[ERROR]: Failed to shoot");
 		//	String s = scanner.nextLine(); TODO Que se pause para poder ver el mensaje.

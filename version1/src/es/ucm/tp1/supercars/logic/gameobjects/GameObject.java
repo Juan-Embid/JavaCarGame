@@ -27,6 +27,10 @@ public abstract class GameObject implements Collider {
 		return Obstacle.cont;
 	}
 	
+	public static boolean isSuperCoinPresent() {
+		return SuperCoin.present;
+	}
+	
 	protected String getSymbol() {
 		
 		return symbol;
@@ -61,6 +65,7 @@ public abstract class GameObject implements Collider {
 	public boolean CoinisAlive() {
 		return coin.isAlive();
 	}
+	
 	public void suicide() {
 		this.alive=false;
 	}

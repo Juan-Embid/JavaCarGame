@@ -29,7 +29,7 @@ public class GameObjectGenerator {
 			if (level.hasAdvancedObjects()) {
 				game.tryToAddObject(new Wall(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
 				game.tryToAddObject(new Turbo(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
-				if (SuperCoin.cont==0) {
+				if (!SuperCoin.present) {
 					game.tryToAddObject(new SuperCoin(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
 				}
 					game.tryToAddObject(new Truck(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
