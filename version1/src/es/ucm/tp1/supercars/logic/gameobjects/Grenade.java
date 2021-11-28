@@ -27,17 +27,19 @@ public class Grenade extends GameObject {
 
 	@Override
 	public void onEnter() {
-		
+		alive = true;
 	}
 
 	@Override
 	public void update() {
 		countdown--;
+		if (countdown == 0)
+			alive = false;
 	}
 
 	@Override
 	public void onDelete() {
-		
+		alive = false;
 	}
 
 	@Override

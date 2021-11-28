@@ -23,7 +23,7 @@ public class GrenadeCommand extends Command{
 	@Override
 	public boolean execute(Game game) {
 		game.setGrenade(true);
-		game.setXGrenade(newX);
+		game.setXGrenade(newX + game.getPlayerCycles());
 		game.setYGrenade(newY);
 		return true;
 	}
