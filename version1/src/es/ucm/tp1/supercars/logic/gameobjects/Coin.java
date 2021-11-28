@@ -7,7 +7,7 @@ public class Coin extends GameObject {
 	public static int cont=0;
 	
 	public Coin(Game game, int x, int y) {
-		super(game, x,y);
+		super(game, x, y);
 	}
 	
 	public String toString() {
@@ -33,6 +33,7 @@ public class Coin extends GameObject {
 	@Override
 	public void onDelete() {
 		cont--;
+		alive = false;
 	}
 
 	public void reset() {

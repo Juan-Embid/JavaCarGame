@@ -39,6 +39,7 @@ public class Obstacle extends GameObject {
 	@Override
 	public void onDelete() {
 		cont--;
+		alive = false;
 	}
 
 

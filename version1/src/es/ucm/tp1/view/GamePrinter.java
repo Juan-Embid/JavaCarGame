@@ -107,11 +107,10 @@ public class GamePrinter {
 		DecimalFormat df = new DecimalFormat("#.##");
 		StringBuilder str = new StringBuilder();
 		String distancia = String.valueOf(game.distanceTofinish());
-		if(game.getLevel().hasAdvancedObjects()) {
+		if(game.getLevel().hasAdvancedObjects() && game.getCycles() != 0) {
 			System.out.println("Thunder hit position: (" + game.getThunderAncho() + " , " + game.getThunderLargo() + ") ");
-			GameObject obj = game.getObjectInPosition(game.getThunderAncho(), game.getThunderLargo());
-			if(obj != null)
-				System.out.println(obj.toString() + " hit");}
+            if(!game.getThunderKill().equals(" "))
+                System.out.println(game.getThunderKill() + " hit");}
 		System.out.println("Distancia: " + distancia);
 		System.out.println("Coins: " + game.getCoinCounter());
 		System.out.println("Cycle: " + game.getCycles());

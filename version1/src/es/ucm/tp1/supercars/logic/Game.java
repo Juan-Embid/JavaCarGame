@@ -14,10 +14,11 @@ public class Game {
 	private GameObject gameobject;
 	private Long seed;
 	private Player player;
-	private int cycles = 0, thunderAncho, thunderLargo;
-	private Boolean activate = false, exit=false;
+	private int cycles = 0, thunderAncho, thunderLargo, xGrenade, yGrenade;
+	private Boolean activate = false, exit=false, grenade = false;
 	private long initTime = 0;
 	private Random random;
+	private String thunderKill = " ";
 		
 	public Game(long seed, Level level) {
 		this.seed = seed;
@@ -28,11 +29,11 @@ public class Game {
 		activate = true;
 	}
 	public void update() {
+		GameObjectGenerator.generateRuntimeObjects(this);
 		if(player.isAlive())
 		player.update();
 		player.doPlayerCollision(this);
 		container.update();
-		GameObjectGenerator.generateRuntimeObjects(this);
 		if (cycles == 0)
 			initTime = System.currentTimeMillis();
 		cycles++;
@@ -228,5 +229,29 @@ public void reset(Long newSeed, Level newLevel) {
 	}
 	public int getThunderLargo() {
 		return thunderLargo;
+	}
+	public boolean getGrenade() {
+		return grenade;
+	}
+	public int getXGrenade() {
+		return xGrenade;
+	}
+	public int getYGrenade() {
+		return yGrenade;
+	}
+	public void setXGrenade(int newX) {
+		xGrenade = newX;
+	}
+	public void setYGrenade(int newY) {
+		yGrenade = newY;
+	}
+	public void setGrenade(boolean b) {
+		grenade = b;
+	}
+	public void setThunderKill(String string) {
+		thunderKill = string;
+	}
+	public String getThunderKill() {
+		return thunderKill;
 	}
 }

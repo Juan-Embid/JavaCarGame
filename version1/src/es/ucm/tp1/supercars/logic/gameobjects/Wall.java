@@ -38,6 +38,7 @@ public class Wall extends Obstacle {
 	@Override
 	public void onDelete() {
 		cont--;
+		alive = false;
 	}
 
 	@Override

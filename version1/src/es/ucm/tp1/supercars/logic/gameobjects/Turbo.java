@@ -44,6 +44,7 @@ public class Turbo extends GameObject {
 
 	@Override
 	public void onDelete() {
+		alive = false;
 	}
 
 	@Override

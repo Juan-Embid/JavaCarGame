@@ -5,10 +5,14 @@ import es.ucm.tp1.supercars.logic.Game;
 public class Grenade extends GameObject {
 	
 	public static final String SYMBOL = "ð";
-	private int countdown = 4;
+	private int countdown = 3; //TODO ponerlo a 4 si vemos que nos va mal
 	
 	public Grenade(Game game, int x, int y) {
 		super(game, x, y);
+	}
+	
+	public String toString() {
+		return SYMBOL + "[" + countdown + "]";
 	}
 
 	@Override

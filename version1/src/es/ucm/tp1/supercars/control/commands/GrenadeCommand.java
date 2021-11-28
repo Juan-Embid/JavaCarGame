@@ -1,6 +1,7 @@
 package es.ucm.tp1.supercars.control.commands;
 
 import es.ucm.tp1.supercars.logic.Game;
+import es.ucm.tp1.supercars.logic.gameobjects.Grenade;
 
 public class GrenadeCommand extends Command{
 
@@ -21,7 +22,10 @@ public class GrenadeCommand extends Command{
 
 	@Override
 	public boolean execute(Game game) {
-		return false;
+		game.setGrenade(true);
+		game.setXGrenade(newX);
+		game.setYGrenade(newY);
+		return true;
 	}
 	
 	@Override
@@ -39,5 +43,4 @@ public class GrenadeCommand extends Command{
 	    else
 	      return super.parse(commandWords);
 	}
-	
 }

@@ -11,15 +11,17 @@ public class ThunderAction implements InstantAction{
 	
 	@Override
 	public void execute(Game game) { //TODO
-		random = new Random();
-		ancho = game.getRandomLane();
-		largo = random.nextInt(game.getVisibility());
-		GameObject obj = game.getObjectInPosition(game.getPlayerCycles() + largo, ancho); //siempre devuelve null
-		if(obj != null) {
-			obj.onDelete(); //no se si los borra
-		}
-		game.setThunderAncho(largo);
-		game.setThunderLargo(ancho);
-	}
+        random = new Random();
+        ancho = game.getRandomLane();
+        largo = random.nextInt(game.getVisibility());
+        GameObject obj = game.getObjectInPosition(game.getPlayerCycles() + largo, ancho); //siempre devuelve null
+        if(obj != null) {
+            game.setThunderKill(obj.toString());
+            obj.onDelete(); //no se si los borra
+        }else game.setThunderKill(" ");
+        game.setThunderAncho(largo);
+        game.setThunderLargo(ancho);
+
+    }
 
 }

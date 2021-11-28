@@ -28,10 +28,4 @@ public class Truck extends Obstacle {
 	public void update() {
 		x--;
 	}
-
-	@Override
-	public void onDelete() {
-		
-	}
-
 }

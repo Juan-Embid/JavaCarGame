@@ -54,10 +54,4 @@ public class Pedestrian extends Obstacle{
 		impacted=true;
 		return true;
 	}
-	
-	@Override
-	public void onDelete() {
-		
-	}
-
 }

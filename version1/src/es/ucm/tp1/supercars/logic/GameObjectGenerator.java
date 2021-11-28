@@ -9,6 +9,7 @@ import es.ucm.tp1.supercars.logic.gameobjects.Truck;
 import es.ucm.tp1.supercars.logic.gameobjects.Turbo;
 import es.ucm.tp1.supercars.logic.gameobjects.Wall;
 import es.ucm.tp1.supercars.logic.gameobjects.Coin;
+import es.ucm.tp1.supercars.logic.gameobjects.Grenade;
 
 public class GameObjectGenerator {
 	static Game game;
@@ -16,9 +17,11 @@ public class GameObjectGenerator {
 	static Coin coin;
 	static Obstacle obstacle;
 	public static void generateRuntimeObjects(Game game) {
-		if (game.getLevel().hasAdvancedObjects()) {
-		game.execute(new ThunderAction());
-		}
+		if (game.getLevel().hasAdvancedObjects())
+			game.execute(new ThunderAction());
+		
+		if (game.getGrenade())
+			game.tryToAddObject(new Grenade(game, game.getXGrenade(), game.getYGrenade()), 1);
 		}
 		
 	public static void generateGameObjects(Game game, Level level) {
