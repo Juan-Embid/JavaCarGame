@@ -5,7 +5,7 @@ import es.ucm.tp1.supercars.logic.Game;
 public class Grenade extends GameObject {
 	
 	public static final String SYMBOL = "ð";
-	private int countdown = 3;
+	private int countdown = 4;
 	
 	public Grenade(Game game, int x, int y) {
 		super(game, x, y);
@@ -28,7 +28,7 @@ public class Grenade extends GameObject {
 
 	@Override
 	public void update() {
-		
+		countdown--;
 	}
 
 	@Override
