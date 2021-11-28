@@ -12,7 +12,7 @@ public class InfoCommand extends Command {
 
 	private static final String HELP = "prints gameobject info";
 	
-	private static final String INFO = 
+	private static final String INFO =
 			"Available objects:" 
 			+ "\n" + "[Car] the racing car" 
 			+ "\n" + "[Coin] gives 1 coin to the player"

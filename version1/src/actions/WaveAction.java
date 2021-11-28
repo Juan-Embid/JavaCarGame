@@ -6,7 +6,7 @@ import es.ucm.tp1.supercars.logic.gameobjects.GameObject;
 public class WaveAction implements InstantAction{
 
 	@Override
-	public void execute(Game game) { //TODO poner la lógica del commando	
+	public void execute(Game game) {
 		boolean ok=false;
 		
 		for (int i = 0; i < game.getRoadWidth(); i++) {

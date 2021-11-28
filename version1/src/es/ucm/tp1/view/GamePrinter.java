@@ -32,7 +32,6 @@ public class GamePrinter {
 
 	private Game game;
 	
-	
 	public GamePrinter(Game game) {
 		this.game = game;
 		setRoad();
@@ -108,6 +107,11 @@ public class GamePrinter {
 		DecimalFormat df = new DecimalFormat("#.##");
 		StringBuilder str = new StringBuilder();
 		String distancia = String.valueOf(game.distanceTofinish());
+		if(game.getLevel().hasAdvancedObjects()) {
+			System.out.println("Thunder hit position: (" + game.getThunderAncho() + " , " + game.getThunderLargo() + ") ");
+			GameObject obj = game.getObjectInPosition(game.getThunderAncho(), game.getThunderLargo());
+			if(obj != null)
+				System.out.println(obj.toString() + " hit");}
 		System.out.println("Distancia: " + distancia);
 		System.out.println("Coins: " + game.getCoinCounter());
 		System.out.println("Cycle: " + game.getCycles());

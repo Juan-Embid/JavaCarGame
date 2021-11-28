@@ -71,8 +71,7 @@ public class Player extends GameObject {
 		cycles = 0;
 	}
 	
-	//TODO Código repetido o para arreglar
-	public boolean doCollision() {
+		public boolean doCollision() {
 		Collider other = game.getObjectInPosition(this.x, this.y);
 		if (other != null) {
 		return other.receiveCollision (this);
@@ -133,9 +132,6 @@ public class Player extends GameObject {
 	public void doTurbo(int step) {
 		this.x+=step;
 		cycles+=step;
-		/*if(cycles>game.getLength()) { //TODO esto arregla si saltamos la meta, pero da error y no sé porqué
-		cycles=game.getLength();
-		}*/
 	}
 
 	public void resetCoin() {
@@ -144,7 +140,6 @@ public class Player extends GameObject {
 	}
 
 	public void lessCoin() {
-		// TODO Auto-generated method stub
 		coinCounter--;
 	}
 

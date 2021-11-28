@@ -14,7 +14,7 @@ public class Game {
 	private GameObject gameobject;
 	private Long seed;
 	private Player player;
-	private int cycles = 0;
+	private int cycles = 0, thunderAncho, thunderLargo;
 	private Boolean activate = false, exit=false;
 	private long initTime = 0;
 	private Random random;
@@ -40,7 +40,7 @@ public class Game {
 	}
 	public void reset() {
 		random = new Random(seed);
-	//	GameObjectGenerator.reset();
+	//	GameObjectGenerator.reset(); //TODO
 		this.player = new Player(this, 0, this.level.getWidth()/2);
 		player.reset();
 		cycles = 0;	
@@ -216,4 +216,17 @@ public void reset(Long newSeed, Level newLevel) {
 	public void playerUnUpdate() {
 		player.less();
 		
-	}}
+	}
+	public void setThunderAncho(int ancho) {
+		thunderAncho = ancho;
+	}
+	public void setThunderLargo(int largo) {
+		thunderLargo = largo;
+	}
+	public int getThunderAncho() {
+		return thunderAncho;
+	}
+	public int getThunderLargo() {
+		return thunderLargo;
+	}
+}

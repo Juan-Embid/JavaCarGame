@@ -21,7 +21,7 @@ public class ResetCommand extends Command {
 	}
 	@Override
 	public boolean execute(Game game) {
-		if (newSeed == null && newLevel == null) //dentro del reset
+		if (newSeed == null && newLevel == null)
 			game.reset();
 		else
 			game.reset(newSeed, newLevel);
