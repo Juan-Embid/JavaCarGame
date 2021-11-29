@@ -110,7 +110,7 @@ public class GamePrinter {
 		if(game.getLevel().hasAdvancedObjects() && game.getCycles() != 0) {
 			System.out.println("Thunder hit position: (" + game.getThunderAncho() + " , " + game.getThunderLargo() + ") ");
             if(!game.getThunderKill().equals(" "))
-                System.out.println(game.getThunderKill() + " hit");}
+                System.out.print("-> " + game.getThunderKill());}
 		System.out.println("Distancia: " + distancia);
 		System.out.println("Coins: " + game.getCoinCounter());
 		System.out.println("Cycle: " + game.getCycles());

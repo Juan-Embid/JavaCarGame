@@ -215,10 +215,6 @@ public void reset(Long newSeed, Level newLevel) {
 	public void clearCommand() {
 		container.removeAllObjects();
 	}
-	public void playerUnUpdate() {
-		player.less();
-		
-	}
 	public void setThunderAncho(int ancho) {
 		thunderAncho = ancho;
 	}
