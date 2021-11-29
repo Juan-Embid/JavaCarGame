@@ -40,11 +40,6 @@ public class Wall extends Obstacle {
 		cont--;
 		alive = false;
 	}
-
-	@Override
-	public boolean receiveExplosion() {
-		return false;
-	}
 	
 	public static void reset() {
 		cont = 0;

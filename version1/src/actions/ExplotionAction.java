@@ -1,17 +1,20 @@
 package actions;
 
 import es.ucm.tp1.supercars.logic.Game;
+import es.ucm.tp1.supercars.logic.gameobjects.GameObject;
 
 public class ExplotionAction implements InstantAction{
-	
-	/*Para que sepa en que posición está hay que pasarle la x, y en el constructor
-	 * no afecta al player
-	 * 
-	 */
 
 	@Override
 	public void execute(Game game) {
-			//hacer con onDelete
+		for(int i =game.getXGrenade()-1;i<=game.getXGrenade()+1;i++) {
+            for(int j =game.getYGrenade()-1;j<=game.getYGrenade()+1;j++) {
+            GameObject ok=null;
+        ok= game.getObjectInPosition(i, j);
+        if(ok!=null)
+            ok.receiveExplosion();
+        }
+        }
 	}
 
 }

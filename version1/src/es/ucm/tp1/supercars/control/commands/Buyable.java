@@ -16,6 +16,10 @@ public interface Buyable {
 					System.out.println("Not enough coins\r\n" + 
 							"[ERROR]: Failed to shoot");
 					break;
+				case 3:
+					System.out.println("Not enough coins\r\n" + 
+							"[ERROR]: Failed to add grenade");
+					break;
 				case 5:
 					System.out.println("Not enough coins\r\n" + 
 							"[ERROR]: Failed to wave");

@@ -57,7 +57,7 @@ public abstract class GameObject implements Collider {
 		return y;
 	}
 	public boolean isAlive() {
-		return true;
+		return alive;
 	}
 	public boolean ObstacleisAlive() {
 		return obstacle.isAlive();

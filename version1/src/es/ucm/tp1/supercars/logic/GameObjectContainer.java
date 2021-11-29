@@ -34,8 +34,8 @@ public class GameObjectContainer {
 		if (!test) return null;
 		return go;
 	}
-	//TODO BORRAR OBJETOS
-public void erase() {
+
+	public void erase() {
 	List<GameObject> aux;
 	aux = new ArrayList<>();
 		for(int i=0;i<gameobjects.size();i++) {

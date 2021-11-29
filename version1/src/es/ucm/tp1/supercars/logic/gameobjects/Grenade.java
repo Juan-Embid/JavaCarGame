@@ -1,5 +1,6 @@
 package es.ucm.tp1.supercars.logic.gameobjects;
 
+import actions.ExplotionAction;
 import es.ucm.tp1.supercars.logic.Game;
 
 public class Grenade extends GameObject {
@@ -34,11 +35,11 @@ public class Grenade extends GameObject {
 	public void update() {
 		countdown--;
 		if (countdown == 0)
-			alive = false;
-	}
+			onDelete();}
 
 	@Override
 	public void onDelete() {
+		game.execute(new ExplotionAction());
 		alive = false;
 	}
 

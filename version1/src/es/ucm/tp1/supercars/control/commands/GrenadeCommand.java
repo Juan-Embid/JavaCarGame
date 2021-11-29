@@ -1,9 +1,8 @@
 package es.ucm.tp1.supercars.control.commands;
 
 import es.ucm.tp1.supercars.logic.Game;
-import es.ucm.tp1.supercars.logic.gameobjects.Grenade;
 
-public class GrenadeCommand extends Command{
+public class GrenadeCommand extends Command implements Buyable{
 
 	private static final String NAME = "grenade";
 
@@ -12,6 +11,8 @@ public class GrenadeCommand extends Command{
 	private static final String SHORTCUT = "g";
 
 	private static final String HELP = "add a grenade in position x, y";
+	
+	private static final int COST = 3;
 	
 	private int newX;
 	private int newY;
@@ -22,10 +23,13 @@ public class GrenadeCommand extends Command{
 
 	@Override
 	public boolean execute(Game game) {
+		if (buy(game)) {
 		game.setGrenade(true);
 		game.setXGrenade(newX + game.getPlayerCycles());
 		game.setYGrenade(newY);
-		return true;
+		game.update();
+		return true;}
+		return false;
 	}
 	
 	@Override
@@ -42,5 +46,10 @@ public class GrenadeCommand extends Command{
 	    }
 	    else
 	      return super.parse(commandWords);
+	}
+
+	@Override
+	public int cost() {
+		return COST;
 	}
 }

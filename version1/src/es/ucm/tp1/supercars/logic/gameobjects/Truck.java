@@ -12,12 +12,6 @@ public class Truck extends Obstacle {
 	public String toString() {
 		return SYMBOL;
 	}
-	
-
-	@Override
-	public boolean receiveExplosion() {
-		return false;
-	}
 
 	@Override
 	public void onEnter() {

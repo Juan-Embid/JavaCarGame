@@ -9,6 +9,7 @@ import es.ucm.tp1.supercars.logic.gameobjects.Truck;
 import es.ucm.tp1.supercars.logic.gameobjects.Turbo;
 import es.ucm.tp1.supercars.logic.gameobjects.Wall;
 import es.ucm.tp1.supercars.logic.gameobjects.Coin;
+import es.ucm.tp1.supercars.logic.gameobjects.GameObject;
 import es.ucm.tp1.supercars.logic.gameobjects.Grenade;
 
 public class GameObjectGenerator {
@@ -20,8 +21,13 @@ public class GameObjectGenerator {
 		if (game.getLevel().hasAdvancedObjects())
 			game.execute(new ThunderAction());
 		
-		if (game.getGrenade())
+		if (game.getGrenade()) {
 			game.tryToAddObject(new Grenade(game, game.getXGrenade(), game.getYGrenade()), 1);
+			game.changeGrenade();
+		}
+		
+		else 
+			game.changeGrenadeCreated();
 		}
 		
 	public static void generateGameObjects(Game game, Level level) {
@@ -40,6 +46,27 @@ public class GameObjectGenerator {
 			}
 		}
 
+	public static void forceAdvanceObject(Game game, int id, int x) {
+		GameObject o = null;
+		switch (id) {
+			case 1:
+				o = new Wall(game, x, game.getRandomLane());
+				break;
+			case 2:
+				o = new Turbo(game, x, game.getRandomLane());
+				break;
+			case 3:
+				o = new SuperCoin(game, x, game.getRandomLane());
+				break;
+			case 4:
+				o = new Truck(game, x, game.getRandomLane());
+				break;
+			case 5:
+				o = new Pedestrian(game, x, 0);
+				break;
+			}
+		game.forceAddObject(o);
+	}
 	
 	public static void SetStatus() {
 	}

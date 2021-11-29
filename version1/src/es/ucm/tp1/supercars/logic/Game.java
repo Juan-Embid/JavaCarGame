@@ -15,7 +15,7 @@ public class Game {
 	private Long seed;
 	private Player player;
 	private int cycles = 0, thunderAncho, thunderLargo, xGrenade, yGrenade;
-	private Boolean activate = false, exit=false, grenade = false;
+	private Boolean activate = false, exit=false, grenade = false, grenadeCreated = false;
 	private long initTime = 0;
 	private Random random;
 	private String thunderKill = " ";
@@ -30,10 +30,11 @@ public class Game {
 	}
 	public void update() {
 		GameObjectGenerator.generateRuntimeObjects(this);
-		if(player.isAlive())
-		player.update();
+		if(player.isAlive() && !grenadeCreated)
+			player.update();
 		player.doPlayerCollision(this);
-		container.update();
+		if(!grenadeCreated)
+			container.update();
 		if (cycles == 0)
 			initTime = System.currentTimeMillis();
 		cycles++;
@@ -176,8 +177,8 @@ public void reset(Long newSeed, Level newLevel) {
 	public void restart() {
 		
 	}
-	public void forceAddObject(GameObject o) {
-		
+	public void forceAddObject(GameObject o) { 
+		container.Add(o);
 	}
 	public Level getLevel() {
 		return level;
@@ -253,5 +254,20 @@ public void reset(Long newSeed, Level newLevel) {
 	}
 	public String getThunderKill() {
 		return thunderKill;
+	}
+	public void changeGrenade() {
+        grenade=false;
+        grenadeCreated=true;
+    }
+    public void changeGrenadeCreated() {
+    	grenadeCreated=false;
+    }
+	public void addCheat(Integer id) {
+		boolean ok = false;
+		for (int i = 0; i < getRoadWidth() && !ok; i++)
+			if (getObjectInPosition(getVisibility() + player.getCycle() - 1, i) == null) {
+					GameObjectGenerator.forceAdvanceObject(this, id, getVisibility() + player.getCycle() - 1);
+					ok = true;
+			}	
 	}
 }

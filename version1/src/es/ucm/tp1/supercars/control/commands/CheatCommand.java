@@ -11,7 +11,8 @@ public class CheatCommand extends Command {
 	private static final String SHORTCUT = "c";
 
 	private static final String HELP = " Removes all elements of last visible column, and adds an Advanced Object";
-
+	
+	private static Integer id;
 	
 	public CheatCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
@@ -19,7 +20,20 @@ public class CheatCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		return false;
+		game.addCheat(id);
+		return true;
 	}
-
+	
+	protected Command parse(String[] commandWords) {
+		try {
+			id = Integer.parseInt(commandWords[0]);
+		} catch (Exception e) {
+			return null;
+		}
+		
+		if (0 < id && id < 6) {
+			return this;
+		}
+		return null;
+	}
 }
