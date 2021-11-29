@@ -19,7 +19,8 @@ public class HelpCommand extends Command {
 
 	@Override
 	public boolean execute(Game game) {
-		System.out.println(Command.showCommand());
+		System.out.println("Available commands:");
+		System.out.print(Command.showCommand());
 		return false;
 	}
 }

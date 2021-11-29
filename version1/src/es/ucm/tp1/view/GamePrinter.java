@@ -34,14 +34,9 @@ public class GamePrinter {
 	
 	public GamePrinter(Game game) {
 		this.game = game;
-		setRoad();
 
 		margin = StringUtils.repeat(SPACE, MARGIN_SIZE);
-
-		newLine =  System.getProperty("line.separator");
-	}
-	
-	public void setRoad() {
+		
 		String roadBorder = ROAD_BORDER_PATTERN + StringUtils.repeat(ROAD_BORDER_PATTERN, (CELL_SIZE + 1) *  game.getVisibility());
 		indentedRoadBorder = String.format("%n%s%s%n", margin, roadBorder);
 
@@ -49,14 +44,13 @@ public class GamePrinter {
 		String lanesSeparator = SPACE + StringUtils.repeat(laneDelimiter + SPACE,  game.getVisibility() - 1) + laneDelimiter + SPACE;
 
 		indentedLlanesSeparator = String.format("%n%s%s%n", margin, lanesSeparator);
+
 		newLine =  System.getProperty("line.separator");
-		
 	}
 	
 	@Override
 	public String toString() {
 		StringBuilder str = new StringBuilder();
-		setRoad();
 		// Game Status
 		str.append(getInfo());
 		
@@ -111,7 +105,7 @@ public class GamePrinter {
 			System.out.println("Thunder hit position: (" + game.getThunderAncho() + " , " + game.getThunderLargo() + ") ");
             if(!game.getThunderKill().equals(" "))
                 System.out.print("-> " + game.getThunderKill());}
-		System.out.println("Distancia: " + distancia);
+		System.out.println("Distance: " + distancia);
 		System.out.println("Coins: " + game.getCoinCounter());
 		System.out.println("Cycle: " + game.getCycles());
 		System.out.println("Total obstacles: " + GameObject.getObstacles());
@@ -120,9 +114,9 @@ public class GamePrinter {
 		System.out.println("Supercoin is present");
 		if (!game.getActivate())
 			if (game.getCycles() == 0)
-				System.out.println("Ellapsed time: 0.00 s");
+				System.out.println("Elapsed time: 0.00 s");
 			else
-				System.out.println("Ellapsed time: " + df.format((double) ((System.currentTimeMillis() - game.GetInitTime()) / 1000.)) + " s");
+				System.out.println("Elapsed time: " + df.format((double) ((System.currentTimeMillis() - game.GetInitTime()) / 1000.)) + " s");
 		return str.toString();
 	}
 }

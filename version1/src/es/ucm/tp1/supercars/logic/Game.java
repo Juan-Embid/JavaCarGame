@@ -42,7 +42,6 @@ public class Game {
 	}
 	public void reset() {
 		random = new Random(seed);
-	//	GameObjectGenerator.reset(); //TODO
 		this.player = new Player(this, 0, this.level.getWidth()/2);
 		player.reset();
 		cycles = 0;	
@@ -50,11 +49,11 @@ public class Game {
 		GameObjectGenerator.generateGameObjects(this, level);
 				 
 		}
-public void reset(Long newSeed, Level newLevel) {
-	seed =newSeed;
-	level=newLevel;
-	reset();
-	}
+	public void reset(Long newSeed, Level newLevel) {
+		seed =newSeed;
+		level=newLevel;
+		reset();
+		}
 	
 	public void setSeed(long semilla) {
 		seed = semilla;

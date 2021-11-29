@@ -10,7 +10,7 @@ public class CheatCommand extends Command {
 
 	private static final String SHORTCUT = "c";
 
-	private static final String HELP = " Removes all elements of last visible column, and adds an Advanced Object";
+	private static final String HELP = "Removes all elements of last visible column, and adds an Advanced Object";
 	
 	private static Integer id;
 	

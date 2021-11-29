@@ -9,7 +9,7 @@ public class TestCommand extends Command {
 
 	private static final String SHORTCUT = "t";
 
-	private static final String HELP = "test";
+	private static final String HELP = "enables test mode";
 	
 	public TestCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);

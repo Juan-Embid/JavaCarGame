@@ -5,7 +5,7 @@ import es.ucm.tp1.supercars.logic.Game;
 public class GoDown extends Command {
 	private static final String NAME = "godown";
 
-	private static final String DETAILS = "[d]own";
+	private static final String DETAILS = "[a]";
 
 	private static final String SHORTCUT = "a";
 
