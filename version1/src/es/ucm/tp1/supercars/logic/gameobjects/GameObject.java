@@ -4,9 +4,7 @@ import es.ucm.tp1.supercars.logic.Collider;
 import es.ucm.tp1.supercars.logic.Game;
 
 public abstract class GameObject implements Collider {
-
 	protected int x, y;
-	
 	protected Game game;
 	Coin coin;
 	Obstacle obstacle;
@@ -20,42 +18,33 @@ public abstract class GameObject implements Collider {
 	}
 	
 	public static int getCoins() {
-		return Coin.cont;
-	}
+		return Coin.cont;}
 	
 	public static int getObstacles() {
-		return Obstacle.cont;
-	}
+		return Obstacle.cont;}
 	
 	public static boolean isSuperCoinPresent() {
-		return SuperCoin.present;
-	}
+		return SuperCoin.present;}
 	
 	protected String getSymbol() {
-		
-		return symbol;
-	}
+		return symbol;}
 
 	@Override
 	public String toString() {
-		if (this.isAlive()) {
+		if (this.isAlive())
 			return getSymbol();
-		}
-
 		return "";
 	}
 
 	public boolean isInPosition(int x, int y) {
-		return this.x == x && this.y == y;
-	}
+		return this.x == x && this.y == y;}
 
 	public int getX() {
-		return x;
-	}
+		return x;}
 
 	public int getY() {
-		return y;
-	}
+		return y;}
+	
 	public boolean isAlive() {
 		return alive;
 	}

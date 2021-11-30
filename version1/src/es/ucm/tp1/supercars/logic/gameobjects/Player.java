@@ -22,8 +22,7 @@ public class Player extends GameObject {
 	}
 
 	public boolean isInPosition(int x, int y) {
-		return (this.x == x && this.y == y);
-	}
+		return (this.x == x && this.y == y);}
 	
 	public String statusToString() {
 		if (alive == true) 
@@ -34,63 +33,54 @@ public class Player extends GameObject {
 	
 	public void update(int mov, Game width) {
 		if(mov==-1) goUp(width);
-		else 
-			goDown();
+		else goDown();
 	} 
 	
 	public int getCycle() {
-		return cycles;
-	}
+		return cycles;}
 	
 	public void goUp(Game width) {
-		if(y + STEP != width.getRoadWidth()) {
+		if(y + STEP != width.getRoadWidth())
 			y += STEP;
-		}
 	}
 	
 	public void goDown() {
-		if(y - STEP >= 0) {
+		if(y - STEP >= 0)
 			y -= STEP;
-		}
 	}
-	public Boolean doPlayerCollision(Game game) {
-		// coins
-		
+	
+	public Boolean doPlayerCollision(Game game) {		
 		Collider other = game.getObjectInPosition(x, y);
-		if (other != null) {
-		return other.receiveCollision (this);
-		}
+		
+		if (other != null)
+			return other.receiveCollision (this);
 		return false;
 	}
+	
 	public int getCoin() {
-		return coinCounter;
-	}
+		return coinCounter;}
 	
 	public void reset() {
 		coinCounter = 0;
 		cycles = 0;
 	}
 	
-		public boolean doCollision() {
+	public boolean doCollision() {
 		Collider other = game.getObjectInPosition(this.x, this.y);
-		if (other != null) {
-		return other.receiveCollision (this);
-		}
+		if (other != null)
+			return other.receiveCollision (this);
 		return false;
 	}
 	
 	public boolean isAlive() {
-		return alive;
-	}
+		return alive;}
 
 	@Override
 	public boolean receiveCollision(Player player) {
-		return false;
-	}
+		return false;}
 
 	@Override
-	public void onEnter() {
-		
+	public void onEnter() {	
 	}
 
 	@Override
@@ -101,33 +91,27 @@ public class Player extends GameObject {
 
 	@Override
 	public void onDelete() {
-		
 	}
 
 	public void AddCoin() {
-		coinCounter++;
-	}
+		coinCounter++;}
 
 	public void SetNotAlive() {
-		alive=false;
-	}
+		alive=false;}
+	
 	public int getX() {
-		return x;
-	}
+		return x;}
 
 	@Override
 	public boolean receiveShoot() {
-		return false;
-	}
+		return false;}
 
 	@Override
 	public boolean receiveExplosion() {
-		return false;
-	}
+		return false;}
 
 	public void AddSuperCoin() {
-		coinCounter += 1000;
-	}
+		coinCounter += 1000;}
 
 	public void doTurbo(int step) {
 		this.x+=step;
@@ -135,15 +119,11 @@ public class Player extends GameObject {
 	}
 
 	public void resetCoin() {
-		coinCounter=0;
-		
-	}
+		coinCounter=0;}
 
 	public void lessCoin() {
-		coinCounter--;
-	}
+		coinCounter--;}
 
 	public void less() {
-		x--;
-	}
+		x--;}
 }

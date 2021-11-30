@@ -12,8 +12,8 @@ public class GoUp extends Command {
 	private static final String HELP = "go up";
 	
 	public GoUp() {
-		super(NAME, SHORTCUT, DETAILS, HELP);
-	}
+		super(NAME, SHORTCUT, DETAILS, HELP);}
+	
 	@Override
 	public boolean execute(Game game) {
 		if(!game.firstCollision())
@@ -21,5 +21,4 @@ public class GoUp extends Command {
 		game.update();
 		return true;
 	}
-	
 }

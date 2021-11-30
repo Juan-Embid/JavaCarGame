@@ -17,6 +17,7 @@ public class GameObjectGenerator {
 	static SuperCoin supercoin;
 	static Coin coin;
 	static Obstacle obstacle;
+	
 	public static void generateRuntimeObjects(Game game) {
 		if (game.getLevel().hasAdvancedObjects())
 			game.execute(new ThunderAction());
@@ -28,23 +29,24 @@ public class GameObjectGenerator {
 		
 		else 
 			game.changeGrenadeCreated();
-		}
+	}
 		
 	public static void generateGameObjects(Game game, Level level) {
 		for(int x = game.getVisibility() /2; x < game.getLength(); x ++) {
 			game.tryToAddObject(new Obstacle(game, x, game.getRandomLane()), level.getObstacleFrequency());
 			game.tryToAddObject(new Coin(game, x, game.getRandomLane()), level.getCoinFrequency());
+			
 			if (level.hasAdvancedObjects()) {
 				game.tryToAddObject(new Wall(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
 				game.tryToAddObject(new Turbo(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
-				if (!SuperCoin.present) {
+				
+				if (!SuperCoin.present)
 					game.tryToAddObject(new SuperCoin(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
-				}
-					game.tryToAddObject(new Truck(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
-					game.tryToAddObject(new Pedestrian(game, x, 0), level.getAdvancedObjectFrequency());
-				}
+				game.tryToAddObject(new Truck(game, x, game.getRandomLane()), level.getAdvancedObjectFrequency());
+				game.tryToAddObject(new Pedestrian(game, x, 0), level.getAdvancedObjectFrequency());
 			}
 		}
+	}
 
 	public static void forceAdvanceObject(Game game, int id, int x) {
 		GameObject o = null;
@@ -64,16 +66,12 @@ public class GameObjectGenerator {
 			case 5:
 				o = new Pedestrian(game, x, 0);
 				break;
-			}
+		}
 		game.forceAddObject(o);
-	}
-	
-	public static void SetStatus() {
 	}
 	
 	public static void reset() {
 		obstacle.reset();
 		coin.reset();
 	}
-
 }

@@ -3,23 +3,20 @@ package es.ucm.tp1.supercars.logic.gameobjects;
 import es.ucm.tp1.supercars.logic.Game;
 
 public class Truck extends Obstacle {
-   Game game;
+	Game game;
 	public static final String SYMBOL= "←";
+	
 	public Truck(Game game, int x, int y) {
-		super(game, x, y);
-	}
+		super(game, x, y);}
 
 	public String toString() {
-		return SYMBOL;
-	}
+		return SYMBOL;}
 
 	@Override
 	public void onEnter() {
-		
 	}
 
 	@Override
 	public void update() {
-		x--;
-	}
+		x--;}
 }

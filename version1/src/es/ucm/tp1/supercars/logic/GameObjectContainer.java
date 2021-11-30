@@ -6,73 +6,66 @@ import java.util.List;
 import es.ucm.tp1.supercars.logic.gameobjects.GameObject;
 
 public class GameObjectContainer {
-	
 	GameObject gameobject;
+	private List<GameObject> gameobjects;
 	
-		private List<GameObject> gameobjects;
-		public GameObjectContainer() {
-		gameobjects = new ArrayList<>();
-		}
+	public GameObjectContainer() {
+		gameobjects = new ArrayList<>();}
+	
 	public void removeAllObjects() {
-		for (int i = 0;i<gameobjects.size();i++) {
-			gameobjects.get(i).suicide();
-		}
+		for (GameObject gameobject_1 : gameobjects)
+			gameobject_1.suicide();
 	}
 	
 	public void Add(GameObject objeto) {
-		gameobjects.add(objeto);
-	}
+		gameobjects.add(objeto);}
+	
 	public GameObject isinPosition(int x, int y) {
 		boolean test = false;
-		GameObject go=null;
-		for (int i = 0;i<gameobjects.size() && !test;i++) {
+		GameObject go = null;
+		int i = 0;
+
+		while(i < gameobjects.size() && !test) {
 			go = gameobjects.get(i);
-			if(gameobjects.get(i).isAlive()) {
-			test = go.isInPosition(x, y);
-			}
+			if(gameobjects.get(i).isAlive())
+				test = go.isInPosition(x, y);
+			i++;
 		}
 		if (!test) return null;
 		return go;
 	}
 
 	public void erase() {
-	List<GameObject> aux;
-	aux = new ArrayList<>();
-		for(int i=0;i<gameobjects.size();i++) {
-		if(gameobjects.get(i).isAlive()) {
-			aux.add(gameobjects.get(i));
-		}
-		else {	gameobjects.get(i).onDelete();
-		}
+		List<GameObject> aux;
+		aux = new ArrayList<>();
+		
+		for(GameObject gameobject_1 : gameobjects) {
+			if(gameobject_1.isAlive()) 
+				aux.add(gameobject_1);
+			else
+				gameobject_1.onDelete();
 		}
 		gameobjects = aux;
-		}
-	
+	}
 	
 	public int getpositionY() {
-		return 0;
-	}
-	public void onEnter(GameObject gameobject1) {
-		gameobject1.onEnter();
-	}
+		return 0;}
+	
+	public void onEnter(GameObject gameobject) {
+		gameobject.onEnter();}
+	
 	public void update() {
-		for(int i=0;i<gameobjects.size();i++) {
-			GameObject go = gameobjects.get(i);
-			go.update();
-			
-		}		
+		for(GameObject gameobject_1 : gameobjects)
+			gameobject_1.update();		
 	}
 	
 	public Object positionToString(int x, int y) {
 		StringBuilder str = new StringBuilder();
-		GameObject go = null;
 
-		for (int i=0;i<gameobjects.size();i++) {
-			go = gameobjects.get(i);
-			if (go.isInPosition(x, y) == true)
-				str.append(gameobjects.get(i).toString())
+		for (GameObject gameobject_1 : gameobjects)
+			if (gameobject_1.isInPosition(x, y) == true)
+				str.append(gameobject_1.toString())
 					.append(" ");
-		}
 		return str;
 	}
 }

@@ -52,7 +52,6 @@ public enum Level {
 		return null;
 	}
 	
-
 	public static String all(String separator) {
 		StringBuilder buffer = new StringBuilder();
 		int levelCount = 0;
@@ -71,5 +70,4 @@ public enum Level {
 		return true;
 		return false;
 	}
-	
 }

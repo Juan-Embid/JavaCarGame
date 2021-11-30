@@ -6,12 +6,10 @@ public class Wall extends Obstacle {
 	public static final String WEAK="░";
 	public static final String MEDIUM="▒";
 	public static final String HARD="█";
-		
 	public static int life = 3;
 
 	public Wall(Game game, int x, int y) {
-		super(game, x, y);
-	}
+		super(game, x, y);}
 
 	@Override
 	public boolean receiveShoot() {
@@ -32,17 +30,11 @@ public class Wall extends Obstacle {
 	
 	@Override
 	public void onEnter() {
-		cont++;
-	}
+		cont++;}
 	
 	@Override
 	public void onDelete() {
 		cont--;
 		alive = false;
 	}
-	
-	public static void reset() {
-		cont = 0;
-	}
-	
 }

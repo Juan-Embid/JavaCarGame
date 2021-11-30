@@ -13,22 +13,19 @@ public class UpdateCommand extends Command {
 	private static final String HELP = "update";
 
 	public UpdateCommand() {
-		super(NAME, SHORTCUT, DETAILS, HELP);
-	}
+		super(NAME, SHORTCUT, DETAILS, HELP);}
 
 	@Override
 	public boolean execute(Game game) {
 		if(!game.firstCollision())
-		game.update();
+			game.update();
 		return true;
 	}
 
 	@Override
 	protected Command parse(String[] commandWords) {
-		if ("".equalsIgnoreCase(commandWords[0])) {
+		if ("".equalsIgnoreCase(commandWords[0]))
 			commandWords[0] = SHORTCUT;
-		}
 		return super.parse(commandWords);
 	}
-
 }

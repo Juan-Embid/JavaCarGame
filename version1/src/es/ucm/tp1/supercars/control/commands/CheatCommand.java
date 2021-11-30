@@ -15,8 +15,7 @@ public class CheatCommand extends Command {
 	private static Integer id;
 	
 	public CheatCommand() {
-		super(NAME, SHORTCUT, DETAILS, HELP);
-	}
+		super(NAME, SHORTCUT, DETAILS, HELP);}
 
 	@Override
 	public boolean execute(Game game) {
@@ -26,14 +25,14 @@ public class CheatCommand extends Command {
 	
 	protected Command parse(String[] commandWords) {
 		try {
-			id = Integer.parseInt(commandWords[0]);
-		} catch (Exception e) {
-			return null;
-		}
+			id = Integer.parseInt(commandWords[0]);} 
+		
+		catch (Exception e) {
+			return null;}
 		
 		if (0 < id && id < 6) {
-			return this;
-		}
+			return this;}
+		
 		return null;
 	}
 }

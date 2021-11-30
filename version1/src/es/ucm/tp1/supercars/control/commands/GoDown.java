@@ -12,15 +12,13 @@ public class GoDown extends Command {
 	private static final String HELP = "go down";
 	
 	public GoDown() {
-		super(NAME, SHORTCUT, DETAILS, HELP);
-	}
+		super(NAME, SHORTCUT, DETAILS, HELP);}
+	
 	@Override
 	public boolean execute(Game game) {
 		if(!game.firstCollision())
-		game.goDown();
+			game.goDown();
 		game.update();
-		
 		return true;
 	}
-	
 }

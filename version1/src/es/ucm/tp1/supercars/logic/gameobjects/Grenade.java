@@ -4,38 +4,33 @@ import actions.ExplotionAction;
 import es.ucm.tp1.supercars.logic.Game;
 
 public class Grenade extends GameObject {
-	
 	public static final String SYMBOL = "ð";
-	private int countdown = 3; //TODO ponerlo a 4 si vemos que nos va mal
+	private int countdown = 3;
 	
 	public Grenade(Game game, int x, int y) {
-		super(game, x, y);
-	}
+		super(game, x, y);}
 	
 	public String toString() {
-		return SYMBOL + "[" + countdown + "]";
-	}
+		return SYMBOL + "[" + countdown + "]";}
 
 	@Override
 	public boolean receiveCollision(Player player) {
-		return false;
-	}
+		return false;}
 
 	@Override
 	public boolean receiveShoot() {
-		return false;
-	}
+		return false;}
 
 	@Override
 	public void onEnter() {
-		alive = true;
-	}
+		alive = true;}
 
 	@Override
 	public void update() {
 		countdown--;
 		if (countdown == 0)
-			onDelete();}
+			onDelete();
+	}
 
 	@Override
 	public void onDelete() {
@@ -47,5 +42,4 @@ public class Grenade extends GameObject {
 	public boolean receiveExplosion() {
 		return false;
 	}
-
 }

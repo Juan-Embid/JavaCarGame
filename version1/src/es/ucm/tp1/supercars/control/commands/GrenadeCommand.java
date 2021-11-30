@@ -18,31 +18,30 @@ public class GrenadeCommand extends Command implements Buyable{
 	private int newY;
 	
 	public GrenadeCommand() {
-		super(NAME, SHORTCUT, DETAILS, HELP);
-	}
+		super(NAME, SHORTCUT, DETAILS, HELP);}
 
 	@Override
 	public boolean execute(Game game) {
 		if (buy(game)) {
-		game.setGrenade(true);
-		game.setXGrenade(newX + game.getPlayerCycles());
-		game.setYGrenade(newY);
-		game.update();
-		return true;}
+			game.setGrenade(true);
+			game.setXGrenade(newX + game.getPlayerCycles());
+			game.setYGrenade(newY);
+			game.update();
+			return true;
+		}
 		return false;
 	}
 	
 	@Override
 	protected Command parse(String[] commandWords) {
-	if(commandWords.length == 3) {
-	      if(matchCommandName(commandWords[0])) {
-	        newX = Integer.parseInt(commandWords[1]);
-	        newY = Integer.parseInt(commandWords[2]);
-	        
-	        return this;
-	      }
-	      else
-	        return null;
+		if(commandWords.length == 3) {
+			if(matchCommandName(commandWords[0])) {
+				newX = Integer.parseInt(commandWords[1]);
+		        newY = Integer.parseInt(commandWords[2]);
+		        return this;
+		      }
+			else
+		        return null;
 	    }
 	    else
 	      return super.parse(commandWords);
@@ -50,6 +49,5 @@ public class GrenadeCommand extends Command implements Buyable{
 
 	@Override
 	public int cost() {
-		return COST;
-	}
+		return COST;}
 }

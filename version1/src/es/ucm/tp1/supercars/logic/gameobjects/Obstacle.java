@@ -7,17 +7,13 @@ public class Obstacle extends GameObject {
 	public static int cont;
 	
 	public Obstacle(Game game, int x, int y) {
-		super(game, x, y);
-	}
-	
+		super(game, x, y);}
 	
 	public String toString() {
-		return SYMBOL;
-	}
+		return SYMBOL;}
 	
 	public boolean isAlive() {
-		return alive;
-	}
+		return alive;}
 
 	@Override
 	public boolean receiveCollision(Player player) {
@@ -27,8 +23,7 @@ public class Obstacle extends GameObject {
 
 	@Override
 	public void onEnter() {
-		cont++;
-	}
+		cont++;}
 
 	@Override
 	public void update() {	
@@ -42,18 +37,14 @@ public class Obstacle extends GameObject {
 		alive = false;
 	}
 
-
-	public static void reset() {
-		cont=0;
-	}
-
+	public void reset() {
+		cont=0;}
 
 	@Override
 	public boolean receiveShoot() {
 		alive = false;
 		return true;
 	}
-
 
 	@Override
 	public boolean receiveExplosion() {

@@ -12,9 +12,8 @@ public class WaveAction implements InstantAction{
 		for (int i = 0; i < game.getRoadWidth(); i++) {
 			for (int j = game.getPlayerCycles()+game.getVisibility(); j >= game.getPlayerCycles() ; j--) {
                 GameObject obj = game.getObjectInPosition(j, i);
-                if(obj != null) {
+                if(obj != null)
                     obj.wave();
-				}
 			}
 		}
 	}

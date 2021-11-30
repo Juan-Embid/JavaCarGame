@@ -3,23 +3,19 @@ package es.ucm.tp1.supercars.logic.gameobjects;
 import es.ucm.tp1.supercars.logic.Game;
 
 public class Turbo extends GameObject {
-
 	public static final String SYMBOL = ">>>";
 	private static final int STEP = 3;
 	public int x, y;
 	
 	public Turbo(Game game, int x, int y) {
-		super(game, x, y);
-	}
+		super(game, x, y);}
 
 	public String toString() {
-		return SYMBOL;
-	}
+		return SYMBOL;}
 	
 	
 	public boolean isAlive() {
-		return alive;
-	}
+		return alive;}
 
 	@Override
 	public boolean receiveCollision(Player player) {
@@ -30,13 +26,11 @@ public class Turbo extends GameObject {
 
 	@Override
 	public boolean receiveShoot() {
-		return false;
-	}
+		return false;}
 
 	@Override
 	public void onEnter() {	
-		alive=true;
-	}
+		alive=true;}
 
 	@Override
 	public void update() {
@@ -44,12 +38,9 @@ public class Turbo extends GameObject {
 
 	@Override
 	public void onDelete() {
-		alive = false;
-	}
+		alive = false;}
 
 	@Override
 	public boolean receiveExplosion() {
-		return false;
-	}
-
+		return false;}
 }

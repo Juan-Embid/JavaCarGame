@@ -12,8 +12,8 @@ public class ExitCommand extends Command {
 	private static final String HELP = "exit game";
 	
 	public ExitCommand() {
-		super(NAME, SHORTCUT, DETAILS, HELP);
-	}
+		super(NAME, SHORTCUT, DETAILS, HELP);}
+	
 	@Override
 	public boolean execute(Game game) {
 		game.setExit();

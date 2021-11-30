@@ -16,22 +16,19 @@ public class ShootCommand extends Command implements Buyable {
 	private static final int COST = 1;
 	
 	public ShootCommand() {
-		super(NAME, SHORTCUT, DETAILS, HELP);
-	}
+		super(NAME, SHORTCUT, DETAILS, HELP);}
 
 	@Override
 	public boolean execute(Game game) {
 		if(buy(game)) {
-		game.execute(new ShootAction());
-		game.update();
-		return true;
+			game.execute(new ShootAction());
+			game.update();
+			return true;
 		}
 		return false;
 	}
 
 	@Override
 	public int cost() {
-		return COST;
-	}
-
+		return COST;}
 }

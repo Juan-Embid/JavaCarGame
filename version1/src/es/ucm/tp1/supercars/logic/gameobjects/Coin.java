@@ -7,16 +7,13 @@ public class Coin extends GameObject {
 	public static int cont=0;
 	
 	public Coin(Game game, int x, int y) {
-		super(game, x, y);
-	}
+		super(game, x, y);}
 	
 	public String toString() {
-		return SYMBOL;
-	}
+		return SYMBOL;}
 	
 	public boolean isAlive() {
-		return alive;
-	}
+		return alive;}
 	
 	@Override
 	public boolean receiveCollision(Player player) {
@@ -27,8 +24,7 @@ public class Coin extends GameObject {
 
 	@Override
 	public void onEnter() {
-		cont++;
-	}
+		cont++;}
 
 	@Override
 	public void onDelete() {
@@ -42,18 +38,15 @@ public class Coin extends GameObject {
 
 	@Override
 	public void update() {
-		if(x<game.getPlayerCycles())
-			alive=false;
+		if(x < game.getPlayerCycles())
+			alive = false;
 	}
 
 	@Override
 	public boolean receiveShoot() {
-		return false;
-	}
+		return false;}
 
 	@Override
 	public boolean receiveExplosion() {
-		return false;
-	}
+		return false;}
 }
-

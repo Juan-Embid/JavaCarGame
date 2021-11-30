@@ -11,7 +11,6 @@ import es.ucm.tp1.supercars.logic.gameobjects.Player;
 public class Game {
 	private Level level;
 	private GameObjectContainer container;
-	private GameObject gameobject;
 	private Long seed;
 	private Player player;
 	private int cycles = 0, thunderAncho, thunderLargo, xGrenade, yGrenade;
@@ -25,9 +24,7 @@ public class Game {
 		this.level = level;
 		random = new Random(seed);
 	}
-	public void toggleTest() {
-		activate = true;
-	}
+	
 	public void update() {
 		GameObjectGenerator.generateRuntimeObjects(this);
 		if(player.isAlive() && !grenadeCreated)
@@ -40,6 +37,7 @@ public class Game {
 		cycles++;
 		eraseContainer();
 	}
+	
 	public void reset() {
 		random = new Random(seed);
 		this.player = new Player(this, 0, this.level.getWidth()/2);
@@ -47,34 +45,83 @@ public class Game {
 		cycles = 0;	
 		this.container = new GameObjectContainer();
 		GameObjectGenerator.generateGameObjects(this, level);
-				 
-		}
+	}
+	
 	public void reset(Long newSeed, Level newLevel) {
 		seed =newSeed;
 		level=newLevel;
 		reset();
+	}
+	
+	public String positionToString(int x, int y) {
+		StringBuilder str = new StringBuilder();
+		
+		if (player.isInPosition(x, y)) {
+			str.append(player.statusToString())
+			.append(" ")
+			.append(container.positionToString(x, y)); }
+		else 
+			if(!player.isInPosition(x, y))
+				str.append(container.positionToString(x, y));
+		if (level.getLength() == x)
+			str.append("¦");
+		return str.toString();
+	}
+	
+	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
+		int freq = (int) (coinFrequency * 100);
+		int ran = random.nextInt(100);   
+		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null && ran <= freq) {
+			container.Add(gameobject);
+			container.onEnter(gameobject);
 		}
-	
-	public void setSeed(long semilla) {
-		seed = semilla;
 	}
 	
-	public void setLevel(Level nivel) {
-		if (nivel == null)
-			setExit();
-		level = nivel;
+	public boolean isFinished() {
+		boolean exit =false;
+		if(!player.isAlive()) exit = true;
+		else if(distanceTofinish() == 0) exit = true;
+		else if(this.exit) exit= true;
+			return exit;		
 	}
+	
+	public int PrintFinish() {
+		int finalmes=0;
+		if(exit) {finalmes= 1;}
+		else if(distanceTofinish() == 0) {finalmes=2;}
+		return finalmes;
+	}
+	
+	public boolean buy(int cost) {
+		if(player.getCoin()>=cost) {
+			for(int i=0;i<cost;i++) {
+				player.lessCoin();
+			}
+			return true;
+		}
+		return false;
+	}
+	
+	public void addCheat(Integer id) {
+		boolean ok = false;
+		for (int i = 0; i < getRoadWidth() && !ok; i++)
+			if (getObjectInPosition(getVisibility() + player.getCycle() - 1, i) == null) {
+					GameObjectGenerator.forceAdvanceObject(this, id, getVisibility() + player.getCycle() - 1);
+					ok = true;
+			}	
+	}
+	
+	public void toggleTest() {
+		activate = true;}
 	
 	public void goUp() {
-		player.update(1, this);
-	}
+		player.update(1, this);}
+	
 	public void goDown() {
-		player.update(-1, this);
-	}
+		player.update(-1, this);}
 	
 	public boolean getActivate() {
-		return activate;
-	}
+		return activate;}
 	
 	public int getVisibility() {
 		return level.getVisibility();}
@@ -86,27 +133,10 @@ public class Game {
 		return level.getLength();}
 	
 	public int getPlayerX() {
-		return player.getX();
-	}
+		return player.getX();}
 	
 	public int getPlayerY() {
-		return player.getY();
-	}
-	
-	public String positionToString(int x, int y) {
-		StringBuilder str = new StringBuilder();
-		
-		if (player.isInPosition(x, y)) {
-			str.append(player.statusToString())
-			.append(" ")
-	 		.append(container.positionToString(x, y)); }
-	else 
-		if(!player.isInPosition(x, y))
-			str.append(container.positionToString(x, y));
-		if (level.getLength() == x)
-				str.append("¦");
-	return str.toString();
-}
+		return player.getY();}
 
 	public double getCoinFrequency() {
 		return level.getCoinFrequency();}
@@ -115,154 +145,94 @@ public class Game {
 		return level.getObstacleFrequency();}
 
 	public int distanceTofinish() {
-		return (getLength()-player.getCycle());
-	}
-	
-	
+		return (getLength()-player.getCycle());}
 	
 	public String getTime() {
 		DecimalFormat df = new DecimalFormat("#.##");
-		return df.format((double) ((System.currentTimeMillis() - initTime) / 1000.));
-	}
-	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
-		int freq = (int) (coinFrequency * 100);
-		int ran = random.nextInt(100);   
-		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null && ran <= freq) {
-			container.Add(gameobject);
-			container.onEnter(gameobject);
-		}
-	}
+		return df.format((double) ((System.currentTimeMillis() - initTime) / 1000.));}
 
 	public int getRandomLane() {
-		return random.nextInt(level.getWidth());
-	}
+		return random.nextInt(level.getWidth());}
 
 	public GameObject getObjectInPosition(int x, int y) {
-		return container.isinPosition(x, y);
-	}
-
-	public boolean isFinished() {
-		boolean exit =false;
-		if(!player.isAlive()) exit = true;
-		else if(distanceTofinish() == 0) exit = true;
-		else if(this.exit) exit= true;
-			return exit;	
-		
-	}
-	public int PrintFinish() {
-		int finalmes=0;
-		if(exit) {finalmes= 1;}
-		else if(distanceTofinish() == 0) {finalmes=2;}
-		return finalmes;
-	}
+		return container.isinPosition(x, y);}
 
 	public void setExit() {
-		exit=true;
-	}
-	public Level stringToLevel(String nivel) {
-		return Level.valueOfIgnoreCase(nivel);
-	}
+		exit=true;}
+	
 	public int getCoinCounter() {
-		
-		return player.getCoin();
-	}
+		return player.getCoin();}
+	
 	public int getCycles() {
-		
-		return cycles;
-	}
+		return cycles;}
+	
 	public long GetInitTime() {
-		return initTime;
-	}
-	public void restart() {
-		
-	}
+		return initTime;}
+	
 	public void forceAddObject(GameObject o) { 
-		container.Add(o);
-	}
+		container.Add(o);}
+	
 	public Level getLevel() {
-		return level;
-	}
+		return level;}
+	
 	public void execute(InstantAction action) {
-	action.execute(this);
-	}
+		action.execute(this);}
 	
 	public boolean firstCollision() {
-		return player.doPlayerCollision(this);
-	}
+		return player.doPlayerCollision(this);}
 	
 	public void eraseContainer() {
-		container.erase();
-	}
+		container.erase();}
 	
 	public void loseCoins() {
-		player.resetCoin();
-		
-	}
-	public boolean buy(int cost) {
-		if(player.getCoin()>=cost) {
-			for(int i=0;i<cost;i++) {
-			player.lessCoin();
-			}
-			return true;
-		}
-		return false;
-	}
+		player.resetCoin();	}
+	
 	public int getPlayerCycles() {
-	return player.getCycle();
-		
-	}
+	return player.getCycle();}
+	
 	public void clearCommand() {
-		container.removeAllObjects();
-	}
+		container.removeAllObjects();}
+	
 	public void setThunderAncho(int ancho) {
-		thunderAncho = ancho;
-	}
+		thunderAncho = ancho;}
+	
 	public void setThunderLargo(int largo) {
-		thunderLargo = largo;
-	}
+		thunderLargo = largo;}
+	
 	public int getThunderAncho() {
-		return thunderAncho;
-	}
+		return thunderAncho;}
+	
 	public int getThunderLargo() {
-		return thunderLargo;
-	}
+		return thunderLargo;}
+	
 	public boolean getGrenade() {
-		return grenade;
-	}
+		return grenade;}
+	
 	public int getXGrenade() {
-		return xGrenade;
-	}
+		return xGrenade;}
+	
 	public int getYGrenade() {
-		return yGrenade;
-	}
+		return yGrenade;}
+	
 	public void setXGrenade(int newX) {
-		xGrenade = newX;
-	}
+		xGrenade = newX;}
+	
 	public void setYGrenade(int newY) {
-		yGrenade = newY;
-	}
+		yGrenade = newY;}
+	
 	public void setGrenade(boolean b) {
-		grenade = b;
-	}
+		grenade = b;}
+	
 	public void setThunderKill(String string) {
-		thunderKill = string;
-	}
+		thunderKill = string;}
+	
 	public String getThunderKill() {
-		return thunderKill;
-	}
+		return thunderKill;}
+	
 	public void changeGrenade() {
         grenade=false;
-        grenadeCreated=true;
-    }
+        grenadeCreated=true;}
+	
     public void changeGrenadeCreated() {
-    	grenadeCreated=false;
-    }
-	public void addCheat(Integer id) {
-		boolean ok = false;
-		for (int i = 0; i < getRoadWidth() && !ok; i++)
-			if (getObjectInPosition(getVisibility() + player.getCycle() - 1, i) == null) {
-					GameObjectGenerator.forceAdvanceObject(this, id, getVisibility() + player.getCycle() - 1);
-					ok = true;
-			}	
-	}
+    	grenadeCreated=false;}
 }

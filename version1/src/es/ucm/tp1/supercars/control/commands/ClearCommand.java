@@ -12,9 +12,7 @@ public class ClearCommand extends Command {
 	private static final String HELP = "Clears the road";
 	
 	public ClearCommand() {
-		super(NAME, SHORTCUT, DETAILS, HELP);
-		
-	}
+		super(NAME, SHORTCUT, DETAILS, HELP);}
 
 	@Override
 	public boolean execute(Game game) {
@@ -22,5 +20,4 @@ public class ClearCommand extends Command {
 		game.eraseContainer();
 		return true;
 	}
-
 }

@@ -25,7 +25,7 @@ public class Controller {
 	}
 
 	public void printGame() {
-		System.out.println(printer);
+			System.out.println(printer);
 	}
 
 	public void run() {
@@ -47,6 +47,7 @@ public class Controller {
 				System.out.println("[ERROR]: "+ UNKNOWN_COMMAND_MSG);
 				}
 			}
-		printGame();
+		if(game.PrintFinish() != 1)
+			printGame();
 		System.out.println(printer.endMessage(game.PrintFinish()));}
 }
