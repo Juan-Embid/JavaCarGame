@@ -2,6 +2,7 @@ package es.ucm.tp1.control.commands;
 
 import es.ucm.tp1.control.Buyable;
 import es.ucm.tp1.logic.Game;
+import es.ucm.tp1.logic.gameobjects.Grenade;
 
 public class GrenadeCommand extends Command implements Buyable{
 
@@ -24,9 +25,10 @@ public class GrenadeCommand extends Command implements Buyable{
 	@Override
 	public boolean execute(Game game) {
 		if (buy(game)) {
-			game.setGrenade(true);
 			game.setXGrenade(newX + game.getPlayerCycles());
 			game.setYGrenade(newY);
+			game.addObject(new Grenade(game, game.getXGrenade(), game.getYGrenade()));
+			game.activateWait();			
 			game.update();
 			return true;
 		}

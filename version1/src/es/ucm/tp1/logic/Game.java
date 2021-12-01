@@ -14,7 +14,7 @@ public class Game {
 	private Long seed;
 	private Player player;
 	private int cycles = 0, thunderAncho, thunderLargo, xGrenade, yGrenade;
-	private Boolean activate = false, exit=false, grenade = false, grenadeCreated = false;
+	private Boolean activate = false, exit=false, wait = false;
 	private long initTime = 0;
 	private Random random;
 	private String thunderKill = " ";
@@ -27,15 +27,16 @@ public class Game {
 	
 	public void update() {
 		GameObjectGenerator.generateRuntimeObjects(this);
-		if(player.isAlive() && !grenadeCreated)
+		if(player.isAlive() && !wait)
 			player.update();
 		player.doPlayerCollision(this);
-		if(!grenadeCreated)
+		if(!wait)
 			container.update();
 		if (cycles == 0)
 			initTime = System.currentTimeMillis();
 		cycles++;
 		eraseContainer();
+		disableWait();
 	}
 	
 	public void reset() {
@@ -68,13 +69,16 @@ public class Game {
 		return str.toString();
 	}
 	
-	public void tryToAddObject(GameObject gameobject, double coinFrequency) {
-		int freq = (int) (coinFrequency * 100);
-		int ran = random.nextInt(100);   
-		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null && ran <= freq) {
+	public void tryToAddObject(GameObject gameobject, double objectFrequency) {
+		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null && randomNumber() <= objectFrequency) {
 			container.Add(gameobject);
 			container.onEnter(gameobject);
 		}
+	}
+	
+	public void addObject(GameObject gameobject) {
+		container.Add(gameobject);
+		container.onEnter(gameobject);
 	}
 	
 	public boolean isFinished() {
@@ -114,6 +118,9 @@ public class Game {
 	public void toggleTest() {
 		activate = true;}
 	
+	public double randomNumber() {
+		return random.nextDouble();}
+	
 	public void goUp() {
 		player.update(1, this);}
 	
@@ -152,7 +159,7 @@ public class Game {
 		return df.format((double) ((System.currentTimeMillis() - initTime) / 1000.));}
 
 	public int getRandomLane() {
-		return random.nextInt(level.getWidth());}
+		return (int) (randomNumber() * getRoadWidth());}
 
 	public GameObject getObjectInPosition(int x, int y) {
 		return container.isinPosition(x, y);}
@@ -205,9 +212,6 @@ public class Game {
 	public int getThunderLargo() {
 		return thunderLargo;}
 	
-	public boolean getGrenade() {
-		return grenade;}
-	
 	public int getXGrenade() {
 		return xGrenade;}
 	
@@ -220,19 +224,15 @@ public class Game {
 	public void setYGrenade(int newY) {
 		yGrenade = newY;}
 	
-	public void setGrenade(boolean b) {
-		grenade = b;}
-	
 	public void setThunderKill(String string) {
 		thunderKill = string;}
 	
 	public String getThunderKill() {
 		return thunderKill;}
 	
-	public void changeGrenade() {
-        grenade=false;
-        grenadeCreated=true;}
+	public void activateWait() {
+        wait = true;}
 	
-    public void changeGrenadeCreated() {
-    	grenadeCreated=false;}
+    public void disableWait() {
+    	wait = false;}
 }

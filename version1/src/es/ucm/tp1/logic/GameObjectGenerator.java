@@ -21,14 +21,6 @@ public class GameObjectGenerator {
 	public static void generateRuntimeObjects(Game game) {
 		if (game.getLevel().hasAdvancedObjects())
 			game.execute(new ThunderAction());
-		
-		if (game.getGrenade()) {
-			game.tryToAddObject(new Grenade(game, game.getXGrenade(), game.getYGrenade()), 1);
-			game.changeGrenade();
-		}
-		
-		else 
-			game.changeGrenadeCreated();
 	}
 		
 	public static void generateGameObjects(Game game, Level level) {
