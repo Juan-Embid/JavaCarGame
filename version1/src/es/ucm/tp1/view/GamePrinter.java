@@ -6,7 +6,7 @@ import es.ucm.tp1.supercars.logic.Game;
 import es.ucm.tp1.supercars.logic.gameobjects.GameObject;
 
 
-public class GamePrinter {
+public class GamePrinter extends View{
 	private static final String SPACE = " ";
 
 	private static final String ROAD_BORDER_PATTERN = "═";
