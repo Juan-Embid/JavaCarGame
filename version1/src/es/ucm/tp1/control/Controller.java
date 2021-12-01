@@ -2,8 +2,8 @@ package es.ucm.tp1.control;
 
 import java.util.Scanner;
 
-import es.ucm.tp1.supercars.control.commands.Command;
-import es.ucm.tp1.supercars.logic.Game;
+import es.ucm.tp1.control.commands.Command;
+import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.view.GamePrinter;
 
 public class Controller {
