@@ -1,5 +1,6 @@
 package es.ucm.tp1.control.commands;
 
+import es.ucm.tp1.exceptions.CommandParseException;
 import es.ucm.tp1.logic.Game;
 
 public class CheatCommand extends Command {
@@ -23,12 +24,13 @@ public class CheatCommand extends Command {
 		return true;
 	}
 	
-	protected Command parse(String[] commandWords) {
+	public Command parse(String[] commandWords) throws CommandParseException {
 		try {
 			id = Integer.parseInt(commandWords[0]);} 
 		
-		catch (Exception e) {
-			return null;}
+		catch (NumberFormatException e) {
+			throw new CommandParseException("");
+		}
 		
 		if (0 < id && id < 6) {
 			return this;}

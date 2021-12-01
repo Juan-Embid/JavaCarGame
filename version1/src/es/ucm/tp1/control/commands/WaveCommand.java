@@ -1,6 +1,7 @@
 package es.ucm.tp1.control.commands;
 
 import es.ucm.tp1.control.Buyable;
+import es.ucm.tp1.exceptions.CommandParseException;
 import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.logic.actions.WaveAction;
 
@@ -31,4 +32,16 @@ public class WaveCommand extends Command implements Buyable {
 	@Override
 	public int cost() {
 		return COST;}
+	
+	@Override
+	public Command parse(String[] words) {
+		if (matchCommandName(words[0])) {
+			if (words.length != 1) {
+				System.out.format("[ERROR]: Command %s: %s%n%n", NAME, INCORRECT_NUMBER_OF_ARGS_MSG);
+				return null;} 
+			else 
+				return this;
+		}
+		return null;
+	}
 }

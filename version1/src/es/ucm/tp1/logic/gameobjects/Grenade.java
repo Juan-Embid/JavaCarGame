@@ -28,13 +28,14 @@ public class Grenade extends GameObject {
 	@Override
 	public void update() {
 		countdown--;
-		if (countdown == 0)
-			onDelete();
+		if (countdown == 0) {
+			game.execute(new ExplotionAction());
+		alive =false;
+		}
 	}
 
 	@Override
 	public void onDelete() {
-		game.execute(new ExplotionAction());
 		alive = false;
 	}
 

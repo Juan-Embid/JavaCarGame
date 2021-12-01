@@ -77,8 +77,10 @@ public class Game {
 	}
 	
 	public void addObject(GameObject gameobject) {
+		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null) {
 		container.Add(gameobject);
 		container.onEnter(gameobject);
+		}
 	}
 	
 	public boolean isFinished() {

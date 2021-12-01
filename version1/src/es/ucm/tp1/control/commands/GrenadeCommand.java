@@ -1,6 +1,7 @@
 package es.ucm.tp1.control.commands;
 
 import es.ucm.tp1.control.Buyable;
+import es.ucm.tp1.exceptions.CommandParseException;
 import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.logic.gameobjects.Grenade;
 
@@ -36,7 +37,7 @@ public class GrenadeCommand extends Command implements Buyable{
 	}
 	
 	@Override
-	protected Command parse(String[] commandWords) {
+	public Command parse(String[] commandWords) throws CommandParseException  {
 		if(commandWords.length == 3) {
 			if(matchCommandName(commandWords[0])) {
 				newX = Integer.parseInt(commandWords[1]);
@@ -47,7 +48,9 @@ public class GrenadeCommand extends Command implements Buyable{
 		        return null;
 	    }
 	    else
-	      return super.parse(commandWords);
+	    	if(matchCommandName(commandWords[0]))
+	      return this;
+	    	return null;
 	}
 
 	@Override

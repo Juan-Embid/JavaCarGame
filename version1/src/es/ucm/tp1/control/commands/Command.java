@@ -1,5 +1,7 @@
 package es.ucm.tp1.control.commands;
 
+import es.ucm.tp1.exceptions.CommandExecuteException;
+import es.ucm.tp1.exceptions.CommandParseException;
 import es.ucm.tp1.logic.Game;
 
 public abstract class Command {
@@ -13,6 +15,8 @@ public abstract class Command {
 	private final String details;
 
 	private final String help;
+	
+	private static final String UNKNOWN_COMMAND_MSG = "Unknown command";
 	
 	/* @formatter:off */
 	private static final Command[] AVAILABLE_COMMANDS = {
@@ -32,12 +36,11 @@ public abstract class Command {
 	};
 	
 	/* @formatter:on */
-	public static Command getCommand(String[] commandWords) {
+	public static Command getCommand(String[] commandWords) throws CommandParseException {
 		Command command = null;
 		for(Command command_1 : AVAILABLE_COMMANDS)
-			for (Command command_2 : AVAILABLE_COMMANDS)
-				if(command_1 == command_2.parse(commandWords))
-					return command = command_1;
+			if(null != command_1.parse(commandWords))
+				return command = command_1;
 		return command;
 	}
 	
@@ -48,23 +51,14 @@ public abstract class Command {
 		this.help = help;
 	}
 
-	public abstract boolean execute(Game game);
+	public abstract boolean execute(Game game) throws CommandExecuteException;
 
 	protected boolean matchCommandName(String name) {
 		return this.shortcut.equalsIgnoreCase(name) || this.name.equalsIgnoreCase(name);}
 
-	protected Command parse(String[] words) {
-		if (matchCommandName(words[0])) {
-			if (words.length != 1) {
-				System.out.format("[ERROR]: Command %s: %s%n%n", name, INCORRECT_NUMBER_OF_ARGS_MSG);
-				return null;} 
-			else 
-				return this;
-		}
-		return null;
-	}
+	public abstract Command parse(String[] words) throws CommandParseException;
 
-	 public static String showCommand() {
+	 public static String showCommand(){
 		StringBuilder str= new StringBuilder();
 		for(Command command : AVAILABLE_COMMANDS) {
 			str.append(command.details)

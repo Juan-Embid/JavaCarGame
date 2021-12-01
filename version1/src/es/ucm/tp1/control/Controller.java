@@ -3,6 +3,7 @@ package es.ucm.tp1.control;
 import java.util.Scanner;
 
 import es.ucm.tp1.control.commands.Command;
+import es.ucm.tp1.exceptions.GameException;
 import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.view.GamePrinter;
 
@@ -32,20 +33,25 @@ public class Controller {
 		boolean refreshDisplay=true;
 		game.reset();
 		while (!game.isFinished()) {	
-			if (refreshDisplay ) {
-				printGame();
+			try {
+				if (refreshDisplay ) {
+					printGame();
+					}
+					refreshDisplay = false;
+					System.out.println(PROMPT);
+					String s = scanner.nextLine();
+					String[] parameters = s.toLowerCase().trim().split(" ");
+					Command command = Command.getCommand(parameters);
+					System.out.println("[DEBUG] Executing: " + s);
+					if (command != null) {
+					refreshDisplay = command.execute(game);
+					} else {
+					System.out.println("[ERROR]: "+ UNKNOWN_COMMAND_MSG);
+					}
 				}
-				refreshDisplay = false;
-				System.out.println(PROMPT);
-				String s = scanner.nextLine();
-				String[] parameters = s.toLowerCase().trim().split(" ");
-				System.out.println("[DEBUG] Executing: " + s);
-				Command command = Command.getCommand(parameters);
-				if (command != null) {
-				refreshDisplay = command.execute(game);
-				} else {
-				System.out.println("[ERROR]: "+ UNKNOWN_COMMAND_MSG);
-				}
+			catch(GameException ex) {
+				ex.printException();
+			}
 			}
 		if(game.PrintFinish() != 1)
 			printGame();

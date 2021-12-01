@@ -1,6 +1,7 @@
 package es.ucm.tp1.control.commands;
 
 import es.ucm.tp1.control.Level;
+import es.ucm.tp1.exceptions.CommandParseException;
 import es.ucm.tp1.logic.Game;
 
 public class ResetCommand extends Command {
@@ -29,7 +30,7 @@ public class ResetCommand extends Command {
 	}
 	
 	@Override
-	protected Command parse(String[] commandWords) {
+	public Command parse(String[] commandWords) throws CommandParseException  {
 		if(commandWords.length == 3) {
 			if(matchCommandName(commandWords[0])) {
 			    newLevel = Level.valueOfIgnoreCase(commandWords[1]);
@@ -39,7 +40,8 @@ public class ResetCommand extends Command {
 			else
 			    return null;
 		}
-	    else
-	      return super.parse(commandWords);
+	    else if(matchCommandName(commandWords[0]))
+	      return this;
+		return null;
 	}
 }

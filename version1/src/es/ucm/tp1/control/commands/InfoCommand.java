@@ -1,5 +1,6 @@
 package es.ucm.tp1.control.commands;
 
+import es.ucm.tp1.exceptions.CommandParseException;
 import es.ucm.tp1.logic.Game;
 
 public class InfoCommand extends Command {
@@ -32,5 +33,17 @@ public class InfoCommand extends Command {
 	public boolean execute(Game game) {
 		System.out.print(INFO);
 		return false;
+	}
+	
+	@Override
+	public Command parse(String[] words)  {
+		if (matchCommandName(words[0])) {
+			if (words.length != 1) {
+				System.out.format("[ERROR]: Command %s: %s%n%n", NAME, INCORRECT_NUMBER_OF_ARGS_MSG);
+				return null;} 
+			else 
+				return this;
+		}
+		return null;
 	}
 }
