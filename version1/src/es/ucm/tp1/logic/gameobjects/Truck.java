@@ -12,11 +12,10 @@ public class Truck extends Obstacle {
 	public String toString() {
 		return SYMBOL;}
 
-	@Override
-	public void onEnter() {
-	}
-
+	
 	@Override
 	public void update() {
+		/*if(x<game.getPlayerX()) TODO HAZ QUE FUNCIONE
+			alive=false;*/
 		x--;}
 }

@@ -48,7 +48,8 @@ public class Obstacle extends GameObject {
 
 	@Override
 	public boolean receiveExplosion() {
-		onDelete();
+		alive=false;
 		return false;
 	}
+
 }

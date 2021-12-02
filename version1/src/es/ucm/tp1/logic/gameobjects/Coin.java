@@ -49,4 +49,9 @@ public class Coin extends GameObject {
 	@Override
 	public boolean receiveExplosion() {
 		return false;}
+	
+	public void setAlive() {
+		alive=false;
+	}
+	
 }

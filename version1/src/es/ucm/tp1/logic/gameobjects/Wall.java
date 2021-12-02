@@ -15,7 +15,7 @@ public class Wall extends Obstacle {
 	public boolean receiveShoot() {
 		life--;
 		if(life == 0)
-			alive = false;
+			alive=false;
 		return true;
 	}
 	
@@ -28,13 +28,11 @@ public class Wall extends Obstacle {
 			return WEAK;
 	}
 	
-	@Override
-	public void onEnter() {
-		cont++;}
-	
+
 	@Override
 	public void onDelete() {
 		cont--;
 		alive = false;
 	}
+	
 }

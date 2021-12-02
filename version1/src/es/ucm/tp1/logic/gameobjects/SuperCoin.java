@@ -42,4 +42,5 @@ public class SuperCoin extends Coin {
     
 	public boolean isAlive() {
 		return alive;}
+	
 }

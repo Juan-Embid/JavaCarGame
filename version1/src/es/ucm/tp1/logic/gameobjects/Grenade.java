@@ -43,4 +43,5 @@ public class Grenade extends GameObject {
 	public boolean receiveExplosion() {
 		return false;
 	}
+	
 }

@@ -18,7 +18,7 @@ public class ThunderAction implements InstantAction{
         
         if(obj != null) {
             game.setThunderKill(obj.toString());
-            obj.onDelete();}
+            obj.suicide();}
         
         else game.setThunderKill(" ");
         

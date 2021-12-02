@@ -11,9 +11,6 @@ public class Pedestrian extends Obstacle{
 	public Pedestrian(Game game, int x, int y) {
 		super(game, x, y);}
 
-	@Override
-	public void onEnter() {
-	}
 	
 	public String toString() {
 		return SYMBOL;}

@@ -67,5 +67,5 @@ public abstract class GameObject implements Collider {
 	public void wave() {
 		x++;
 	}
-
+	
 }

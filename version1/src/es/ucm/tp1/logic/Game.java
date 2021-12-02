@@ -196,9 +196,6 @@ public class Game {
 	public void loseCoins() {
 		player.resetCoin();	}
 	
-	/*public int getPlayerCycles() {
-	return player.getCycle();}
-	*/
 	public void clearCommand() {
 		container.removeAllObjects();}
 	
