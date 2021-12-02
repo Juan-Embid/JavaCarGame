@@ -53,5 +53,12 @@ public class Coin extends GameObject {
 	public void setAlive() {
 		alive=false;
 	}
+
+	@Override
+	public String serializer() {
+		String serial;
+		serial = toString()+" ("+this.x+", "+this.y+")"+"\n";
+		return serial;
+	}
 	
 }

@@ -4,13 +4,14 @@ import es.ucm.tp1.exceptions.CommandParseException;
 import es.ucm.tp1.logic.Game;
 
 public class DumpCommand extends Command{
-	private static final String NAME = "serialize";
+	
+	private static final String NAME = "dump";
 
-	private static final String DETAILS = "seriali[z]e";
+	private static final String DETAILS = "[d]ump filename";
 
-	private static final String SHORTCUT = "z";
+	private static final String SHORTCUT = "d";
 
-	private static final String HELP = "Serializes the board.";
+	private static final String HELP = "Shows the content of a saved file";
 	
 	public DumpCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);}

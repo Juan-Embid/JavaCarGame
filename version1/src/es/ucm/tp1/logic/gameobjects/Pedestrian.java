@@ -46,4 +46,12 @@ public class Pedestrian extends Obstacle{
 		impacted=true;
 		return true;
 	}
+	@Override
+	public String serializer() {
+		String serial, going;
+		if(subiendo) going = "up";
+		else going = "down";
+		serial = toString()+" ("+this.x+", "+this.y+") "+ going +"\n";
+		return serial;
+	}
 }

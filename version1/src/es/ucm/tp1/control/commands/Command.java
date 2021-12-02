@@ -32,7 +32,11 @@ public abstract class Command {
 		new GrenadeCommand(),
 		new WaveCommand(),
 		new ClearCommand(),
-		new CheatCommand()	
+		new SerializeCommand(),
+		new CheatCommand(),
+		new ShowRecordCommand(),
+		new SaveCommand(),
+		new DumpCommand()
 	};
 	
 	/* @formatter:on */

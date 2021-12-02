@@ -1,7 +1,6 @@
 package es.ucm.tp1.view;
 
 import es.ucm.tp1.utils.*;
-import java.text.DecimalFormat;
 import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.logic.gameobjects.GameObject;
 
@@ -30,6 +29,7 @@ public class GamePrinter extends View{
 	private Game game;
 	
 	public GamePrinter(Game game) {
+		super(game);
 		this.game = game;
 
 		margin = StringUtils.repeat(SPACE, MARGIN_SIZE);
@@ -95,7 +95,6 @@ public class GamePrinter extends View{
 		return str.toString();
 	}
 	public String getInfo() {
-		DecimalFormat df = new DecimalFormat("#.##");
 		StringBuilder str = new StringBuilder();
 		String distancia = String.valueOf(game.distanceTofinish());
 		if(game.getLevel().hasAdvancedObjects() && game.getCycles() != 0) {
@@ -111,11 +110,7 @@ public class GamePrinter extends View{
 		System.out.println("Total coins: " + GameObject.getCoins());
 		if(GameObject.isSuperCoinPresent())
 		System.out.println("Supercoin is present");
-		if (!game.getActivate())
-			if (game.getCycles() == 0)
-				System.out.println("Elapsed time: 0.00 s");
-			else
-				System.out.println("Elapsed time: " + df.format((double) ((System.currentTimeMillis() - game.GetInitTime()) / 1000.)) + " s");
+		printTime();
 		return str.toString();
 	}
 }

@@ -121,4 +121,10 @@ public class Player extends GameObject {
 
 	public void less() {
 		x--;}
+
+	@Override
+	public String serializer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

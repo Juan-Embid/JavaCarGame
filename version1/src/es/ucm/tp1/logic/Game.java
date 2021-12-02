@@ -235,4 +235,13 @@ public class Game {
 	
     public void disableWait() {
     	wait = false;}
+
+	public String serializer() {
+		return container.serializer();
+	}
+
+	public String playerSerializer() {
+		String serializer = player.statusToString() + " (" + getPlayerX() + ", "+ getPlayerY()+")";
+		return serializer;
+	}
 }

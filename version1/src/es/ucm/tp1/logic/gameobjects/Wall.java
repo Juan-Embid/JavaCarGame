@@ -35,4 +35,11 @@ public class Wall extends Obstacle {
 		alive = false;
 	}
 	
+	@Override
+	public String serializer() {
+		String serial;
+		serial = SYMBOL+" ("+this.x+", "+this.y+") "+ life +"\n";
+		return serial;
+	}
+	
 }

@@ -43,4 +43,11 @@ public class Turbo extends GameObject {
 	@Override
 	public boolean receiveExplosion() {
 		return false;}
+
+	@Override
+	public String serializer() {
+		String serial;
+		serial = toString()+" ("+this.x+", "+this.y+")"+"\n";
+		return serial;
+	}
 }

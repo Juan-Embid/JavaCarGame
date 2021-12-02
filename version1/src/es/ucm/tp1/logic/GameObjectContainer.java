@@ -69,4 +69,16 @@ public class GameObjectContainer {
 					.append(" ");
 		return str;
 	}
+
+	public int size() {
+		return gameobjects.size();
+	}
+
+	public String serializer() {
+		StringBuilder str = new StringBuilder();
+		for(int i = 0; i < gameobjects.size();i++)
+		str.append(gameobjects.get(i).serializer());
+		return str.toString();
+	}
+	
 }

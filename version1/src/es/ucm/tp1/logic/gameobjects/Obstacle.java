@@ -52,4 +52,11 @@ public class Obstacle extends GameObject {
 		return false;
 	}
 
+	@Override
+	public String serializer() {
+		String serial;
+		serial = toString()+" ("+this.x+", "+this.y+")"+"\n";
+		return serial;
+	}
+
 }
