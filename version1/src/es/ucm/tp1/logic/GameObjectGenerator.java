@@ -4,7 +4,6 @@ import es.ucm.tp1.control.Level;
 import es.ucm.tp1.logic.actions.ThunderAction;
 import es.ucm.tp1.logic.gameobjects.Coin;
 import es.ucm.tp1.logic.gameobjects.GameObject;
-import es.ucm.tp1.logic.gameobjects.Grenade;
 import es.ucm.tp1.logic.gameobjects.Obstacle;
 import es.ucm.tp1.logic.gameobjects.Pedestrian;
 import es.ucm.tp1.logic.gameobjects.SuperCoin;

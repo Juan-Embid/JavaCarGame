@@ -22,7 +22,8 @@ public class Game {
 	public Game(long seed, Level level) {
 		this.seed = seed;
 		this.level = level;
-		random = new Random(seed);
+		//random = new Random(seed);
+		//reset();
 	}
 	
 	public void update() {

@@ -35,8 +35,7 @@ public class Controller {
 		while (!game.isFinished()) {	
 			try {
 				if (refreshDisplay ) {
-					printGame();
-					}
+					printGame();}
 					refreshDisplay = false;
 					System.out.println(PROMPT);
 					String s = scanner.nextLine();

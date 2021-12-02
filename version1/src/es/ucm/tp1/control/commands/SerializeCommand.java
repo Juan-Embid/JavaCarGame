@@ -2,6 +2,7 @@ package es.ucm.tp1.control.commands;
 
 import es.ucm.tp1.exceptions.CommandParseException;
 import es.ucm.tp1.logic.Game;
+import es.ucm.tp1.view.GameSerializer;
 
 public class SerializeCommand extends Command{
 	private static final String NAME = "dump";
@@ -12,13 +13,17 @@ public class SerializeCommand extends Command{
 
 	private static final String HELP = "Shows the content of a saved file";
 	
+	GameSerializer gameserializer;
+	
 	public SerializeCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);}
 
 	@Override
 	public boolean execute(Game game) {
+		gameserializer.printSerializer();
 		return false;
 	}
+	
 	@Override
 	public Command parse(String[] words) {
 		if (matchCommandName(words[0])) {

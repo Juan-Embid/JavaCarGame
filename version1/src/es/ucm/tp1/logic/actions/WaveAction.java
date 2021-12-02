@@ -7,8 +7,6 @@ public class WaveAction implements InstantAction{
 
 	@Override
 	public void execute(Game game) {
-		boolean ok=false;
-		
 		for (int i = 0; i < game.getRoadWidth(); i++) {
 			for (int j = game.getPlayerX()+game.getVisibility(); j >= game.getPlayerX() ; j--) {
                 GameObject obj = game.getObjectInPosition(j, i);

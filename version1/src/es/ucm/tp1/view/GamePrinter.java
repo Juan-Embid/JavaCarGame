@@ -2,7 +2,6 @@ package es.ucm.tp1.view;
 
 import es.ucm.tp1.utils.*;
 import java.text.DecimalFormat;
-
 import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.logic.gameobjects.GameObject;
 
