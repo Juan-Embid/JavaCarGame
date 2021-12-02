@@ -7,7 +7,7 @@ public class Player extends GameObject {
 	public static final int INIT_COINS=0;
 	public static final int STEP =1;
 	private boolean alive = true;
-	private Integer coinCounter=0, cycles = 0;
+	private Integer coinCounter=0;
 	private static Game game;
 	
 	public Player(Game game, int x, int y) {
@@ -36,9 +36,6 @@ public class Player extends GameObject {
 		else goDown();
 	} 
 	
-	public int getCycle() {
-		return cycles;}
-	
 	public void goUp(Game width) {
 		if(y + STEP != width.getRoadWidth())
 			y += STEP;
@@ -62,7 +59,6 @@ public class Player extends GameObject {
 	
 	public void reset() {
 		coinCounter = 0;
-		cycles = 0;
 	}
 	
 	public boolean doCollision() {
@@ -86,7 +82,7 @@ public class Player extends GameObject {
 	@Override
 	public void update() {
 		x++;
-		cycles++;
+		//cycles++;
 	}
 
 	@Override
@@ -115,7 +111,6 @@ public class Player extends GameObject {
 
 	public void doTurbo(int step) {
 		this.x+=step;
-		cycles+=step;
 	}
 
 	public void resetCoin() {

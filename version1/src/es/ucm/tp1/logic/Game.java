@@ -111,8 +111,8 @@ public class Game {
 	public void addCheat(Integer id) {
 		boolean ok = false;
 		for (int i = 0; i < getRoadWidth() && !ok; i++)
-			if (getObjectInPosition(getVisibility() + player.getCycle() - 1, i) == null) {
-					GameObjectGenerator.forceAdvanceObject(this, id, getVisibility() + player.getCycle() - 1);
+			if (getObjectInPosition(getVisibility() + player.getX() - 1, i) == null) {
+					GameObjectGenerator.forceAdvanceObject(this, id, getVisibility() + player.getX() - 1);
 					ok = true;
 			}	
 	}
@@ -154,7 +154,7 @@ public class Game {
 		return level.getObstacleFrequency();}
 
 	public int distanceTofinish() {
-		return (getLength()-player.getCycle());}
+		return (getLength()-player.getX());}
 	
 	public String getTime() {
 		DecimalFormat df = new DecimalFormat("#.##");
@@ -196,9 +196,9 @@ public class Game {
 	public void loseCoins() {
 		player.resetCoin();	}
 	
-	public int getPlayerCycles() {
+	/*public int getPlayerCycles() {
 	return player.getCycle();}
-	
+	*/
 	public void clearCommand() {
 		container.removeAllObjects();}
 	

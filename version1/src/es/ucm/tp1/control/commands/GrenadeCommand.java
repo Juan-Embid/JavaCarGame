@@ -26,7 +26,7 @@ public class GrenadeCommand extends Command implements Buyable{
 	@Override
 	public boolean execute(Game game) {
 		if (buy(game)) {
-			game.setXGrenade(newX + game.getPlayerCycles());
+			game.setXGrenade(newX + game.getPlayerX());
 			game.setYGrenade(newY);
 			game.addObject(new Grenade(game, game.getXGrenade(), game.getYGrenade()));
 			game.activateWait();			

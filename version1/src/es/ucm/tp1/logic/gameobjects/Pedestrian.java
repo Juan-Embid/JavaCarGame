@@ -31,7 +31,7 @@ public class Pedestrian extends Obstacle{
 				if(y==game.getRoadWidth()-1)
 					subiendo=true;
 			}
-			if(x<game.getPlayerCycles())
+			if(x<game.getPlayerX())
 				alive=false;
 		}
 	}

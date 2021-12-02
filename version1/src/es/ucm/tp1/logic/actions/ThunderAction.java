@@ -14,7 +14,7 @@ public class ThunderAction implements InstantAction{
         random = new Random();
         ancho = game.getRandomLane();
         largo = random.nextInt(game.getVisibility());
-        GameObject obj = game.getObjectInPosition(game.getPlayerCycles() + largo, ancho);
+        GameObject obj = game.getObjectInPosition(game.getPlayerX() + largo, ancho);
         
         if(obj != null) {
             game.setThunderKill(obj.toString());

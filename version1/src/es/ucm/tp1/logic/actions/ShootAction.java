@@ -9,7 +9,7 @@ public class ShootAction implements InstantAction {
 	public void execute(Game game) {
 		boolean ok=false;
 		
-		for (int i = game.getPlayerCycles(); i < game.getPlayerCycles() + game.getVisibility() && !ok; i++) {
+		for (int i = game.getPlayerX(); i < game.getPlayerX() + game.getVisibility() && !ok; i++) {
 			GameObject obj = game.getObjectInPosition(i, game.getPlayerY());
 			if(obj != null)
 				if(obj.receiveShoot()!=ok)

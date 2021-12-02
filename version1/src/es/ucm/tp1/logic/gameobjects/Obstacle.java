@@ -27,7 +27,7 @@ public class Obstacle extends GameObject {
 
 	@Override
 	public void update() {	
-		if(x<game.getPlayerCycles())
+		if(x<game.getPlayerX())
 			alive=false;
 	}
 
