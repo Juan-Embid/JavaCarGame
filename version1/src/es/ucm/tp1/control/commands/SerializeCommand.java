@@ -21,7 +21,7 @@ public class SerializeCommand extends Command{
 
 	@Override
 	public boolean execute(Game game) {
-		 GameSerializer gameserializer = new GameSerializer(game);
+		GameSerializer gameserializer = new GameSerializer(game);
 		gameserializer.printSerializer();
 		return false;
 	}

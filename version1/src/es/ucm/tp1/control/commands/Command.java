@@ -1,5 +1,7 @@
 package es.ucm.tp1.control.commands;
 
+import java.io.IOException;
+
 import es.ucm.tp1.exceptions.CommandExecuteException;
 import es.ucm.tp1.exceptions.CommandParseException;
 import es.ucm.tp1.logic.Game;
@@ -33,10 +35,10 @@ public abstract class Command {
 		new WaveCommand(),
 		new ClearCommand(),
 		new SerializeCommand(),
-		new CheatCommand(),
-		new ShowRecordCommand(),
 		new SaveCommand(),
-		new DumpCommand()
+		new ShowRecordCommand(),
+		new DumpCommand(),
+		new CheatCommand()
 	};
 	
 	/* @formatter:on */
@@ -55,7 +57,7 @@ public abstract class Command {
 		this.help = help;
 	}
 
-	public abstract boolean execute(Game game) throws CommandExecuteException;
+	public abstract boolean execute(Game game) throws CommandExecuteException, IOException;
 
 	protected boolean matchCommandName(String name) {
 		return this.shortcut.equalsIgnoreCase(name) || this.name.equalsIgnoreCase(name);}
