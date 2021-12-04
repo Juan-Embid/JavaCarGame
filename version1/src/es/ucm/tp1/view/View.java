@@ -14,12 +14,14 @@ public abstract class View {
 
 	
 	
-	public static void printTime() {
+	public static String printTime() {
+		String str;
 		if (!game.getActivate()) {
 			if (game.getCycles() == 0)
-				System.out.println("Elapsed time: 0.00 s");
+				return "Elapsed time: 0.00 s";
 			else
-				System.out.println("Elapsed time: " + df.format((double) ((System.currentTimeMillis() - game.GetInitTime()) / 1000.)) + " s");
+				return ("Elapsed time: " + df.format((double) ((System.currentTimeMillis() - game.GetInitTime()) / 1000.)) + " s");
 		}
+		return "";
 }
 }

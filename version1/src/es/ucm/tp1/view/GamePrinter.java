@@ -110,7 +110,7 @@ public class GamePrinter extends View{
 		System.out.println("Total coins: " + GameObject.getCoins());
 		if(GameObject.isSuperCoinPresent())
 		System.out.println("Supercoin is present");
-		printTime();
+		System.out.println(printTime());
 		return str.toString();
 	}
 }

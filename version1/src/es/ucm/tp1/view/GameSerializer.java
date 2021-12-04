@@ -8,15 +8,25 @@ public class GameSerializer extends View{
 		super(game);
 		this.game=game;
 	}
+	
+	public String serializeToString() {
+		StringBuilder str = new StringBuilder();
+		str.append("---- ROAD FIGHTER SERIALIZED ----\n")
+			.append("Level: ")
+			.append(game.getLevel())
+			.append("\nCycles: ")
+			.append(game.getCycles())
+			.append("\nCoins: ")
+			.append(game.getCoinCounter())
+			.append("\n")
+			.append(printTime())
+			.append("\nGame Objects: \n")
+			.append(game.playerSerializer())
+			.append("\n")
+			.append(game.serializer());
+		return str.toString();
+	}
 
 	public void printSerializer() {
-		System.out.println("---- ROAD FIGHTER SERIALIZED ----");
-		System.out.println("Level: " + game.getLevel());
-		System.out.println("Cycles: " + game.getCycles());
-		System.out.println("Coins: " + game.getCoinCounter());
-		printTime();
-		System.out.println("Game Objects:");
-		System.out.println(game.playerSerializer());
-		System.out.println(game.serializer());
-	}
+		System.out.println(serializeToString());}
 }
