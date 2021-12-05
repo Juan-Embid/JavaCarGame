@@ -17,6 +17,11 @@ public class ShowRecordCommand extends Command{
 
 	@Override
 	public boolean execute(Game game) {
+		/*
+		 * hacer parse con todos los niveles que nos podemos encontrar
+		 * record en milisegundos
+		 * si no exite record.txt, lanza inputoutputrecordexception
+		 * crear clase record para hacerlo*/
 		return false;
 	}
 	
