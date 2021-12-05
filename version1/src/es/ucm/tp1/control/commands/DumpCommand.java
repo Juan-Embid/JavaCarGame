@@ -16,38 +16,21 @@ public class DumpCommand extends Command{
 
 	private static final String HELP = "Shows the content of a saved file";
 	
-	//private static String FilePath = new File(".").getAbsolutePath();
-	//File folder = new File(FilePath);
-	private static String dumpFile, rawName;
-	private static String[] fileName;
+	private static String dumpFile;
 	
 	public DumpCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);}
 
 	@Override
 	public boolean execute(Game game) throws FileNotFoundException {
-		File file = new File(getFileName());
+		File file = new File(dumpFile + ".txt");
 	    Scanner myFile = new Scanner(file);
 		while (myFile.hasNextLine()) {
 		    String data = myFile.nextLine();
 		    System.out.println(data);
-		  }
+		  }	
 		myFile.close();
 		return false;
-	}
-	
-	public String getFileName() {
-		StringBuilder str = new StringBuilder();
-		fileName = dumpFile.split("[.]");
-		if (fileName.length == 2)
-			dumpFile = fileName[1].toString();
-		if (dumpFile.equals("txt"))
-			dumpFile = rawName;
-		else {
-			str.append(rawName).append(".txt");
-			dumpFile = str.toString();
-		}
-		return dumpFile;
 	}
 
 	@Override
@@ -55,7 +38,6 @@ public class DumpCommand extends Command{
 		if (matchCommandName(words[0])) {
 			if (words.length == 2) {
 				dumpFile = words[1];
-				rawName = words[1];
 				return this;}
 			else {
 				System.out.format("[ERROR]: Command %s: %s%n", NAME, INCORRECT_NUMBER_OF_ARGS_MSG);
@@ -63,14 +45,4 @@ public class DumpCommand extends Command{
 		}
 		return null;
 	}
-	
-	//TODO no borrar, es la polla y me da pena quitarlo xd
-	/*public String getFileName(final File folder) { //devuelve el archivo donde se encuentra la partida guardada
-		for (final File fileEntry : folder.listFiles()) {
-			if (fileEntry.isFile() && !fileEntry.isHidden())
-				if (!fileEntry.toString().equals(FilePath + "/symbols.txt") && !fileEntry.toString().equals(FilePath + "/record.txt"))
-					return fileEntry.toString();
-		}
-		return "";
-	}*/
 }
