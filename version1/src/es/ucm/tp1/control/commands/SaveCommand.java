@@ -41,7 +41,7 @@ public class SaveCommand extends Command{
 		}
 	}
 	
-	public void saveFile() {
+	public void saveFile() { //Da igual si le metes el archivo con el .txt o no, te lo pilla bien
 		StringBuilder str = new StringBuilder();
 		theFile = word.toString();
 		fileExt = theFile.split("[.]"); //He tenido que aprender lo basico de REGEX. El mayor error de mi vida

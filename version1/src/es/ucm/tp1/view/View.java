@@ -12,8 +12,6 @@ public abstract class View {
 		this.game=game;
 	}
 
-	
-	
 	public static String printTime() {
 		String str;
 		if (!game.getActivate()) {
@@ -23,5 +21,5 @@ public abstract class View {
 				return ("Elapsed time: " + df.format((double) ((System.currentTimeMillis() - game.GetInitTime()) / 1000.)) + " s");
 		}
 		return "";
-}
+	}
 }

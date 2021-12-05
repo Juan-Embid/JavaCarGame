@@ -4,7 +4,6 @@ import es.ucm.tp1.utils.*;
 import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.logic.gameobjects.GameObject;
 
-
 public class GamePrinter extends View{
 	private static final String SPACE = " ";
 
@@ -72,9 +71,6 @@ public class GamePrinter extends View{
 		return str.toString();
 	}
 	
-
-
-	
 	public String endMessage(int mensaje){
 		StringBuilder str = new StringBuilder();
 		String s = GAME_OVER_MSG;
@@ -94,6 +90,7 @@ public class GamePrinter extends View{
 		}	
 		return str.toString();
 	}
+	
 	public String getInfo() {
 		StringBuilder str = new StringBuilder();
 		String distancia = String.valueOf(game.distanceTofinish());

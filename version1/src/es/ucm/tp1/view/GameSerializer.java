@@ -1,6 +1,5 @@
 package es.ucm.tp1.view;
 import es.ucm.tp1.logic.Game;
-import es.ucm.tp1.logic.GameObjectContainer;
 
 public class GameSerializer extends View{
 	
