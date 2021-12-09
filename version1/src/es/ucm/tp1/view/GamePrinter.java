@@ -82,7 +82,7 @@ public class GamePrinter extends View{
 			break;
 		case 2:
 			if(!game.getActivate())
-				str.append(s + "Player wins! New record!: " + game.getTime() + " s");
+				str.append(s + "Player wins!");
 			else
 				str.append(s + "Player wins!");
 			break;

@@ -19,7 +19,9 @@ public class Controller {
 	private Scanner scanner;
 	
 	private GamePrinter printer;
-
+	
+	private Record record;
+	
 	public Controller(Game game, Scanner scanner) {
 		this.game = game;
 		this.scanner = scanner;
@@ -56,5 +58,12 @@ public class Controller {
 			}
 		if(game.PrintFinish() != 1)
 			printGame();
+		if(game.distanceTofinish()==0) {
+			record = new Record(game);
+			if(record.newRecord()) {
+				record.writeRecord();
+				System.out.println("New record!: " + game.getTime()+  " s" );
+			}
+		}
 		System.out.println(printer.endMessage(game.PrintFinish()));}
 }

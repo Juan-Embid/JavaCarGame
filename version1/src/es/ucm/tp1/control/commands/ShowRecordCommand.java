@@ -7,7 +7,7 @@ import es.ucm.tp1.exceptions.CommandParseException;
 import es.ucm.tp1.logic.Game;
 import java.text.DecimalFormat;
 
-public class ShowRecordCommand extends Command{
+public class ShowRecordCommand extends Command {
 	private static final String NAME = "record";
 
 	private static final String DETAILS = "rec[o]rd";
@@ -17,7 +17,7 @@ public class ShowRecordCommand extends Command{
 	private static final String HELP = "Show level record";
 	
 	private static String RecordLevel;
-	private static String[] RecordFile, RecordInfo;
+	private static String[] RecordInfo;
 	private static int i = 0, j = 0, cont = 0;
 	private static int segundos;
 	
@@ -57,6 +57,9 @@ public class ShowRecordCommand extends Command{
 		}
 		segundos = Integer.parseInt(RecordInfo[1]);
 		System.out.println(game.getLevel() + " record is " + df.format((double) segundos/1000.) + " s");
+		i = 0;
+		j = 0;
+		cont = 0;
 		return false;
 	}
 	
