@@ -25,6 +25,10 @@ public class SerializeCommand extends Command{
 		gameserializer.printSerializer();
 		return false;
 	}
+	/* 
+	 * No se printean bien las walls
+	 * Ver si pasa los test a la hora de printear el serialize (los trucks pueden dar problema)
+	 * */
 	
 	@Override
 	public Command parse(String[] words) {

@@ -24,6 +24,13 @@ public class ShowRecordCommand extends Command{
 	public ShowRecordCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);}
 
+	/*
+	 * Hacer la case record y que showrecordcommand extienda de esa clase
+	 * Meter lo del execute dentro de esa clase
+	 * Hacer que se guarde el record
+	 * Hacer que cuadno acabes y hayas batido un record te felicite por el nuevo record
+	 * */
+	
 	@Override
 	public boolean execute(Game game) throws FileNotFoundException { //Si no exite record.txt, lanza inputoutputrecordexception
 		 //Lo mejor seria crear una clase para el record y hacer lo que tenemos en el execute
