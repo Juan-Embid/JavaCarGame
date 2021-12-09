@@ -7,22 +7,26 @@ import es.ucm.tp1.logic.gameobjects.GameObject;
 
 public class ThunderAction implements InstantAction{
 	private Random random;
-	private static int ancho, largo;
+	public static int ancho, largo;
+	private int cont = 0;
 	
 	@Override
 	public void execute(Game game) {
         random = new Random();
         ancho = game.getRandomLane();
         largo = random.nextInt(game.getVisibility());
-        GameObject obj = game.getObjectInPosition(game.getPlayerX() + largo, ancho);
-        
-        if(obj != null) {
-            game.setThunderKill(obj.toString());
-            obj.suicide();}
-        
-        else game.setThunderKill(" ");
-        
-        game.setThunderAncho(largo);
-        game.setThunderLargo(ancho);
     }
+	
+	public String setThunderKill(Game game) {
+		GameObject obj = game.getObjectInPosition(game.getPlayerX() + largo, ancho);
+		if(obj != null) {
+			if(cont==1) {
+            obj.suicide();
+            cont = 0;
+			}
+			else cont++;
+            return obj.toString();}
+        
+        else return " ";
+	}
 }

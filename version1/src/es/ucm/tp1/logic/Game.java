@@ -200,19 +200,7 @@ public class Game {
 	
 	public void clearCommand() {
 		container.removeAllObjects();}
-	
-	public void setThunderAncho(int ancho) {
-		thunderAncho = ancho;}
-	
-	public void setThunderLargo(int largo) {
-		thunderLargo = largo;}
-	
-	public int getThunderAncho() {
-		return thunderAncho;}
-	
-	public int getThunderLargo() {
-		return thunderLargo;}
-	
+	/*
 	public int getXGrenade() {
 		return xGrenade;}
 	
@@ -223,13 +211,7 @@ public class Game {
 		xGrenade = newX;}
 	
 	public void setYGrenade(int newY) {
-		yGrenade = newY;}
-	
-	public void setThunderKill(String string) {
-		thunderKill = string;}
-	
-	public String getThunderKill() {
-		return thunderKill;}
+		yGrenade = newY;}*/
 	
 	public void activateWait() {
         wait = true;}
@@ -250,5 +232,11 @@ public class Game {
 	public String playerSerializer() {
 		String serializer = player.statusToString() + " (" + getPlayerX() + ", "+ getPlayerY()+")";
 		return serializer;
+	}
+
+	public void reward(int j) {
+		for(int i = 0; i < j; i++)
+		player.AddCoin();
+		
 	}
 }

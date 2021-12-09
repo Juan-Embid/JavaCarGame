@@ -3,6 +3,7 @@ package es.ucm.tp1.view;
 import es.ucm.tp1.utils.*;
 import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.logic.gameobjects.GameObject;
+import es.ucm.tp1.logic.actions.ThunderAction;
 
 public class GamePrinter extends View{
 	private static final String SPACE = " ";
@@ -27,10 +28,11 @@ public class GamePrinter extends View{
 
 	private Game game;
 	
+	private ThunderAction thunderaction;
+	
 	public GamePrinter(Game game) {
 		super(game);
 		this.game = game;
-
 		margin = StringUtils.repeat(SPACE, MARGIN_SIZE);
 		
 		String roadBorder = ROAD_BORDER_PATTERN + StringUtils.repeat(ROAD_BORDER_PATTERN, (CELL_SIZE + 1) *  game.getVisibility());
@@ -95,9 +97,10 @@ public class GamePrinter extends View{
 		StringBuilder str = new StringBuilder();
 		String distancia = String.valueOf(game.distanceTofinish());
 		if(game.getLevel().hasAdvancedObjects() && game.getCycles() != 0) {
-			System.out.print("Thunder hit position: (" + game.getThunderAncho() + " , " + game.getThunderLargo() + ") ");
-            if(!game.getThunderKill().equals(" "))
-                System.out.println("-> " + game.getThunderKill());
+			System.out.print("Thunder hit position: (" + ThunderAction.ancho + " , " + ThunderAction.largo + ") ");
+            thunderaction = new ThunderAction();
+			if(!thunderaction.setThunderKill(game).equals(" "))
+                System.out.println("-> " + thunderaction.setThunderKill(game));
             else
             	 System.out.print("\n");}
 		System.out.println("Distance: " + distancia);

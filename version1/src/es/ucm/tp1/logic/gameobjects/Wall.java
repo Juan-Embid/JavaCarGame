@@ -6,7 +6,8 @@ public class Wall extends Obstacle {
 	public static final String WEAK="░";
 	public static final String MEDIUM="▒";
 	public static final String HARD="█";
-	public static int life = 3;
+	private int life = 3;
+	public static final int reward = 5;
 
 	public Wall(Game game, int x, int y) {
 		super(game, x, y);}
@@ -16,7 +17,7 @@ public class Wall extends Obstacle {
 		life--;
 		if(life == 0) {
 			alive=false;
-		//	game.wallAwknard TODO QUE LE DE 5 MONEDAS AL PLAYER
+		game.reward(reward); //TODO QUE LE DE 5 MONEDAS AL PLAYER
 		}
 		return true;
 	}
@@ -40,7 +41,7 @@ public class Wall extends Obstacle {
 	@Override
 	public String serializer() {
 		String serial;
-		serial = SYMBOL+" ("+this.x+", "+this.y+") "+ life +"\n";
+		serial = toString()+" ("+this.x+", "+this.y+") "+ life +"\n";
 		return serial;
 	}
 	
