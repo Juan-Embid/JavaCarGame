@@ -17,8 +17,7 @@ public class GrenadeCommand extends Command implements Buyable{
 	
 	private static final int COST = 3;
 	
-	private int newX;
-	private int newY;
+	public static int newX, newY;
 	
 	public GrenadeCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);}
@@ -26,9 +25,8 @@ public class GrenadeCommand extends Command implements Buyable{
 	@Override
 	public boolean execute(Game game) {
 		if (buy(game)) {
-			game.setXGrenade(newX + game.getPlayerX());
-			game.setYGrenade(newY);
-			game.addObject(new Grenade(game, game.getXGrenade(), game.getYGrenade()));
+			newX += game.getPlayerX();
+			game.addObject(new Grenade(game, newX, newY));
 			game.activateWait();			
 			game.update();
 			return true;

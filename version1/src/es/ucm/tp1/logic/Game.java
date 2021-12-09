@@ -200,19 +200,7 @@ public class Game {
 	
 	public void clearCommand() {
 		container.removeAllObjects();}
-	/*
-	public int getXGrenade() {
-		return xGrenade;}
-	
-	public int getYGrenade() {
-		return yGrenade;}
-	
-	public void setXGrenade(int newX) {
-		xGrenade = newX;}
-	
-	public void setYGrenade(int newY) {
-		yGrenade = newY;}*/
-	
+
 	public void activateWait() {
         wait = true;}
 	
