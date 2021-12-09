@@ -24,7 +24,6 @@ public class ShootCommand extends Command implements Buyable {
 	public boolean execute(Game game) {
 		if(buy(game)) {
 			game.execute(new ShootAction());
-			game.activateShooted();
 			game.update();
 			return true;
 		}

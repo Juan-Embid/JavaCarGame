@@ -35,7 +35,6 @@ public class Controller {
 		game.reset();
 		while (!game.isFinished()) {	
 			try {
-				this.printer = new GamePrinter(game);
 				if (refreshDisplay ) {
 					printGame();}
 					refreshDisplay = false;

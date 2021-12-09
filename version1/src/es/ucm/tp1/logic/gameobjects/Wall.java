@@ -14,10 +14,8 @@ public class Wall extends Obstacle {
 	@Override
 	public boolean receiveShoot() {
 		life--;
-		if(life == 0) {
+		if(life == 0)
 			alive=false;
-		//	game.wallAwknard TODO QUE LE DE 5 MONEDAS AL PLAYER
-		}
 		return true;
 	}
 	
