@@ -14,7 +14,7 @@ public class Game {
 	private Long seed;
 	private Player player;
 	private int cycles = 0, thunderAncho, thunderLargo, xGrenade, yGrenade;
-	private Boolean activate = false, exit=false, wait = false;
+	private Boolean activate = false, exit=false, wait = false, shooted = false;
 	private long initTime = 0;
 	private Random random;
 	private String thunderKill = " ";
@@ -28,7 +28,7 @@ public class Game {
 	
 	public void update() {
 		GameObjectGenerator.generateRuntimeObjects(this);
-		if(player.isAlive() && !wait)
+		if(player.isAlive() && !wait && !shooted)
 			player.update();
 		player.doPlayerCollision(this);
 		if(!wait)
@@ -38,6 +38,7 @@ public class Game {
 		cycles++;
 		eraseContainer();
 		disableWait();
+		disableShooted();
 	}
 	
 	public void reset() {
@@ -235,6 +236,12 @@ public class Game {
 	
     public void disableWait() {
     	wait = false;}
+    
+    public void activateShooted() {
+        shooted = true;}
+    
+    public void disableShooted() {
+    	shooted = false;}
 
 	public String serializer() {
 		return container.serializer();
