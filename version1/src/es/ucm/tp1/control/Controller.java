@@ -41,11 +41,11 @@ public class Controller {
 				if (refreshDisplay ) {
 					printGame();}
 					refreshDisplay = false;
-					System.out.println(PROMPT);
+					System.out.print(PROMPT);
 					String s = scanner.nextLine();
 					String[] parameters = s.toLowerCase().trim().split(" ");
-					Command command = Command.getCommand(parameters);
 					System.out.println("[DEBUG] Executing: " + s);
+					Command command = Command.getCommand(parameters);
 					if (command != null) {
 					refreshDisplay = command.execute(game);
 					} else {

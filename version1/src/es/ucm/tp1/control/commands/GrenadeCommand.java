@@ -20,6 +20,8 @@ public class GrenadeCommand extends Command implements Buyable{
 	
 	private static final String FAILED_MSG = "Fail to add grenade";
 	
+	private static final String FAILED_POSITION = "Incorrect number of arguments for grenade command: [g]renade <x> <y>";
+	
 	private static final int COST = 3;
 	
 	public static int newX, newY;
@@ -51,18 +53,16 @@ public class GrenadeCommand extends Command implements Buyable{
 	
 	@Override
 	public Command parse(String[] commandWords) throws CommandParseException  {
-		if(commandWords.length == 3) {
-			if(matchCommandName(commandWords[0])) {
+		if(matchCommandName(commandWords[0])) {
+			if(commandWords.length == 3) {
 				newX = Integer.parseInt(commandWords[1]);
 		        newY = Integer.parseInt(commandWords[2]);
 		        return this;
 		      }
 			else
-		        return null;
+				throw new CommandParseException(String.format("[ERROR]: %s", FAILED_POSITION));
 	    }
-	    else
-	    	if(matchCommandName(commandWords[0]))
-	      return this;
+	    else 
 	    	return null;
 	}
 
