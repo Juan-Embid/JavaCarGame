@@ -49,6 +49,7 @@ public class Controller {
 					if (command != null) {
 					refreshDisplay = command.execute(game);
 					} else {
+						
 					System.out.println("[ERROR]: "+ UNKNOWN_COMMAND_MSG);
 					}
 				}

@@ -2,6 +2,8 @@ package es.ucm.tp1.control.commands;
 
 import java.io.FileWriter;
 import java.io.IOException;
+
+import es.ucm.tp1.exceptions.CommandParseException;
 import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.view.GameSerializer;
 
@@ -13,6 +15,8 @@ public class SaveCommand extends Command{
 	private static final String SHORTCUT = "v";
 
 	private static final String HELP = "Save the state of the game to a file.";
+	
+	private static final String FAILED_ARGUMENTS = "Incorrect number of arguments for reset command: ";
 	
 	private String word;
 	
@@ -33,14 +37,13 @@ public class SaveCommand extends Command{
 		return false;}
 	
 	@Override
-	public Command parse(String[] words) { //TODO tiene que soltar un commandparseexception si no se proporciona argumento o se proporciona mas de uno
+	public Command parse(String[] words) throws CommandParseException {
 		if (matchCommandName(words[0])) {
 			if (words.length == 2) {
 				word = words[1];
 				return this;}
-			else {
-				System.out.format("[ERROR]: Command %s: %s%n", NAME, INCORRECT_NUMBER_OF_ARGS_MSG);
-				return null;}
+			else
+				throw new CommandParseException(String.format("[ERROR]: %s%s", FAILED_ARGUMENTS, DETAILS));
 		}
 		return null;
 	}

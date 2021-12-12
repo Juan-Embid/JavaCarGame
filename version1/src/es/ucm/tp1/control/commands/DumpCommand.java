@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import es.ucm.tp1.exceptions.CommandExecuteException; //creo que hay que meterlo de alguna manera dentro del execute
+import es.ucm.tp1.exceptions.CommandParseException;
 import es.ucm.tp1.logic.Game;
 
 public class DumpCommand extends Command{
@@ -34,14 +35,13 @@ public class DumpCommand extends Command{
 	}
 
 	@Override
-	public Command parse(String[] words) {
+	public Command parse(String[] words) throws CommandParseException{
 		if (matchCommandName(words[0])) {
 			if (words.length == 2) {
 				dumpFile = words[1];
 				return this;}
-			else {
-				System.out.format("[ERROR]: Command %s: %s%n", NAME, INCORRECT_NUMBER_OF_ARGS_MSG);
-				return null;}
+			else 
+				throw new CommandParseException(String.format("[ERROR]: Command %s: %s", NAME, INCORRECT_NUMBER_OF_ARGS_MSG));
 		}
 		return null;
 	}

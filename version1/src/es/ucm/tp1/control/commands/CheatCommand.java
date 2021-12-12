@@ -1,6 +1,9 @@
 package es.ucm.tp1.control.commands;
 
+import java.util.regex.Pattern;
+
 import es.ucm.tp1.exceptions.CommandParseException;
+import es.ucm.tp1.exceptions.IncorrectCommandException;
 import es.ucm.tp1.logic.Game;
 
 public class CheatCommand extends Command {
@@ -24,17 +27,26 @@ public class CheatCommand extends Command {
 		return true;
 	}
 	
-	public Command parse(String[] commandWords) throws CommandParseException {
-		try {
-			id = Integer.parseInt(commandWords[0]);} 
-		
-		catch (NumberFormatException e) {
-			throw new CommandParseException("");
-		}
-		
-		if (0 < id && id < 6) {
-			return this;}
-		
-		return null;
+	public Command parse(String[] commandWords) throws IncorrectCommandException {
+		boolean aux = true;
+
+	       if(commandWords[0].length() == 1){
+	    	   for (char c : commandWords[0].toCharArray()) {
+	    		   if (!Character.isDigit(c)) {
+	    			   aux = false;
+	    			   break;
+	            }
+	        }
+	        if(aux == false)
+	            return null;
+	        else{
+	            id = Integer.parseInt(commandWords[0]);
+	            if(0 < id && id < 6)
+	                return this;
+	            else
+	                return null;
+	        }
+	        }
+	       return null;
 	}
 }

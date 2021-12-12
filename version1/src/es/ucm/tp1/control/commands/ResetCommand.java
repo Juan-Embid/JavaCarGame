@@ -14,6 +14,8 @@ public class ResetCommand extends Command {
 
 	private static final String HELP = "reset game";
 	
+	private static final String FAILED_ARGUMENTS = "Incorrect number of arguments for reset command: ";
+	
 	private Level newLevel;
 	private Long newSeed;
 	
@@ -31,17 +33,15 @@ public class ResetCommand extends Command {
 	
 	@Override
 	public Command parse(String[] commandWords) throws CommandParseException  {
-		if(commandWords.length == 3) {
-			if(matchCommandName(commandWords[0])) {
+		if(matchCommandName(commandWords[0])) {
+			if(commandWords.length == 3) {
 			    newLevel = Level.valueOfIgnoreCase(commandWords[1]);
 			    newSeed = Long.parseLong(commandWords[2]);
 			    return this;
 			  }
 			else
-			    return null;
+				throw new CommandParseException(String.format("[ERROR]: %s%s", FAILED_ARGUMENTS, DETAILS));
 		}
-	    else if(matchCommandName(commandWords[0]))
-	      return this;
 		return null;
 	}
 }
