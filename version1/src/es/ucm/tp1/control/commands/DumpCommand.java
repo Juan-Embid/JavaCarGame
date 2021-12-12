@@ -34,7 +34,7 @@ public class DumpCommand extends Command{
 	}
 
 	@Override
-	public Command parse(String[] words) { //TODO tiene que soltar un commandparseexception si no se proporciona argumento o se proporciona mas de uno
+	public Command parse(String[] words) {
 		if (matchCommandName(words[0])) {
 			if (words.length == 2) {
 				dumpFile = words[1];

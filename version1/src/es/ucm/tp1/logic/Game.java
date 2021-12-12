@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Random;
 
 import es.ucm.tp1.control.Level;
+import es.ucm.tp1.exceptions.InvalidPositionException;
 import es.ucm.tp1.logic.actions.InstantAction;
 import es.ucm.tp1.logic.gameobjects.GameObject;
 import es.ucm.tp1.logic.gameobjects.Player;
@@ -22,8 +23,7 @@ public class Game {
 	public Game(long seed, Level level) {
 		this.seed = seed;
 		this.level = level;
-		//random = new Random(seed);
-		//reset();
+		reset();
 	}
 	
 	public void update() {
@@ -78,11 +78,16 @@ public class Game {
 		}
 	}
 	
-	public void addObject(GameObject gameobject) {
-		if(container.isinPosition(gameobject.getX(), gameobject.getY())==null) {
-		container.Add(gameobject);
-		container.onEnter(gameobject);
+	public void addObject(GameObject gameobject) throws InvalidPositionException {
+		if ((gameobject.getX() >= getPlayerX()) && (gameobject.getX() < (getPlayerX() + getVisibility()))) {
+			if ((gameobject.getY() >= 0) && (gameobject.getY() < getRoadWidth()))
+				if(container.isinPosition(gameobject.getX(), gameobject.getY()) == null) {
+					container.Add(gameobject);
+					container.onEnter(gameobject);
+			}
 		}
+		else 
+			throw new InvalidPositionException();
 	}
 	
 	public boolean isFinished() {

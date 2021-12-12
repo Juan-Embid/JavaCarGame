@@ -43,11 +43,10 @@ public abstract class Command {
 	
 	/* @formatter:on */
 	public static Command getCommand(String[] commandWords) throws CommandParseException {
-		Command command = null;
 		for(Command command_1 : AVAILABLE_COMMANDS)
 			if(null != command_1.parse(commandWords))
-				return command = command_1;
-		return command;
+				return command_1;
+		throw new CommandParseException(String.format("[ERROR]: %s", UNKNOWN_COMMAND_MSG));
 	}
 	
 	public Command(String name, String shortcut, String details, String help) {
@@ -64,7 +63,7 @@ public abstract class Command {
 
 	public abstract Command parse(String[] words) throws CommandParseException;
 
-	 public static String showCommand(){
+	public static String showCommand(){
 		StringBuilder str= new StringBuilder();
 		for(Command command : AVAILABLE_COMMANDS) {
 			str.append(command.details)

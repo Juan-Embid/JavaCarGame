@@ -2,11 +2,13 @@ package es.ucm.tp1.exceptions;
 
 public class CommandExecuteException extends GameException {
 
-	public CommandExecuteException(String message) {
-		super(message);
-		// TODO Auto-generated constructor stub
-	}
+	public CommandExecuteException() { 
+		super(); }
+	public CommandExecuteException(String message) { 
+		super(message); }
+	public CommandExecuteException(String message, Throwable cause) { 
+		super(message, cause); }
+	public CommandExecuteException(Throwable cause) { 
+		super(cause); }
 
 }
-//Cuando no tieness suficientes coins
-//La casilla dónde se quiere añadir un elemento ya está ocupada.
