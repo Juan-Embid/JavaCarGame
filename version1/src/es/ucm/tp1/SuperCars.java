@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import es.ucm.tp1.control.Controller;
 import es.ucm.tp1.control.Level;
+import es.ucm.tp1.exceptions.IncorrectLevelException;
 import es.ucm.tp1.logic.Game;
 
 public class SuperCars {
@@ -28,7 +29,7 @@ public class SuperCars {
 		System.out.println("\t<seed>: " + SEED_IS_NUMBER_MSNG);
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, IncorrectLevelException {
 		if (args.length < 1 || args.length > 2) {
 			usage();
 		} else {

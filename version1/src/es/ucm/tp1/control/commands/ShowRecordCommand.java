@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import es.ucm.tp1.exceptions.CommandParseException;
+import es.ucm.tp1.exceptions.InputOutputRecordException;
 import es.ucm.tp1.logic.Game;
 import java.text.DecimalFormat;
 
@@ -25,15 +26,25 @@ public class ShowRecordCommand extends Command {
 		super(NAME, SHORTCUT, DETAILS, HELP);}
 
 	@Override
-	public boolean execute(Game game) throws FileNotFoundException {
+	public boolean execute(Game game) throws InputOutputRecordException {
 		DecimalFormat df = new DecimalFormat("#.##");
 		File file = new File("record.txt");
-		Scanner myFile = new Scanner(file);
+		Scanner myFile;
+		try {
+			myFile = new Scanner(file);
+		} catch (FileNotFoundException e) {
+			throw new InputOutputRecordException();
+		}
 		while (myFile.hasNextLine()) {
 			myFile.nextLine();
 		    cont++;}
 		String RecordFile[] = new String[cont];
-		Scanner theFile = new Scanner(file);
+		Scanner theFile;
+		try {
+			theFile = new Scanner(file);
+		} catch (FileNotFoundException e) {
+			throw new InputOutputRecordException();
+		}
 		while (i < cont) {
 			String data = theFile.nextLine();
 		    RecordFile[i] = data;

@@ -1,7 +1,9 @@
 package es.ucm.tp1.control.commands;
 
 import es.ucm.tp1.control.Level;
+import es.ucm.tp1.exceptions.CommandExecuteException;
 import es.ucm.tp1.exceptions.CommandParseException;
+import es.ucm.tp1.exceptions.IncorrectLevelException;
 import es.ucm.tp1.logic.Game;
 
 public class ResetCommand extends Command {
@@ -23,11 +25,15 @@ public class ResetCommand extends Command {
 		super(NAME, SHORTCUT, DETAILS, HELP);}
 	
 	@Override
-	public boolean execute(Game game) {
+	public boolean execute(Game game) throws CommandExecuteException, IncorrectLevelException {
 		if (newSeed == null && newLevel == null)
 			game.reset();
-		else
-			game.reset(newSeed, newLevel);
+		else {
+			try {
+				game.reset(newSeed, newLevel);}
+			catch (IncorrectLevelException e) {
+				throw new CommandExecuteException(String.format("[ERROR]: %s", e.getMessage()), e);}
+			}
 		return true;
 	}
 	

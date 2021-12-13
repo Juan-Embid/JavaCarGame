@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import es.ucm.tp1.control.commands.Command;
 import es.ucm.tp1.exceptions.GameException;
+import es.ucm.tp1.exceptions.IncorrectLevelException;
 import es.ucm.tp1.logic.Game;
 import es.ucm.tp1.view.GamePrinter;
 
@@ -34,9 +35,9 @@ public class Controller {
 
 	public void run() throws IOException {
 		boolean refreshDisplay=true;
+		try {
 		game.reset();
 		while (!game.isFinished()) {	
-			try {
 				this.printer = new GamePrinter(game);
 				if (refreshDisplay ) {
 					printGame();}
@@ -52,10 +53,6 @@ public class Controller {
 						
 					System.out.println("[ERROR]: "+ UNKNOWN_COMMAND_MSG);
 					}
-				}
-			catch(GameException ex) {
-				ex.printException();
-			}
 			}
 		if(game.PrintFinish() != 1)
 			printGame();
@@ -67,4 +64,8 @@ public class Controller {
 			}
 		}
 		System.out.println(printer.endMessage(game.PrintFinish()));}
+		catch(GameException ex) {
+			ex.printException();
+		}
+	}
 }

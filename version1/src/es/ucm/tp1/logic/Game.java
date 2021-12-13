@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Random;
 
 import es.ucm.tp1.control.Level;
+import es.ucm.tp1.exceptions.IncorrectLevelException;
 import es.ucm.tp1.exceptions.InvalidPositionException;
 import es.ucm.tp1.logic.actions.InstantAction;
 import es.ucm.tp1.logic.gameobjects.GameObject;
@@ -20,7 +21,7 @@ public class Game {
 	private Random random;
 	private String thunderKill = " ";
 		
-	public Game(long seed, Level level) {
+	public Game(long seed, Level level) throws IncorrectLevelException {
 		this.seed = seed;
 		this.level = level;
 		reset();
@@ -41,8 +42,10 @@ public class Game {
 		disableShooted();
 	}
 	
-	public void reset() {
+	public void reset() throws IncorrectLevelException {
 		random = new Random(seed);
+		if(level == null)
+			throw new IncorrectLevelException();
 		this.player = new Player(this, 0, this.level.getWidth()/2);
 		player.reset();
 		cycles = 0;	
@@ -50,7 +53,7 @@ public class Game {
 		GameObjectGenerator.generateGameObjects(this, level);
 	}
 	
-	public void reset(Long newSeed, Level newLevel) {
+	public void reset(Long newSeed, Level newLevel) throws IncorrectLevelException {
 		seed =newSeed;
 		level=newLevel;
 		reset();

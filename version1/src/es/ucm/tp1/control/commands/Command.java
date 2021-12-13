@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import es.ucm.tp1.exceptions.CommandExecuteException;
 import es.ucm.tp1.exceptions.CommandParseException;
+import es.ucm.tp1.exceptions.IncorrectLevelException;
 import es.ucm.tp1.logic.Game;
 
 public abstract class Command {
@@ -56,7 +57,7 @@ public abstract class Command {
 		this.help = help;
 	}
 
-	public abstract boolean execute(Game game) throws CommandExecuteException, IOException;
+	public abstract boolean execute(Game game) throws CommandExecuteException, IOException, IncorrectLevelException;
 
 	protected boolean matchCommandName(String name) {
 		return this.shortcut.equalsIgnoreCase(name) || this.name.equalsIgnoreCase(name);}

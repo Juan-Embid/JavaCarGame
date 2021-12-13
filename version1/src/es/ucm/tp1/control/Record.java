@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import es.ucm.tp1.exceptions.InputOutputRecordException;
 import es.ucm.tp1.logic.Game;
 
 public class Record {
@@ -44,7 +45,7 @@ public class Record {
 	segundos = Integer.parseInt(RecordInfo[1]);
 }
 	
-	public void writeRecord() {
+	public void writeRecord() throws InputOutputRecordException{
 		try (FileWriter myWriter = new FileWriter("record.txt")){
 			i=0;
 			while(i<cont) {
@@ -57,8 +58,7 @@ public class Record {
 			}
 		}
 		catch (IOException e) {
-			e.printStackTrace();
-			System.out.println("File not found");
+			throw new InputOutputRecordException();
 		}
 		
 	}
