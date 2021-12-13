@@ -24,11 +24,15 @@ public class UpdateCommand extends Command {
 	}
 
 	@Override
-	public Command parse(String[] commandWords) {
+	public Command parse(String[] commandWords) throws CommandParseException {
 		if ("".equalsIgnoreCase(commandWords[0]))
-			commandWords[0] = SHORTCUT;
-		if(commandWords[0] == SHORTCUT)
-		return this;
+			return this;
+		if(commandWords[0].equals(SHORTCUT)) {
+			if (commandWords.length != 1)
+				throw new CommandParseException(String.format("[ERROR]: Command %s: %s", NAME, INCORRECT_NUMBER_OF_ARGS_MSG));
+			else 
+				return this;
+		}
 		return null;
 	}
 }

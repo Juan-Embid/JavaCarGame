@@ -24,16 +24,8 @@ public class ShowRecordCommand extends Command {
 	public ShowRecordCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);}
 
-	/*
-	 * Hacer la case record y que showrecordcommand extienda de esa clase
-	 * Meter lo del execute dentro de esa clase
-	 * Hacer que se guarde el record
-	 * Hacer que cuadno acabes y hayas batido un record te felicite por el nuevo record
-	 * */
-	
 	@Override
-	public boolean execute(Game game) throws FileNotFoundException { //Si no exite record.txt, lanza inputoutputrecordexception
-		 //Lo mejor seria crear una clase para el record y hacer lo que tenemos en el execute
+	public boolean execute(Game game) throws FileNotFoundException {
 		DecimalFormat df = new DecimalFormat("#.##");
 		File file = new File("record.txt");
 		Scanner myFile = new Scanner(file);
@@ -64,11 +56,10 @@ public class ShowRecordCommand extends Command {
 	}
 	
 	@Override
-	public Command parse(String[] words) {
+	public Command parse(String[] words) throws CommandParseException{
 		if (matchCommandName(words[0])) {
-			if (words.length != 1) {
-				System.out.format("[ERROR]: Command %s: %s%n%n", NAME, INCORRECT_NUMBER_OF_ARGS_MSG);
-				return null;} 
+			if (words.length != 1)
+				throw new CommandParseException(String.format("[ERROR]: Command %s: %s", NAME, INCORRECT_NUMBER_OF_ARGS_MSG));
 			else 
 				return this;
 		}

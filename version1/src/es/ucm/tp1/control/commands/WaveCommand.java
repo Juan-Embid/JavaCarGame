@@ -44,11 +44,10 @@ public class WaveCommand extends Command implements Buyable {
 		return COST;}
 	
 	@Override
-	public Command parse(String[] words) {
+	public Command parse(String[] words) throws CommandParseException{
 		if (matchCommandName(words[0])) {
-			if (words.length != 1) {
-				System.out.format("[ERROR]: Command %s: %s%n%n", NAME, INCORRECT_NUMBER_OF_ARGS_MSG);
-				return null;} 
+			if (words.length != 1)
+				throw new CommandParseException(String.format("[ERROR]: Command %s: %s", NAME, INCORRECT_NUMBER_OF_ARGS_MSG));
 			else 
 				return this;
 		}
